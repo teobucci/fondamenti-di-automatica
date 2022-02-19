@@ -545,17 +545,17 @@ u_1 (t)\\
 u_2 (t)\\
 \vdots \\
 u_m (t)
-\end{bmatrix} \in \mathbb{R}^{m} ,\ \ y(t)=\begin{bmatrix}
+\end{bmatrix} \in \mathbb{R}^m ,\ \ y(t)=\begin{bmatrix}
 y_1 (t)\\
 y_2 (t)\\
 \vdots \\
 y_q (t)
-\end{bmatrix} \in \mathbb{R}^{q} ,\ \ x(t)=\begin{bmatrix}
+\end{bmatrix} \in \mathbb{R}^q ,\ \ x(t)=\begin{bmatrix}
 x_1 (t)\\
 x_2 (t)\\
 \vdots \\
 x_n (t)
-\end{bmatrix} \in \mathbb{R}^{n}
+\end{bmatrix} \in \mathbb{R}^n
 \end{equation*}
 $n$ è l'ordine del sistema.
 
@@ -630,7 +630,7 @@ x(t+1)=Ax(t)+bu(t)
 \end{gather*}
 \section{Equilibrio: esistenza e unicità}
 \begin{definition}
-Si dice che $\overline{x} \in \mathbb{R}^{n}$ è un equilibrio se $x( 0) =\overline{x} \Rightarrow x(t) =\overline{x} \ \forall t\geqslant 0$.
+Si dice che $\overline{x} \in \mathbb{R}^n$ è un equilibrio se $x( 0) =\overline{x} \Rightarrow x(t) =\overline{x} \ \forall t\geqslant 0$.
 \end{definition}
 Ovvero, se è in uno stato e poi ci rimane per sempre, quello è uno stato di equilibrio. Esistono tanti tipi di situazioni di questo tipo.
 
@@ -689,7 +689,7 @@ Nota: nei casi in cui le matrici (rispettivamente $A$ nel caso continuo e $( I-A
 \begin{ricalg}
 Data una qualunque matrice quadrata $A$, il determinante è uguale al prodotto degli autovalori:
 \begin{equation*}
-\mathrm{det} A=\prod ^{n}_{i=1} \lambda _i
+\mathrm{det} A=\prod ^n_{i=1} \lambda _i
 \end{equation*}
 \end{ricalg}
 Quindi:
@@ -702,14 +702,14 @@ Quindi:
 Nei sistemi dinamici lineari a tempo continuo abbiamo già detto che il movimento è univocamente determinato. Vale allora la formula di Lagrange, la quale ci dice che il movimento è separabile in due fattori additivi, movimento libero e movimento forzato:
 \begin{equation}
 \boxed{\begin{aligned}
-{\displaystyle x(t)} & {\displaystyle =e^{At} x( 0) +\int\limits ^{t}_0 e^{A( t-\tau )} bu( \tau ) d\tau }\\
+{\displaystyle x(t)} & {\displaystyle =e^{At} x( 0) +\int\limits ^t_0 e^{A( t-\tau )} bu( \tau ) d\tau }\\
  & =\phi (t) x( 0) +\psi (t) u_{[ 0,t)}\\
  & =x_L(t) +x_F(t)
 \end{aligned}}
 \end{equation}
 Ricordiamo che il termine ${\displaystyle e^{At}}$ vale
 \begin{equation*}
-{\displaystyle e^{At} =I+At+\frac{1}{2!} A^{2} t^{2} +\frac{1}{3!} A^{3} t^{3} \dotsc =\sum\limits ^{\infty }_{k=1}\frac{A^{k} t^{k}}{k!} =\phi (t)}
+{\displaystyle e^{At} =I+At+\frac{1}{2!} A^2 t^2 +\frac{1}{3!} A^3 t^3 \dotsc =\sum\limits ^{\infty }_{k=1}\frac{A^k t^k}{k!} =\phi (t)}
 \end{equation*}
 ed è detto \textbf{matrice di transizione}. Non si pone il problema di convergenza della serie, in quanto si ha che ciò è garantito qualunque siano $A,t$.
 
@@ -736,21 +736,21 @@ u_3(t) =\alpha u_1(t) +\beta u_2(t)
 \end{equation*}
 \end{theorem}
 \begin{ricalg}
-Una matrice $A\in \mathbb{R}^{n\times n}$ si dice \textbf{nilpotente} se ha tutti gli autovalori nulli, in particolare in tal caso si ha $A^{n} =0$.
+Una matrice $A\in \mathbb{R}^{n\times n}$ si dice \textbf{nilpotente} se ha tutti gli autovalori nulli, in particolare in tal caso si ha $A^n =0$.
 \end{ricalg}
 \textbf{Formula di Lagrange per sistemi a tempo discreto.} Il caso discreto è più facile da trattare e si può ricavare a partire da $x(t+1)=Ax(t)+bu(t)$
 \begin{equation*}
 \begin{aligned}
 x( 0) & \\
 x( 1) & =Ax( 0) +bu( 0)\\
-x( 2) & =Ax( 1) +bu( 1) =A^{2} x( 0) +Abu( 0) +bu( 1)\\
-x( 3) & =Ax( 2) +bu( 2) =A^{3} x( 0) +A^{2} bu( 0) +Abu( 1) +bu( 2)
+x( 2) & =Ax( 1) +bu( 1) =A^2 x( 0) +Abu( 0) +bu( 1)\\
+x( 3) & =Ax( 2) +bu( 2) =A^3 x( 0) +A^2 bu( 0) +Abu( 1) +bu( 2)
 \end{aligned}
 \end{equation*}
 Allora
 \begin{equation}
 \boxed{\begin{aligned}
-x(t) & =A^{t} x( 0) +\sum\limits ^{t-1}_{i=0} A^{t-i-1} bu( i)\\
+x(t) & =A^t x( 0) +\sum\limits ^{t-1}_{i=0} A^{t-i-1} bu( i)\\
  & =\phi (t) x( 0) +\psi (t)_{u[ 0,t)}\\
  & =x_L(t) +x_F(t)
 \end{aligned}}
@@ -759,7 +759,7 @@ x(t) & =A^{t} x( 0) +\sum\limits ^{t-1}_{i=0} A^{t-i-1} bu( i)\\
 
 Per i sistemi a tempo continuo, introduciamo l'operatore $s$ (trasformata di Laplace)
 \begin{equation*}
-\frac{dv(t)}{dt} =sv,\ \ \ \ \frac{d^{2} v(t)}{dt^{2}} =s^{2} v,\dotsc ,\ \ \ \ \frac{d^{k} v(t)}{dt^{k}} =s^{k} v,\ \ 
+\frac{dv(t)}{dt} =sv,\ \ \ \ \frac{d^2 v(t)}{dt^2} =s^2 v,\dotsc ,\ \ \ \ \frac{d^k v(t)}{dt^k} =s^k v,\ \ 
 \end{equation*}
 Il modello esterno esprime la relazione tra l'ingresso e l'uscita usando un polinomio dipendente da $s$.
 \begin{equation*}
@@ -771,7 +771,7 @@ Si può poi definire la funzione di trasferimento
 \end{equation*}
 A tempo discreto si introduce la trasformata zeta, codifica lo \textit{shift} del segnale
 \begin{equation*}
-v( t+1) =zv,\ \ \ \ v( t+2) =z^{2} v,\dotsc ,\ \ \ \ v( t+k) =z^{k} v
+v( t+1) =zv,\ \ \ \ v( t+2) =z^2 v,\dotsc ,\ \ \ \ v( t+k) =z^k v
 \end{equation*}
 Quindi riassumendo entrambi i casi:
 \begin{itemize}
@@ -819,11 +819,11 @@ y=\left[ c\frac{P( s)}{\Delta _A( s)} b+d\right] u=\left[\frac{cP( s) b+d\Delta 
 \end{equation*}
 Il grado di $cP( s) b$ è $< n$, mentre il grado di $d\Delta _A( s)$ è $n$. Di conseguenza il grado del numeratore complessivo è $n$ se $d\neq 0$ (sistema improprio), mentre è strettamente minore di $n$ se $d=0$. Scriviamo quindi la funzione di trasferimento come rapporto di polinomi.
 \begin{equation*}
-G( s) =\frac{N( s)}{D( s)} =\frac{N( s)}{\Delta _A( s)} =\frac{\beta _0 s^{n} +\beta _1 s^{n-1} +\cdots +\beta _n}{s^{n} +\alpha _1 s^{n-1} +\cdots +\alpha _n}
+G( s) =\frac{N( s)}{D( s)} =\frac{N( s)}{\Delta _A( s)} =\frac{\beta _0 s^n +\beta _1 s^{n-1} +\cdots +\beta _n}{s^n +\alpha _1 s^{n-1} +\cdots +\alpha _n}
 \end{equation*}
 Il denominatore ha sempre grado $n$, mentre il numeratore ha grado $\leqslant n$. Indichiamo con $\beta _m$ il primo coefficiente non nullo.
 \begin{equation*}
-G( s) =\frac{\beta _m s^{n-m} +\cdots +\beta _n}{s^{n} +\alpha _1 s^{n-1} +\cdots +\alpha _n}
+G( s) =\frac{\beta _m s^{n-m} +\cdots +\beta _n}{s^n +\alpha _1 s^{n-1} +\cdots +\alpha _n}
 \end{equation*}
 e fattorizziamo questi polinomi
 \begin{equation}
@@ -855,7 +855,7 @@ x=\begin{bmatrix}
 x_1\\
 \vdots \\
 x_n
-\end{bmatrix} \in \mathbb{R}^{n} \ \ \rightarrow \ \ z=Tx
+\end{bmatrix} \in \mathbb{R}^n \ \ \rightarrow \ \ z=Tx
 \end{equation*}
 dove $T\in \mathcal{M}( n\times n) ,\mathrm{det} T\neq 0$ e quindi $x=T^{-1} z$.
 
@@ -967,11 +967,11 @@ x=\begin{bmatrix}
 x_1\\
 \vdots \\
 x_n
-\end{bmatrix} \in \mathbb{R}^{n} \ \ \ \ z=\begin{bmatrix}
+\end{bmatrix} \in \mathbb{R}^n \ \ \ \ z=\begin{bmatrix}
 z_1\\
 \vdots \\
 z_n
-\end{bmatrix} \in \mathbb{R}^{n} \ \ \ \ z=Tx,\ x=T^{-1} z,\ \mathrm{det} T\neq 0
+\end{bmatrix} \in \mathbb{R}^n \ \ \ \ z=Tx,\ x=T^{-1} z,\ \mathrm{det} T\neq 0
 \end{equation*}
 Allora $\dot{z} =\tilde{A} z,\tilde{A} =TAT^{-1}$ e $\sigma \left( A\right) =\sigma \left(\tilde{A}\right)$ con
 \begin{equation*}
@@ -998,7 +998,7 @@ sono $n$ sistemi di ordine $1$ che evolvono in maniera indipendente come $z_i\le
 
 Gli autovalori sono le radici del polinomio caratteristico
 \begin{equation*}
-\Delta _A\left( \lambda \right) =\Delta _{\tilde{A}}\left( \lambda \right) =\mathrm{det}\left( \lambda I-A\right) =\lambda ^{n} +\alpha _1 \lambda ^{n-1} +\cdots +\alpha _n
+\Delta _A\left( \lambda \right) =\Delta _{\tilde{A}}\left( \lambda \right) =\mathrm{det}\left( \lambda I-A\right) =\lambda ^n +\alpha _1 \lambda ^{n-1} +\cdots +\alpha _n
 \end{equation*}
 Ci può essere un certo $\lambda _i =a+ib$, ma dato che stiamo lavorando con matrici a valori reali in quel caso c'è anche il suo complesso coniugato $\lambda _j =a-ib$ (anche le corrispondenti $z$ sarebbero complesse). Per capire cosa succede, ricordiamo la formula di Eulero
 \begin{equation*}
@@ -1053,10 +1053,10 @@ Se invece $A$ non è diagonalizzabile, studiamo $\dot{x} =Ax$ e ricordiamo alcun
 \begin{ricalg}
 Il polinomio caratteristico può essere fattorizzato come un polinomio monico come segue\begin{equation*}
 \begin{aligned}
-\Delta _A\left( \lambda \right) =\mathrm{det}\left( \lambda I-A\right) & =\lambda ^{n} +\alpha _1 \lambda ^{n-1} +\cdots +\alpha _n\\
+\Delta _A\left( \lambda \right) =\mathrm{det}\left( \lambda I-A\right) & =\lambda ^n +\alpha _1 \lambda ^{n-1} +\cdots +\alpha _n\\
  & =\left( \lambda -\lambda _1\right) \cdots \left( \lambda -\lambda _n\right)\\
- & =\prod\nolimits ^{n}_{i=1}\left( \lambda -\lambda _i\right)\\
- & =\prod\nolimits ^{k}_{i=1}\left( \lambda -\lambda _i\right)^{a_i}
+ & =\prod\nolimits ^n_{i=1}\left( \lambda -\lambda _i\right)\\
+ & =\prod\nolimits ^k_{i=1}\left( \lambda -\lambda _i\right)^{a_i}
 \end{aligned}
 \end{equation*}
 
@@ -1064,12 +1064,12 @@ con $k$ il numero di autovalori distinti e $a_i$ la loro molteplicità algebrica
 \end{ricalg}
 \begin{ricalg}
 Ogni polinomio caratteristico è annullato dalla propria matrice (teorema di Cayley-Hamilton):\begin{equation*}
-\Delta _A\left( A\right) =A^{n} +\alpha _1 A^{n-1} +\cdots +\alpha _n I=0
+\Delta _A\left( A\right) =A^n +\alpha _1 A^{n-1} +\cdots +\alpha _n I=0
 \end{equation*}
 \end{ricalg}
 Ci chiediamo allora: esistono polinomi di grado $< n$ che comunque annullano la matrice? In generale no, ma molte matrici lo hanno e si dice \textbf{polinomio minimo} di $A$: $\psi _A\left( \lambda \right)$ tale che $\psi _A\left( A\right) =0$. Ha la seguente struttura, molto simile al polinomio caratteristico, cambia l'esponente
 \begin{equation}
-\psi _A\left( \lambda \right) =\prod ^{k}_{i=1}\left( \lambda -\lambda _i\right)^{b_i} ,\ 1\leqslant b_i \leqslant a
+\psi _A\left( \lambda \right) =\prod ^k_{i=1}\left( \lambda -\lambda _i\right)^{b_i} ,\ 1\leqslant b_i \leqslant a
 \end{equation}
 $b_i$ è l'indice dell'autovalore $\lambda _i$. Ha le stesse radici di $\Delta _A\left( \lambda \right)$, ma in generale la molteplicità può essere più bassa. Andiamo ora a definire la \textbf{forma canonica di Jordan}. Nuovamente facciamo un cambio di coordinate $z=Tx$ che ci porta in $\dot{z} =\tilde{A} z$, ma stiamo considerando $A$ non diagonalizzabile, quindi non troviamo una $\tilde{A}$ diagonale, tuttavia la cosa più vicina ad essa è la forma di Jordan, che ci permette di capire quando il sistema è stabile o instabile. È una matrice diagonale a blocchi: ci sono $k$ blocchi distinti, ciascuno di dimensione $a_1 ,a_2 ,\dotsc ,a_k$ relativa all'autovalore
 \begin{equation*}
@@ -1098,7 +1098,7 @@ J_i =\underbrace{\begin{bmatrix}
 \underbrace{\begin{array}{|c c c|}
 \hline
  &  & \\
- & J^{1}_i & \\
+ & J^1_i & \\
  &  & \\
 \hline
 \end{array}}_{b_i} &  & \\
@@ -1123,27 +1123,27 @@ Dire che l'autovalore $\lambda _i$ è \textbf{regolare} significa dire che la mo
 \end{equation*}
 Guardiamo ora il singolo mini-blocco
 \begin{equation*}
-J^{l}_i =\begin{bmatrix}
+J^l_i =\begin{bmatrix}
 \lambda _i & 1 &  & \\
  & \lambda _i & \ddots  & \\
  &  & \ddots  & 1\\
  &  &  & \lambda _i
 \end{bmatrix}
 \end{equation*}
-A cosa ci è servito questo? Se la matrice è diagonalizzabile riusciamo a decomporre $z$ in $n$ sottosistemi tra loro indipendenti, se non lo è posso fare questa decomposizione in sistemi che tra loro non interagiscono, quindi si tratta di capire come funziona il singolo $J^{l}_i$: la sua micro-equazione di stato è fatta così
+A cosa ci è servito questo? Se la matrice è diagonalizzabile riusciamo a decomporre $z$ in $n$ sottosistemi tra loro indipendenti, se non lo è posso fare questa decomposizione in sistemi che tra loro non interagiscono, quindi si tratta di capire come funziona il singolo $J^l_i$: la sua micro-equazione di stato è fatta così
 \begin{equation*}
-\dot{z}^{l}_i =J^{l}_i z^{l}_i
+\dot{z}^l_i =J^l_i z^l_i
 \end{equation*}
 applicando la formula di Lagrange a questo diventa
 \begin{equation*}
-z^{l}_i\left( t\right) =e^{J^{l}_i t} z^{l}_i\left( 0\right)
+z^l_i\left( t\right) =e^{J^l_i t} z^l_i\left( 0\right)
 \end{equation*}
-Si tratta ora di capire com'è fatta $e^{J^{l}_i t}$, si può dimostrare che è fatta così
+Si tratta ora di capire com'è fatta $e^{J^l_i t}$, si può dimostrare che è fatta così
 \begin{equation*}
-e^{J^{l}_i t} =\begin{bmatrix}
-1 & t & t^{2} /2 & \dotsc  & \\
+e^{J^l_i t} =\begin{bmatrix}
+1 & t & t^2 /2 & \dotsc  & \\
  & 1 & t & \ddots  & \vdots \\
- &  & 1 & \ddots  & t^{2} /2\\
+ &  & 1 & \ddots  & t^2 /2\\
  &  &  & \ddots  & t\\
  &  &  &  & 1
 \end{bmatrix} e^{\lambda _i t}
@@ -1245,7 +1245,7 @@ Costruiamo due configurazioni con degli integratori, una in cascata e una in par
 \end{equation*}
 \end{itemize}
 
-In entrambi i casi gli autovalori sono $\lambda _1 =\lambda _2 =0$ con molteplicità algebrica $a=2$. Per capire in che situazioni siamo studiamo quanti autovettori abbiamo tali che $Ax=\lambda x$ oppure guardiamo il polinomio minimo. $\Delta _A\left( \lambda \right) =\lambda ^{2}$ in entrambi. Il polinomio minimo può essere, tentandoli tutti, $\psi _A\left( \lambda \right) =\Delta _A\left( \lambda \right) =\lambda ^{2}$ oppure $\psi _A\left( \lambda \right) =\lambda $. Il polinomio minimo è quello che si annulla in $A$.
+In entrambi i casi gli autovalori sono $\lambda _1 =\lambda _2 =0$ con molteplicità algebrica $a=2$. Per capire in che situazioni siamo studiamo quanti autovettori abbiamo tali che $Ax=\lambda x$ oppure guardiamo il polinomio minimo. $\Delta _A\left( \lambda \right) =\lambda ^2$ in entrambi. Il polinomio minimo può essere, tentandoli tutti, $\psi _A\left( \lambda \right) =\Delta _A\left( \lambda \right) =\lambda ^2$ oppure $\psi _A\left( \lambda \right) =\lambda $. Il polinomio minimo è quello che si annulla in $A$.
 \begin{itemize}
 \item parallelo: se $\psi _A\left( \lambda \right) =\lambda $, vediamo se valutato in $A$ si annulla. $\psi _A\left( A\right) =A=0$. Il polinomio minimo è $\lambda $, $b_1 =1$ allora abbiamo \textit{semplice stabilità}.
 \item cascata: se $\psi _A\left( \lambda \right) =\lambda $, vediamo se valutato in $A$ si annulla. $\psi _A\left( A\right) =\begin{bmatrix}
@@ -1275,9 +1275,9 @@ Sono presenti oscillazioni se si verifica almeno una delle due condizioni
 }
 \section{Sistemi discreti: sistemi a memoria finita}
 
-Consideriamo $x_L\left( t\right) =A^{t} x\left( 0\right)$. Un sistema discreto si dice \textbf{a memoria finita} se $\exists \overline{t}  >0:x_L\left(\overline{t}\right) =0\ \forall x\left( 0\right)$, ossia stiamo chiedendo che $A^{t}$ diventi $0$ in un tempo finito, ossia $A$ è nilpotente $\left( A^{\overline{t}} =0\right)$, ossia tutti gli autovalori sono nulli $\lambda _i =0\ \forall i$.
+Consideriamo $x_L\left( t\right) =A^t x\left( 0\right)$. Un sistema discreto si dice \textbf{a memoria finita} se $\exists \overline{t}  >0:x_L\left(\overline{t}\right) =0\ \forall x\left( 0\right)$, ossia stiamo chiedendo che $A^t$ diventi $0$ in un tempo finito, ossia $A$ è nilpotente $\left( A^{\overline{t}} =0\right)$, ossia tutti gli autovalori sono nulli $\lambda _i =0\ \forall i$.
 
-\textit{In tal caso il tempo di risposta è sempre }$\leqslant n$\textit{, dato che }$A^{n} =0$\textit{.}
+\textit{In tal caso il tempo di risposta è sempre }$\leqslant n$\textit{, dato che }$A^n =0$\textit{.}
 \section{Test di stabilità}
 
 Un modo furbo per vedere se è stabile.
@@ -1285,7 +1285,7 @@ Un modo furbo per vedere se è stabile.
 \begin{ricalg}
 Data una qualunque matrice quadrata $A$, la traccia, che per definizione è la somma degli elementi sulla diagonale, è uguale al prodotto degli autovalori
 \begin{equation*}
-\mathrm{tr} A=\sum\limits ^{n}_{i=1} a_{ii} =\sum\limits ^{n}_{i=1} \lambda _i
+\mathrm{tr} A=\sum\limits ^n_{i=1} a_{ii} =\sum\limits ^n_{i=1} \lambda _i
 \end{equation*}
 \end{ricalg}
 
@@ -1318,8 +1318,8 @@ Ricordiamo che la traccia si può anche vedere come la somma degli autovalori, e
 \begin{aligned}
 \Delta _A\left( \lambda \right) & =\mathrm{det}\left( \lambda I-A\right)\\
  & =\left( \lambda -\lambda _1\right)\left( \lambda -\lambda _2\right)\\
- & =\lambda ^{2} -\left( \lambda _1 +\lambda _2\right) \lambda +\lambda _1 \lambda _2\\
- & =\lambda ^{2} -\mathrm{tr} A\ \lambda +\mathrm{det} A
+ & =\lambda ^2 -\left( \lambda _1 +\lambda _2\right) \lambda +\lambda _1 \lambda _2\\
+ & =\lambda ^2 -\mathrm{tr} A\ \lambda +\mathrm{det} A
 \end{aligned}
 \end{equation*}
 Si vede quindi che
@@ -1342,7 +1342,7 @@ A\ \text{asint. stabile} \ \ \Leftrightarrow \ \ \begin{cases}
 
 Si tratta del caso a \textit{tempo continuo} con $n\geqslant 2$. Se il polinomio caratteristico di $A$ vale
 \begin{equation*}
-\Delta _A\left( \lambda \right) =\lambda ^{n} +\alpha _1 \lambda ^{n-1} +\cdots +\alpha 
+\Delta _A\left( \lambda \right) =\lambda ^n +\alpha _1 \lambda ^{n-1} +\cdots +\alpha 
 \end{equation*}
 si può dire che
 \begin{equation*}
@@ -1352,7 +1352,7 @@ La coimplicazione vale solo per $n=2$. La dimostrazione è la seguente:
 \begin{equation*}
 \begin{aligned}
 \Delta _A\left( \lambda \right) & =\left( \lambda -\lambda _1\right) \cdots \left( \lambda -\lambda _n\right)\\
- & =\lambda ^{n} +\lambda ^{n-1}\left( \lambda _1 \lambda _2 +\lambda _1 \lambda _3 +\dotsc \right) +\lambda ^{n-2}\left( \lambda _1 \lambda _2 \lambda _3 +\dotsc \right) +\cdots +\left( -1\right)^{n} \lambda _1 \lambda _2 \dotsc \lambda _n
+ & =\lambda ^n +\lambda ^{n-1}\left( \lambda _1 \lambda _2 +\lambda _1 \lambda _3 +\dotsc \right) +\lambda ^{n-2}\left( \lambda _1 \lambda _2 \lambda _3 +\dotsc \right) +\cdots +\left( -1\right)^n \lambda _1 \lambda _2 \dotsc \lambda _n
 \end{aligned}
 \end{equation*}
 Se tutti i $\lambda $ sono negativi ($A$ asint. stabile) il loro prodotto è positivo se sono in numero pari, negativo se sono dispari, ma in tal caso c'è $-1$. I prodotti a coppie, i prodotti a terne, e tutti gli altri, danno luogo a coefficienti positivi. Non vale il contrario in generale, ma solo per $n=2$. \textit{È un test rapido per escludere l'asint. stabilità.} Ad esempio, se almeno un coefficiente di $\Delta _A\left( \lambda \right)$ fosse nullo o negativo, possiamo escludere l'asint. stabilità subito.
@@ -1360,7 +1360,7 @@ Se tutti i $\lambda $ sono negativi ($A$ asint. stabile) il loro prodotto è pos
 
 Consideriamo $\dot{x} =Ax$ e il polinomio caratteristico
 \begin{equation*}
-\Delta _A\left( \lambda \right) =\lambda ^{n} +\alpha _1 \lambda ^{n-1} +\cdots +\alpha _n
+\Delta _A\left( \lambda \right) =\lambda ^n +\alpha _1 \lambda ^{n-1} +\cdots +\alpha _n
 \end{equation*}
 Costruiamo la matrice $H\in \mathbb{R}^{n\times n}$, ciascuna riga comincia con i coefficienti dispari, e prosegue in ordine descrescente coi rimanenti, poi un $1$ e infine $0$ fino in fondo. Riempiamo righe fino alla fine. Se arriviamo a riempire tutti gli $\alpha _i$ si pongono $\alpha _i =0,\forall i >n$.
 \begin{equation*}
@@ -1380,7 +1380,7 @@ Se consideriamo le sottomatrici appoggiate all'angolo Nord-Ovest, di dimensione 
 \end{equation*}
 Non sappiamo nulla su dinamiche oscillatorie, tempi di risposta ecc. Vediamo anche nello specifico due casi:
 \begin{itemize}
-\item $n=2$, il polinomio caratteristico è $\Delta _A\left( \lambda \right) =\lambda ^{2} +\alpha _1 \lambda +\alpha _2$, la matrice $H$ è quindi\begin{equation*}
+\item $n=2$, il polinomio caratteristico è $\Delta _A\left( \lambda \right) =\lambda ^2 +\alpha _1 \lambda +\alpha _2$, la matrice $H$ è quindi\begin{equation*}
 H=\begin{bmatrix}
 \alpha _1 & 1\\
 0 & \alpha _2
@@ -1390,7 +1390,7 @@ H=\begin{bmatrix}
 di conseguenza per il criterio di Hurwitz\begin{equation*}
 A\ \text{asint. stabile} \ \ \Leftrightarrow \ \ \alpha _1  >0,\alpha _2  >0
 \end{equation*}
-\item $n=3$, il polinomio caratteristico è $\Delta _A\left( \lambda \right) =\lambda ^{3} +\alpha _1 \lambda ^{2} +\alpha _2 \lambda +\alpha _3$, la matrice $H$ è quindi\begin{equation*}
+\item $n=3$, il polinomio caratteristico è $\Delta _A\left( \lambda \right) =\lambda ^3 +\alpha _1 \lambda ^2 +\alpha _2 \lambda +\alpha _3$, la matrice $H$ è quindi\begin{equation*}
 H=\begin{bmatrix}
 \alpha _1 & 1 & 0\\
 \alpha _3 & \alpha _2 & 1\\
@@ -2069,7 +2069,7 @@ Se un equilibrio è asint. stabile si definisce il suo \textbf{bacino di attrazi
 \begin{equation*}
 B(\overline{x}) =\left\{x( 0) :x(t)\rightarrow \overline{x}\right\}
 \end{equation*}
-Si può poi dire che $\overline{x}$ asint. stabile è \textbf{globalmente stabile} se $B(\overline{x}) =\mathbb{R}^{n}$, ma possiamo dare una definizione più morbida: $\overline{x}$ asint. stabile è \textbf{quasi globalmente stabile} se $B(\overline{x}) =\mathbb{R}^{n}$ a meno di un insieme di misura nulla.
+Si può poi dire che $\overline{x}$ asint. stabile è \textbf{globalmente stabile} se $B(\overline{x}) =\mathbb{R}^n$, ma possiamo dare una definizione più morbida: $\overline{x}$ asint. stabile è \textbf{quasi globalmente stabile} se $B(\overline{x}) =\mathbb{R}^n$ a meno di un insieme di misura nulla.
 
 Nei sistemi non lineari la classificazione è diversa dai sistemi lineari:
 
@@ -2140,7 +2140,7 @@ f_i( x_1 ,x_2) =k
 Nello specifico, se studiamo il caso $k=0$, stiamo sostanzialmente cercando i punti a tangente nulla rispetto a una specifica variabile.
 \section{Metodo di linearizzazione}
 
-Vediamo il caso a tempo continuo. Sia $\dot{x}(t) =f( x(t)) ,\dot{x} \in \mathbb{R}^{n}$ e sia $\overline{x} :f(\overline{x}) =0$ uno stato di equilibrio. Consideriamo $z(t) =x(t) -\overline{x}$. Si ha
+Vediamo il caso a tempo continuo. Sia $\dot{x}(t) =f( x(t)) ,\dot{x} \in \mathbb{R}^n$ e sia $\overline{x} :f(\overline{x}) =0$ uno stato di equilibrio. Consideriamo $z(t) =x(t) -\overline{x}$. Si ha
 \begin{equation*}
 \dot{z} =\dot{x} =f( x) =f(\overline{x} +z)
 \end{equation*}
@@ -2168,7 +2168,7 @@ Consideriamo ora $\dot{x} =f( x)$ con $\overline{x}$ equilibrio e il suo sistema
 \item centro
 \end{itemize}
 
-È un insieme definito, in $\mathbb{R}^{n}$, localmente nell'intorno di un punto, tale da essere localmente in corrispondenza biunivoca con uno spazio di $\mathbb{R}^{m} ,m\leqslant n$. Per esempio una curva in un piano.
+È un insieme definito, in $\mathbb{R}^n$, localmente nell'intorno di un punto, tale da essere localmente in corrispondenza biunivoca con uno spazio di $\mathbb{R}^m ,m\leqslant n$. Per esempio una curva in un piano.
 
 Gli autovalori del sistema linearizzato sono
 \begin{equation*}
@@ -2178,21 +2178,21 @@ e li partizioniamo in base al segno della loro parte reale
 \begin{itemize}
 \item ce ne sono $n^{-}$ con $\mathrm{Re}( \lambda ) < 0$
 \item ce ne sono $n^{+}$ con $\mathrm{Re}( \lambda )  >0$
-\item ce ne sono $n^{0}$ con $\mathrm{Re}( \lambda ) =0$
+\item ce ne sono $n^0$ con $\mathrm{Re}( \lambda ) =0$
 \end{itemize}
 
-ovviamente $n^{-} +n^{+} +n^{0} =n$. Si possono dimostrare i seguenti risultati
+ovviamente $n^{-} +n^{+} +n^0 =n$. Si possono dimostrare i seguenti risultati
 \begin{enumerate}
 \item Esistono nell'intorno di $\overline{x}$ le tre varietà
 \begin{enumerate}
-\item $W^{s}$ varietà stabile, $\mathrm{dim} W^{s} =n^{-}$
-\item $W^{u}$ varietà instabile, $\mathrm{dim} W^{u} =n^{+}$
-\item $W^{0}$ varietà centro, $\mathrm{dim} W^{0} =n^{0}$
+\item $W^s$ varietà stabile, $\mathrm{dim} W^s =n^{-}$
+\item $W^u$ varietà instabile, $\mathrm{dim} W^u =n^{+}$
+\item $W^0$ varietà centro, $\mathrm{dim} W^0 =n^0$
 \end{enumerate}
-\item $W^{s} ,W^{u} ,W^{0}$ includono $\overline{x}$ e sono tangenti in $\overline{x}$ alle corrispondenti varietà del sistema linearizzato
-\item $W^{s} ,W^{u} ,W^{0}$ sono invarianti rispetto a $\dot{x} =f( x)$
-\item Su $W^{s} ,W^{u}$ la dinamica è equivalente a quella di $\dot{z} =A(\overline{x}) z$
-\item Su $W^{0}$ la dinamica è governata dai termini di ordine superiore dello sviluppo di Taylor
+\item $W^s ,W^u ,W^0$ includono $\overline{x}$ e sono tangenti in $\overline{x}$ alle corrispondenti varietà del sistema linearizzato
+\item $W^s ,W^u ,W^0$ sono invarianti rispetto a $\dot{x} =f( x)$
+\item Su $W^s ,W^u$ la dinamica è equivalente a quella di $\dot{z} =A(\overline{x}) z$
+\item Su $W^0$ la dinamica è governata dai termini di ordine superiore dello sviluppo di Taylor
 \end{enumerate}
 
 Valgono inoltre i seguenti importanti risultati (non sono coimplicazioni)
@@ -2243,9 +2243,9 @@ $\tilde{x}$ è uno \textbf{stato raggiungibile} all'istante $t$ se esiste $u_{[ 
 \end{definition}
 Chiamiamo \textbf{insieme di raggiungibilità}
 \begin{equation*}
-X_R(t) =\left\{\text{insieme degli} \ \tilde{x} \ \text{raggiungibili in} \ t\right\} =\mathrm{Im}( \psi (t)) \subseteq \mathbb{R}^{n}
+X_R(t) =\left\{\text{insieme degli} \ \tilde{x} \ \text{raggiungibili in} \ t\right\} =\mathrm{Im}( \psi (t)) \subseteq \mathbb{R}^n
 \end{equation*}
-$X_R(t)$ è un sottospazio di $\mathbb{R}^{n}$, quindi gode ad esempio della proprietà
+$X_R(t)$ è un sottospazio di $\mathbb{R}^n$, quindi gode ad esempio della proprietà
 \begin{equation*}
 v_1 ,v_2 \in S\Rightarrow \alpha v_1 +\beta v_2 \in S\ \ \ \ \alpha ,\beta \in \mathbb{R}
 \end{equation*}
@@ -2253,12 +2253,12 @@ quindi sono rette, piani, iperpiani, ecc.
 
 Un'altra proprietà è che: se $t_2  >t_1 \Rightarrow X_R( t_2) \supset X_R( t_1)$, l'insieme di raggiungibilità tende a diventare più grande, includendo sempre i precedenti. In particolare, si espande con \textit{discontinuità}.
 \begin{definition}
-$( A,b)$ è completamente raggiungibile se $X_R =\mathbb{R}^{n}$, ovvero $\mathrm{dim} X_R =n$.
+$( A,b)$ è completamente raggiungibile se $X_R =\mathbb{R}^n$, ovvero $\mathrm{dim} X_R =n$.
 \end{definition}
 Introduciamo la \textbf{matrice di raggiungibilità} $R$:
 \begin{equation*}
 \boxed{R=\begin{bmatrix}
-b & Ab & A^{2} b & \dotsc  & A^{n-1} b
+b & Ab & A^2 b & \dotsc  & A^{n-1} b
 \end{bmatrix} \in \mathbb{R}^{n\times n}}
 \end{equation*}
 Si dimostra che
@@ -2309,12 +2309,12 @@ b & \dotsc  & A^{t-1} b
 \end{equation*}
 Qui si vede bene che il sottospazio tende ad espandersi, se il nuovo vettore è linearmente indipendente dagli altri. Perché ci fermiamo in $n-1$? Perché tutti quelli successivi saranno sicuramente combinazioni lineari dei precedenti. Questo vale per il teorema di Cayley-Hamilton
 \begin{gather*}
-\Delta _A( \lambda ) =\lambda ^{n} +\alpha _1 \lambda ^{n-1} +\cdots +\alpha _n\\
-\Rightarrow \Delta _A( A) =A^{n} +\alpha _1 A^{n-1} +\cdots +\alpha _n I=0
+\Delta _A( \lambda ) =\lambda ^n +\alpha _1 \lambda ^{n-1} +\cdots +\alpha _n\\
+\Rightarrow \Delta _A( A) =A^n +\alpha _1 A^{n-1} +\cdots +\alpha _n I=0
 \end{gather*}
 Possiamo moltiplicare tutto per $b$
 \begin{equation*}
-A^{n} b+\alpha _1 A^{n-1} b+\cdots +\alpha _n b=0\ \ \Rightarrow \ \ A^{n} b=-\alpha _1 A^{n-1} b-\cdots -\alpha _n b
+A^n b+\alpha _1 A^{n-1} b+\cdots +\alpha _n b=0\ \ \Rightarrow \ \ A^n b=-\alpha _1 A^{n-1} b-\cdots -\alpha _n b
 \end{equation*}
 È inutile andare avanti, all'$n$-esimo iniziano a essere combinazioni dei precedenti. Tutti gli stati raggiungibili sono raggiungibili in al più $n$ passi, dopo quelli non apriamo più nuove direzioni.
 \section{Legge di controllo}
@@ -2374,7 +2374,7 @@ Come si mette a funzionare il sistema? Sostituiamo $u$ nel sistema
 \end{equation*}
 Evolve con la matrice $A+bk$, ma possiamo cambiarla? Sì, col seguente teorema.
 \begin{theorem}
-Teorema di assegnamento degli autovalori. Per ogni polinomio $\Delta ^{*}( \lambda ) =\lambda ^{n} +\alpha ^{*}_1 \lambda ^{n-1} +\cdots +\alpha ^{*}_n$ esiste $k$ tale che $\Delta _{A+bk}( \lambda ) =\Delta ^{*}( \lambda )$, se e solo se $( A,b)$ è completamente raggiungibile.
+Teorema di assegnamento degli autovalori. Per ogni polinomio $\Delta ^{*}( \lambda ) =\lambda ^n +\alpha ^{*}_1 \lambda ^{n-1} +\cdots +\alpha ^{*}_n$ esiste $k$ tale che $\Delta _{A+bk}( \lambda ) =\Delta ^{*}( \lambda )$, se e solo se $( A,b)$ è completamente raggiungibile.
 \end{theorem}
 \section{Scomposizione in parte raggiungibile e non raggiungibile}
 
@@ -2389,7 +2389,7 @@ z=Tx
 La $T^{-1}$ si costruisce prendendo vettori linearmente indipendenti, $r$ da $X_R$ e $n-r$ da $X_{NR}$
 \begin{equation*}
 T^{-1} =\begin{bmatrix}
-x^{1} & \dotsc  & x^{r} & x^{r+1} & \dotsc  & x^{n}
+x^1 & \dotsc  & x^r & x^{r+1} & \dotsc  & x^n
 \end{bmatrix}
 \end{equation*}
 Il nuovo vettore di stato $z$ lo potremo sempre vedere come
@@ -2473,9 +2473,9 @@ $\tilde{x}$ è uno \textbf{stato non osservabile} in $[ 0,t]$ se lasciando evolv
 
 Chiamiamo \textbf{insieme di non osservabilità}
 \begin{equation*}
-X_{NO}(t) =\left\{\tilde{x} :c\phi ( \tau )\tilde{x} =0\ \forall \tau \in [ 0,t]\right\} \subseteq \mathbb{R}^{n}
+X_{NO}(t) =\left\{\tilde{x} :c\phi ( \tau )\tilde{x} =0\ \forall \tau \in [ 0,t]\right\} \subseteq \mathbb{R}^n
 \end{equation*}
-$X_{NO}(t)$ è un sottospazio di $\mathbb{R}^{n}$.
+$X_{NO}(t)$ è un sottospazio di $\mathbb{R}^n$.
 
 Se $t_2  >t_1 \Rightarrow X_{NO}( t_2) \subset X_{NO}( t_1)$. Se l'uscita è nulla in $[ 0,t_2]$, allora lo è anche in $[ 0,t_1]$. Al passare del tempo tende a diventare più piccolo, con discontinuità perché è un sottospazio. Definiamo $t^{*}$ l'ultimo istante in cui non cambia $X_{NO}$, cioè
 \begin{equation*}
@@ -2496,7 +2496,7 @@ cA^{n-1}
 \end{equation*}
 Si dimostra che
 \begin{equation*}
-X_{NO} =\mathrm{ker}( O) =\left[\mathrm{Im}\left( O^{T}\right)\right]^{\perp }
+X_{NO} =\mathrm{ker}( O) =\left[\mathrm{Im}\left( O^T\right)\right]^{\perp }
 \end{equation*}
 da cui si deduce anche
 \begin{equation*}
@@ -2514,7 +2514,7 @@ Ribadiamo che consideriamo il movimento libero, ovvero $u=0$, ovvero $x( t+1) =A
 x( 0) & =\tilde{x} & y( 0) =c\tilde{x}\\
 x( 1) & =A\tilde{x} & y( 1) =cA\tilde{x}\\
 \vdots  &  & \vdots \\
-x(t) & =A^{t}\tilde{x} & y(t) =cA^{t}\tilde{x}
+x(t) & =A^t\tilde{x} & y(t) =cA^t\tilde{x}
 \end{aligned}
 \end{equation*}
 Possiamo riscrivere le uscite come
@@ -2528,7 +2528,7 @@ y(t)
 c\\
 cA\\
 \vdots \\
-cA^{t}
+cA^t
 \end{bmatrix}\tilde{x}
 \end{equation*}
 Gli stati $\tilde{x}$ che danno luogo a $y=0$, ovvero sono tutti e soli gli $\tilde{x}$ che compongono lo spazio nullo di quella matrice, cioè il suo nucleo. Mi fermo a $cA^{n-1}$ per il discorso fatto per la raggiungibilità con il teorema di Cayley-Hamilton.
@@ -2667,7 +2667,7 @@ l_n
 \end{bmatrix}
 \end{equation*}
 \begin{theorem}
-Teorema di assegnamento degli autovalori. Per ogni polinomio $\Delta ^{*}( \lambda ) =\lambda ^{n} +\alpha ^{*}_1 \lambda ^{n-1} +\cdots +\alpha ^{*}_n$ esiste $l$ tale che $\Delta _{A+lc}( \lambda ) =\Delta ^{*}( \lambda )$, se e solo se $( A,c)$ è completamente osservabile.
+Teorema di assegnamento degli autovalori. Per ogni polinomio $\Delta ^{*}( \lambda ) =\lambda ^n +\alpha ^{*}_1 \lambda ^{n-1} +\cdots +\alpha ^{*}_n$ esiste $l$ tale che $\Delta _{A+lc}( \lambda ) =\Delta ^{*}( \lambda )$, se e solo se $( A,c)$ è completamente osservabile.
 \end{theorem}
 \section{Scomposizione in parte osservabile e non osservabile}
 
@@ -2908,7 +2908,7 @@ z_a\\
 z_b\\
 z_c\\
 z_d
-\end{bmatrix} \in \mathbb{R}^{n}
+\end{bmatrix} \in \mathbb{R}^n
 \end{equation*}
 E le altre matrici
 \begin{equation*}
@@ -3011,7 +3011,7 @@ Si ha $\int ^{+\infty }_0 u_{\delta }(t) dt=1$. Facciamo tendere $\delta \righta
 Studiamo l'uscita
 \begin{equation*}
 \begin{aligned}
-y(t) =cx(t) & =c\int ^{t}_0 e^{A( t-\tau )} bu( \tau ) d\tau \\
+y(t) =cx(t) & =c\int ^t_0 e^{A( t-\tau )} bu( \tau ) d\tau \\
  & =c\int ^{0^{+}}_{0^{-}} e^{A( t-\tau )} b\mathrm{imp}( \tau ) d\tau \\
  & =ce^{At} b\int ^{0^{+}}_{0^{-}}\mathrm{imp}( \tau ) d\tau \\
  & =\boxed{ce^{At} b=c\phi (t) b=g(t)}
@@ -3050,9 +3050,9 @@ cA^{t-1} b=c\phi ( t-1) b, & t >0
 Notiamo ora che
 \begin{equation*}
 \begin{aligned}
-y(t) =cx(t) & =c\int ^{t}_0 e^{A( t-\tau )} bu( \tau ) d\tau \\
- & =\int ^{t}_0\boxed{ce^{A( t-\tau )} b} u( \tau ) d\tau \\
- & =\int ^{t}_0\boxed{g( t-\tau )} u( \tau ) d\tau 
+y(t) =cx(t) & =c\int ^t_0 e^{A( t-\tau )} bu( \tau ) d\tau \\
+ & =\int ^t_0\boxed{ce^{A( t-\tau )} b} u( \tau ) d\tau \\
+ & =\int ^t_0\boxed{g( t-\tau )} u( \tau ) d\tau 
 \end{aligned}
 \end{equation*}
 è detto \textbf{integrale di convoluzione}
@@ -3088,18 +3088,18 @@ F( s) & =\int ^{+\infty }_0 e^{at} e^{-st} dt=\int ^{+\infty }_0 e^{( a-s) t} dt
  & =\frac{1}{s-a} ,\ \ \text{se} \ \mathrm{Re}( s)  >\mathrm{Re}( a)
 \end{aligned}
 \end{equation*}
-\item $f(t) =te^{at}$, allora $F( s) =\frac{1}{( s-a)^{2}}$
-\item $f(t) =\frac{1}{2} t^{2} e^{at}$, allora $F( s) =\frac{1}{( s-a)^{3}}$
-\item $u(t) =\mathrm{ramp}(t)$, allora $U( s) =\frac{1}{s^{2}}$
+\item $f(t) =te^{at}$, allora $F( s) =\frac{1}{( s-a)^2}$
+\item $f(t) =\frac{1}{2} t^2 e^{at}$, allora $F( s) =\frac{1}{( s-a)^3}$
+\item $u(t) =\mathrm{ramp}(t)$, allora $U( s) =\frac{1}{s^2}$
 \end{itemize}
 
 \begin{center}
 
 \begin{tabular}{c||cccccc}
 \toprule 
- $u(t)$ & $\mathrm{imp}(t)$ & $\mathrm{sca}(t)$ & $e^{at}$ & $te^{at}$ & $\frac{1}{2!} t^{2} e^{at}$ & $\mathrm{ramp}(t)$ \\
+ $u(t)$ & $\mathrm{imp}(t)$ & $\mathrm{sca}(t)$ & $e^{at}$ & $te^{at}$ & $\frac{1}{2!} t^2 e^{at}$ & $\mathrm{ramp}(t)$ \\
 \midrule 
- $U( s)$ & $1$ & $\frac{1}{s}$ & $\frac{1}{s-a}$ & $\frac{1}{( s-a)^{2}}$ & $\frac{1}{( s-a)^{3}}$ & $\frac{1}{s^{2}}$ \\
+ $U( s)$ & $1$ & $\frac{1}{s}$ & $\frac{1}{s-a}$ & $\frac{1}{( s-a)^2}$ & $\frac{1}{( s-a)^3}$ & $\frac{1}{s^2}$ \\
  \bottomrule
 \end{tabular}
 \end{center}
@@ -3112,12 +3112,12 @@ La trasformata gode delle seguenti \textbf{proprietà}
 \end{equation*}
 \item \textbf{derivazione}, sia $f(t)\rightarrow F( s)$\begin{gather*}
 h(t) =\frac{df(t)}{dt} \ \ \xrightarrow{\mathcal{L}} \ \ H( s) =\mathcal{L}\left[\frac{df(t)}{dt}\right] =sF( s) -f( 0)\\
-\mathcal{L}\left[\frac{d^{2} f(t)}{dt^{2}}\right] =s\mathcal{L}\left[\frac{df(t)}{dt}\right] -f'( 0) =s^{2} F( s) -sf( 0) -f'( 0)
+\mathcal{L}\left[\frac{d^2 f(t)}{dt^2}\right] =s\mathcal{L}\left[\frac{df(t)}{dt}\right] -f'( 0) =s^2 F( s) -sf( 0) -f'( 0)
 \end{gather*}
 
 il termine $f( 0) ,\dotsc $ è quasi sempre $0$ nei nostri casi.
 \item \textbf{integrazione}, sia $f(t)\rightarrow F( s)$\begin{equation*}
-h(t) =\int\limits ^{t}_0 f( \tau ) d\tau \ \ \xrightarrow{\mathcal{L}} \ \ H( s) =\frac{1}{s} F( s)
+h(t) =\int\limits ^t_0 f( \tau ) d\tau \ \ \xrightarrow{\mathcal{L}} \ \ H( s) =\frac{1}{s} F( s)
 \end{equation*}
 \item \textbf{traslazione}, sia $f(t)\rightarrow F( s)$\begin{equation}
 h(t) =\begin{cases}
@@ -3126,7 +3126,7 @@ f( t-T) , & t >T
 \end{cases} \ \ \xrightarrow{\mathcal{L}} \ \ H( s) =F( s) e^{-sT}
 \end{equation}
 \item \textbf{convoluzione}, siano $f(t)\rightarrow F( s) ,h(t)\rightarrow H( s)$\begin{equation*}
-f(t) *h(t) =\int\limits ^{t}_0 f( t-\tau ) h( \tau ) d\tau \ \ \xrightarrow{\mathcal{L}} \ \ F( s) H( s)
+f(t) *h(t) =\int\limits ^t_0 f( t-\tau ) h( \tau ) d\tau \ \ \xrightarrow{\mathcal{L}} \ \ F( s) H( s)
 \end{equation*}
 \end{itemize}
 
@@ -3148,7 +3148,7 @@ Si ha che la risposta all'impulso è uguale alla derivata della risposta allo sc
 
 Ricordiamo che l'uscita si può vedere come convoluzione e possiamo passare alle trasformate
 \begin{equation*}
-y(t) =\int ^{t}_0 g( t-\tau ) u( \tau ) d\tau \xrightarrow{\mathcal{L}}\boxed{Y( s) =G( s) U( s)}
+y(t) =\int ^t_0 g( t-\tau ) u( \tau ) d\tau \xrightarrow{\mathcal{L}}\boxed{Y( s) =G( s) U( s)}
 \end{equation*}
 Il percorso che dovremmo fare in generale è
 \begin{equation*}
@@ -3159,7 +3159,7 @@ In generale le trasformate sono rognose, ma \textbf{se l'ingresso è canonico, l
 
 \textit{Esempio.} Sia
 \begin{equation*}
-G( s) =\frac{2( s-1)}{( s+1)( s+2)^{2}} \ \ \ \ u(t) =\mathrm{sca}(t) \Rightarrow U( s) =\frac{1}{s}
+G( s) =\frac{2( s-1)}{( s+1)( s+2)^2} \ \ \ \ u(t) =\mathrm{sca}(t) \Rightarrow U( s) =\frac{1}{s}
 \end{equation*}
 Introduciamo il \textbf{grado relativo}
 \begin{equation*}
@@ -3167,22 +3167,22 @@ Introduciamo il \textbf{grado relativo}
 \end{equation*}
 qui $r=2$. Calcoliamo agevolmente l'uscita
 \begin{equation*}
-Y( s) =G( s) U( s) =\frac{2( s-1)}{s( s+1)( s+2)^{2}}
+Y( s) =G( s) U( s) =\frac{2( s-1)}{s( s+1)( s+2)^2}
 \end{equation*}
 ora dobbiamo antitrasformare, facciamo lo \textbf{sviluppo di Heaviside}. Scomponiamo in tante frazioni quant'è il grado del denominatore.
 \begin{equation}
-Y(s)=\frac{A}{s} +\frac{B}{s+1} +\frac{C}{s+2} +\frac{D}{(s+2)^{2}}
+Y(s)=\frac{A}{s} +\frac{B}{s+1} +\frac{C}{s+2} +\frac{D}{(s+2)^2}
 \end{equation}
 che è facile da antitrasformare
 \begin{equation*}
 \begin{aligned}
-y(t) =\mathcal{L}^{-1}[ Y( s)] & =A\mathcal{L}^{-1}\left[\frac{1}{s}\right] +B\mathcal{L}^{-1}\left[\frac{1}{s+1}\right] +C\mathcal{L}^{-1}\left[\frac{1}{s+2}\right] +D\mathcal{L}^{-1}\left[\frac{1}{(s+2)^{2}}\right]\\
+y(t) =\mathcal{L}^{-1}[ Y( s)] & =A\mathcal{L}^{-1}\left[\frac{1}{s}\right] +B\mathcal{L}^{-1}\left[\frac{1}{s+1}\right] +C\mathcal{L}^{-1}\left[\frac{1}{s+2}\right] +D\mathcal{L}^{-1}\left[\frac{1}{(s+2)^2}\right]\\
  & =A+Be^{-t} +Ce^{-2t} +Dte^{-2t}
 \end{aligned}
 \end{equation*}
 La scomposizione (8) si fa così:
 \begin{equation*}
-\frac{A(s+1)(s+2)^{2} +Bs(s+2)^{2} +Cs(s+1)(s+2)+Ds(s+1)}{s(s+1)(s+2)^{2}} =\frac{2(s-1)}{s(s+1)(s+2)^{2}}
+\frac{A(s+1)(s+2)^2 +Bs(s+2)^2 +Cs(s+1)(s+2)+Ds(s+1)}{s(s+1)(s+2)^2} =\frac{2(s-1)}{s(s+1)(s+2)^2}
 \end{equation*}
 \begin{itemize}
 \item Se $s=-1\Rightarrow -B=-4\Rightarrow B=4$.
@@ -3260,7 +3260,7 @@ y( 0) =\lim _{s\rightarrow \infty } sY( s) =\lim _{s\rightarrow \infty } sG( s) 
 \end{equation*}
 Vediamo la derivata prima
 \begin{equation*}
-\dot{y}(t) =\lim _{s\rightarrow \infty } s\left( sY( s) -\cancel{y( 0)}\right) =\lim _{s\rightarrow \infty } s^{2} Y( s) =\lim _{s\rightarrow \infty } s^{2}\frac{\mu }{1+sT}\frac{1}{s} =\frac{\mu }{T}
+\dot{y}(t) =\lim _{s\rightarrow \infty } s\left( sY( s) -\cancel{y( 0)}\right) =\lim _{s\rightarrow \infty } s^2 Y( s) =\lim _{s\rightarrow \infty } s^2\frac{\mu }{1+sT}\frac{1}{s} =\frac{\mu }{T}
 \end{equation*}
 \textit{Complichiamo:}
 \begin{equation*}
@@ -3273,13 +3273,13 @@ y(\infty ) & =G(0)\cdot 1=\mu \\
 y(0) & =\lim _{s\rightarrow \infty } sY(s)\\
  & =\lim _{s\rightarrow \infty } s\frac{1}{s}\frac{\mu }{( 1+sT_1)( 1+sT_2)} =0\\
 \dot{y} (0) & =\lim _{s\rightarrow \infty } s(sY(s)-\cancel{y(0)} )\\
- & =\lim _{s\rightarrow \infty } s^{2}\frac{1}{s}\frac{\mu }{( 1+sT_1)( 1+sT_2)} =0\\
-\ddot{y} (0) & =\lim _{s\rightarrow \infty } s\left( s^{2} Y(s)-\cancel{sy(0)} -\cancel{\dot{y} (0)}\right) =\lim _{s\rightarrow \infty } s^{3}\frac{1}{s}\frac{\mu }{( 1+sT_1)( 1+sT_2)} =\frac{\mu }{T_1 T_2}
+ & =\lim _{s\rightarrow \infty } s^2\frac{1}{s}\frac{\mu }{( 1+sT_1)( 1+sT_2)} =0\\
+\ddot{y} (0) & =\lim _{s\rightarrow \infty } s\left( s^2 Y(s)-\cancel{sy(0)} -\cancel{\dot{y} (0)}\right) =\lim _{s\rightarrow \infty } s^3\frac{1}{s}\frac{\mu }{( 1+sT_1)( 1+sT_2)} =\frac{\mu }{T_1 T_2}
 \end{aligned}
 \end{equation*}
 Generalizziamo. \textbf{Se stiamo analizzando la risposta allo scalino} e se abbiamo una $G( s)$ di grado relativo $r$
 \begin{equation*}
-G( s) =\frac{\beta ^{n-r}_r +\cdots }{s^{n} +\alpha _1 s^{n-1} +\cdots }
+G( s) =\frac{\beta ^{n-r}_r +\cdots }{s^n +\alpha _1 s^{n-1} +\cdots }
 \end{equation*}
 Allora
 \begin{equation*}
@@ -3422,30 +3422,30 @@ Qui $\mu $ non coincide col guadagno.
 
 Cosa succede quando la $G( s)$ ha poli complessi? Introduciamo una forma standard da usare quando ha due poli complessi. Con $\alpha _1 ,\alpha _2  >0$ per la stabilità
 \begin{equation*}
-G( s) =\frac{\beta _2}{s^{2} +\alpha _1 s+\alpha _2} =\mu \frac{\omega ^{2}_n}{s^{2} +2\xi \omega _n s+\omega ^{2}_n}
+G( s) =\frac{\beta _2}{s^2 +\alpha _1 s+\alpha _2} =\mu \frac{\omega ^2_n}{s^2 +2\xi \omega _n s+\omega ^2_n}
 \end{equation*}
 Con $\omega _n  >0$ \textbf{pulsazione naturale} e $\xi $ \textbf{smorzamento}.
 
-La presenza di $\mu $ e $\omega ^{2}_n$ a numeratore permette di lasciare a $\mu $ il ruolo di guadagno:
+La presenza di $\mu $ e $\omega ^2_n$ a numeratore permette di lasciare a $\mu $ il ruolo di guadagno:
 \begin{equation*}
-G( 0) =\mu \frac{\omega ^{2}_n}{\omega ^{2}_n} =\mu 
+G( 0) =\mu \frac{\omega ^2_n}{\omega ^2_n} =\mu 
 \end{equation*}
 I poli valgono
 \begin{equation*}
 \begin{aligned}
-p_{1,2} & =-\xi \omega _n \pm \sqrt{\xi ^{2} \omega ^{2}_n -\omega ^{2}_n}\\
- & =-\xi \omega _n \pm \omega _n\sqrt{\xi ^{2} -1}
+p_{1,2} & =-\xi \omega _n \pm \sqrt{\xi ^2 \omega ^2_n -\omega ^2_n}\\
+ & =-\xi \omega _n \pm \omega _n\sqrt{\xi ^2 -1}
 \end{aligned}
 \end{equation*}
 L'ipotesi affinché siano \textit{complessi} e che ci sia \textit{stabilità} è $0< \xi < 1$
 \begin{equation*}
-p_{1,2} =-\xi \omega _n \pm i\omega _n\sqrt{1-\xi ^{2}} \ \ \Rightarrow \ \ T=-\frac{1}{\mathrm{Re}( p)} =\frac{1}{\xi \omega _n}
+p_{1,2} =-\xi \omega _n \pm i\omega _n\sqrt{1-\xi ^2} \ \ \Rightarrow \ \ T=-\frac{1}{\mathrm{Re}( p)} =\frac{1}{\xi \omega _n}
 \end{equation*}
 Qui $r=2$, allora
 \begin{gather*}
 y( 0) =0\\
 \dot{y}( 0) =0\\
-\ddot{y}( 0) =\mu \omega ^{2}_n  >0
+\ddot{y}( 0) =\mu \omega ^2_n  >0
 \end{gather*}
 Si hanno oscillazioni, la distanza tra gli estremi (che sono infiniti) rimane costante e vale
 \begin{equation*}
@@ -3583,7 +3583,7 @@ G( s) =\frac{\mu }{1+s} ,\ \mu  >0
 \end{equation*}
 Allora
 \begin{equation*}
-G( i\omega ) =\frac{\mu }{1+i\omega } \ \ \Rightarrow \ \ \frac{Y}{U} =| G( i\omega )| =\frac{\mu }{\sqrt{1+\omega ^{2}}} ,\ \ \varphi =\arg G( i\omega ) =-\arctan \omega 
+G( i\omega ) =\frac{\mu }{1+i\omega } \ \ \Rightarrow \ \ \frac{Y}{U} =| G( i\omega )| =\frac{\mu }{\sqrt{1+\omega ^2}} ,\ \ \varphi =\arg G( i\omega ) =-\arctan \omega 
 \end{equation*}
 
 
@@ -3620,7 +3620,7 @@ G( s) =\frac{\mu s}{1+s} ,\ \mu  >0
 \end{equation*}
 Allora
 \begin{equation*}
-G( i\omega ) =\frac{\mu i\omega }{1+i\omega } \ \ \Rightarrow \ \ | G( i\omega )| =\frac{\mu \omega }{\sqrt{1+\omega ^{2}}} ,\ \ \arg G( i\omega ) =\frac{\pi }{2} -\arctan \omega 
+G( i\omega ) =\frac{\mu i\omega }{1+i\omega } \ \ \Rightarrow \ \ | G( i\omega )| =\frac{\mu \omega }{\sqrt{1+\omega ^2}} ,\ \ \arg G( i\omega ) =\frac{\pi }{2} -\arctan \omega 
 \end{equation*}
 È un \textbf{filtro passa alto}.
 
@@ -3632,26 +3632,26 @@ Allora
 \begin{gather*}
 G( i\omega ) =\frac{\mu i\omega }{( 1+i\omega )( 1+0.1i\omega )}\\
 \Downarrow \\
-| G( i\omega )| =\frac{\mu \omega }{\sqrt{1+\omega ^{2}}\sqrt{1+0.01\omega ^{2}}} ,\ \ \arg G( i\omega ) =\frac{\pi }{2} -\arctan \omega -\arctan( 0.1\omega )
+| G( i\omega )| =\frac{\mu \omega }{\sqrt{1+\omega ^2}\sqrt{1+0.01\omega ^2}} ,\ \ \arg G( i\omega ) =\frac{\pi }{2} -\arctan \omega -\arctan( 0.1\omega )
 \end{gather*}
 È un \textbf{filtro passa banda}.
 \section{Diagrammi di Bode}
 
 Ipotizziamo di avere poli e zeri tutti reali, introduciamo una forma standard di $G( s)$
 \begin{equation*}
-\boxed{G( s) =\frac{\mu }{s^{h}} \cdot \frac{\prod _j( 1+s\tau _j)}{\prod _j( 1+sT_j)}}
+\boxed{G( s) =\frac{\mu }{s^h} \cdot \frac{\prod _j( 1+s\tau _j)}{\prod _j( 1+sT_j)}}
 \end{equation*}
 I poli e zeri saranno della forma
 \begin{equation*}
 z_j =-\frac{1}{\tau _j} \ \ \ \ p_j =-\frac{1}{T_j}
 \end{equation*}
-Il valore $h$ si dice \textbf{tipo} del sistema, è intero. Se $h=1$ c'è un \textbf{polo dell'origine}, se $h=2,3,\dotsc $ ci sono poli multipli in $0$. Se $h=-1$ c'è uno \textbf{zero nell'origine}. $\mu $ si dice \textbf{guadagno generalizzato}, è parente del guadagno che avevamo introdotto, ma non sempre lo stesso proprio perché c'è quel $s^{h}$ che dà problemi ogni volta che $h\neq 0$.
+Il valore $h$ si dice \textbf{tipo} del sistema, è intero. Se $h=1$ c'è un \textbf{polo dell'origine}, se $h=2,3,\dotsc $ ci sono poli multipli in $0$. Se $h=-1$ c'è uno \textbf{zero nell'origine}. $\mu $ si dice \textbf{guadagno generalizzato}, è parente del guadagno che avevamo introdotto, ma non sempre lo stesso proprio perché c'è quel $s^h$ che dà problemi ogni volta che $h\neq 0$.
 
 
 
 Introduciamo un asse logaritmico in base $10$
 \begin{equation*}
-v=\log_{10} \omega \ \ \Leftrightarrow \ \ \omega =10^{v}
+v=\log_{10} \omega \ \ \Leftrightarrow \ \ \omega =10^v
 \end{equation*}
 
 
@@ -3718,7 +3718,7 @@ Sull'asse delle ordinate rappresenteremo il modulo di $G( i\omega )$ in decibel
 
 Consideriamo
 \begin{equation*}
-| G( i\omega )| =\frac{| \mu | }{\omega ^{h}} \cdot \frac{\prod _j| 1+i\omega \tau _j| }{\prod _j| 1+i\omega T_j| }
+| G( i\omega )| =\frac{| \mu | }{\omega ^h} \cdot \frac{\prod _j| 1+i\omega \tau _j| }{\prod _j| 1+i\omega T_j| }
 \end{equation*}
 Il logaritmo trasforma prodotti e divisioni in somme e sottrazioni
 \begin{equation*}
@@ -3789,7 +3789,7 @@ Se riusciamo a rappresentarle individualmente sarà la somma di ciascuna di ques
 
 
 Sommando i primi due pezzi si vede che a $\omega =1$, il modulo vale $\mu $ espresso in decibel.
-\item pezzo ${\textstyle f=20\log| 1+i\omega \tau | =20\log\sqrt{1+\omega ^{2} \tau ^{2}}}$
+\item pezzo ${\textstyle f=20\log| 1+i\omega \tau | =20\log\sqrt{1+\omega ^2 \tau ^2}}$
 
 se $\omega \rightarrow 0,f\rightarrow 0$
 
@@ -3933,21 +3933,21 @@ Il secondo oggetto si chiama \textbf{sfasatore puro}. Sul modulo non cambia nien
 
 Supponiamo $\mu =1$ e scriviamo la $G( s)$ come
 \begin{equation*}
-G( s) =\frac{\omega ^{2}_n}{s^{2} +2\xi \omega _n s+\omega ^{2}_n}
+G( s) =\frac{\omega ^2_n}{s^2 +2\xi \omega _n s+\omega ^2_n}
 \end{equation*}
 Ricordiamo che per avere stabilità e poli complessi coniugati dobbiamo avere
 \begin{equation*}
-0< \xi < 1\ \ \Rightarrow \ \ p_{1,2} =-\omega _n \xi \pm i\omega _n\sqrt{1-\xi ^{2}}
+0< \xi < 1\ \ \Rightarrow \ \ p_{1,2} =-\omega _n \xi \pm i\omega _n\sqrt{1-\xi ^2}
 \end{equation*}
 $G( i\omega )$ possiamo scriverla in forma normalizzata
 \begin{equation*}
-G( i\omega ) =\frac{\omega ^{2}_n}{-\omega ^{2} +i2\xi \omega _n \omega +\omega ^{2}_n} =\frac{1}{\left[ 1-\left(\frac{\omega }{\omega _n}\right)^{2}\right] +i\left[ 2\xi \frac{\omega }{\omega _n}\right]}
+G( i\omega ) =\frac{\omega ^2_n}{-\omega ^2 +i2\xi \omega _n \omega +\omega ^2_n} =\frac{1}{\left[ 1-\left(\frac{\omega }{\omega _n}\right)^2\right] +i\left[ 2\xi \frac{\omega }{\omega _n}\right]}
 \end{equation*}
 Scriviamo il modulo
 \begin{equation*}
-| G( i\omega )| =\frac{1}{\sqrt{\left[ 1-\left(\frac{\omega }{\omega _n}\right)^{2}\right]^{2} +\left[ 2\xi \frac{\omega }{\omega _n}\right]^{2}}}
+| G( i\omega )| =\frac{1}{\sqrt{\left[ 1-\left(\frac{\omega }{\omega _n}\right)^2\right]^2 +\left[ 2\xi \frac{\omega }{\omega _n}\right]^2}}
 \end{equation*}
-Ci accorgiamo che si forma un massimo per $\xi < \frac{1}{\sqrt{2}} \approx 0,707$ e il massimo ha valore $| G( i\omega _{\text{max}})| =\frac{1}{2\xi \sqrt{1-\xi ^{2}}}$ in corrispondenza di $\omega _{\text{max}} =\omega _n\sqrt{1-2\xi ^{2}}$
+Ci accorgiamo che si forma un massimo per $\xi < \frac{1}{\sqrt{2}} \approx 0,707$ e il massimo ha valore $| G( i\omega _{\text{max}})| =\frac{1}{2\xi \sqrt{1-\xi ^2}}$ in corrispondenza di $\omega _{\text{max}} =\omega _n\sqrt{1-2\xi ^2}$
 
 
 \begin{figure}[htpb]\centering
@@ -3993,7 +3993,7 @@ Questo fenomeno si chiama \textbf{risonanza}.
 
 L'argomento invece vale
 \begin{equation*}
-\arg G( i\omega ) =-\arctan\left[\left( 2\xi \frac{\omega }{\omega _n}\right) /\left( 1-\left(\frac{\omega }{\omega _n}\right)^{2}\right)\right]
+\arg G( i\omega ) =-\arctan\left[\left( 2\xi \frac{\omega }{\omega _n}\right) /\left( 1-\left(\frac{\omega }{\omega _n}\right)^2\right)\right]
 \end{equation*}
 
 
@@ -4034,24 +4034,24 @@ L'argomento invece vale
 \end{tikzpicture}
 \end{figure}\FloatBarrier
 
-Nello studio di queste funzioni di trasferimento è importante mettere in evidenza il termine $\omega ^{2}_n$ a numeratore per valutare correttamente il $\mu $ del sistema, cercando la cosiddetta \textbf{forma standard}, in modo che il termine non influisca prima della sua frequenza caratteristica $\omega _n$
+Nello studio di queste funzioni di trasferimento è importante mettere in evidenza il termine $\omega ^2_n$ a numeratore per valutare correttamente il $\mu $ del sistema, cercando la cosiddetta \textbf{forma standard}, in modo che il termine non influisca prima della sua frequenza caratteristica $\omega _n$
 \begin{equation*}
-\boxed{G( s) =\frac{\mu }{s^{h}} \cdot \frac{\prod _j( 1+s\tau _j)}{\prod _j( 1+sT_j)} \cdot \frac{\omega ^{2}_n}{s^{2} +2\xi \omega _n s+\omega ^{2}_n}}
+\boxed{G( s) =\frac{\mu }{s^h} \cdot \frac{\prod _j( 1+s\tau _j)}{\prod _j( 1+sT_j)} \cdot \frac{\omega ^2_n}{s^2 +2\xi \omega _n s+\omega ^2_n}}
 \end{equation*}
 \textit{Esempio.}
 \begin{equation*}
-G( s) =\frac{10^{3} s}{( 1+s)\left( s^{2} +s+100\right)} =10s\cdot \frac{1}{1+s} \cdot \frac{100}{s^{2} +s+100}
+G( s) =\frac{10^3 s}{( 1+s)\left( s^2 +s+100\right)} =10s\cdot \frac{1}{1+s} \cdot \frac{100}{s^2 +s+100}
 \end{equation*}
 pertanto ricaviamo i valori della \textbf{pulsazione naturale} $\omega _n$ e dello \textbf{smorzamento} $\xi $
 \begin{gather*}
-\omega ^{2}_n =100\ \ \Rightarrow \ \ \omega _n =10\\
+\omega ^2_n =100\ \ \Rightarrow \ \ \omega _n =10\\
 2\xi \omega _n =1\ \ \Rightarrow \ \ \xi =\frac{1}{20} =0.05
 \end{gather*}
 Alle basse frequenze abbiamo che il tipo è $h=-1$, quindi saliamo di $+20\ \si{dB/dec}$, mentre per $\omega =1$ deve valere $10$, cioè $20\ \si{dB}$. Alla frequenza $\omega =1$ interviene un polo. Alla frequenza $\omega =10$ interviene la coppia di poli facendo scendere di $-40\ \si{dB/dec}$. Questa conferma si ha dal fatto che $r=2$.
 
 Per assicurarci che in $\omega =10$ ci sia risonanza, calcoliamo l'incremento
 \begin{equation*}
-\frac{1}{2\xi \sqrt{1-\xi ^{2}}} =\frac{1}{2( 0.05)\sqrt{1-( 0.05)^{2}}} \approx \frac{1}{2( 0.05)} =10=20\ \si{dB}
+\frac{1}{2\xi \sqrt{1-\xi ^2}} =\frac{1}{2( 0.05)\sqrt{1-( 0.05)^2}} \approx \frac{1}{2( 0.05)} =10=20\ \si{dB}
 \end{equation*}
 Ciò significa che in realtà il diagramma si trova $20\ \si{dB}$ più in alto rispetto a ciò che abbiamo disegnato nel diagramma di Bode.
 
@@ -4141,7 +4141,7 @@ Essendo inoltre $\xi $ molto prossimo a $0$, il diagramma reale della fase sarà
 
 Nel caso di \textbf{zeri complessi coniugati}, si ha la situazione opposta
 \begin{equation*}
-G( s) =\frac{\mu }{s^{h}} \cdot \frac{\prod _j( 1+s\tau _j)}{\prod _j( 1+sT_j)} \cdot \frac{s^{2} +2\xi \omega _n s+\omega ^{2}_n}{\omega ^{2}_n}
+G( s) =\frac{\mu }{s^h} \cdot \frac{\prod _j( 1+s\tau _j)}{\prod _j( 1+sT_j)} \cdot \frac{s^2 +2\xi \omega _n s+\omega ^2_n}{\omega ^2_n}
 \end{equation*}
 Anche qui è importante studiare la forma standard. Nei diagrammi si ritrova lo stesso discorso, simmetrico rispetto all'asse delle ascisse.
 
@@ -4324,7 +4324,7 @@ Lontano da $\omega _c$ possiamo approssimare $H$ così, ipotizzando quella speci
 
 È un filtro passa-basso, con banda $\{\omega :0< \omega < \omega _c\}$. Questo induce una stima del tempo di risposta. Indurre uno scalino alla $w$ significa chiedere quello specifico valore. Non conosciamo i poli di $H$, ma possiamo fare un esercizio di identificazione. Tipo $0$ e guadagno $0 \si{dB}$, cioè $1$.
 \begin{equation*}
-H( s) =\frac{1}{\left( 1+\frac{1}{\omega _c} s\right)^{2}}
+H( s) =\frac{1}{\left( 1+\frac{1}{\omega _c} s\right)^2}
 \end{equation*}
 L'esponente è $2$ perché nell'esempio considerato la pendenza finale è $-40$, in generale è diverso, ma la struttura è quella. Il primo cambio di pendenza è alla $\omega _c$ e la prima ci dice il tempo dominante.
 \begin{equation*}
@@ -4405,7 +4405,7 @@ Studiamola nello spirito della sovrapposizione degli effetti
 \begin{itemize}
 \item effetto di $\overline{w}$ costante. I termini delle produttorie nella $L( s)$ non contano nel limite per $s\rightarrow 0$\begin{equation*}
 \begin{aligned}
-\overline{e} & =F( 0)\overline{w} =\frac{1}{1+L( 0)}\overline{w} =\left(\frac{1}{1+\frac{\mu }{s^{h}}}\overline{w}\right)_{s=0} =\left(\frac{s^{h}}{s^{h} +\mu }\overline{w}\right)_{s=0}\\
+\overline{e} & =F( 0)\overline{w} =\frac{1}{1+L( 0)}\overline{w} =\left(\frac{1}{1+\frac{\mu }{s^h}}\overline{w}\right)_{s=0} =\left(\frac{s^h}{s^h +\mu }\overline{w}\right)_{s=0}\\
  & =\begin{cases}
 \text{se} \ h=0, & \frac{1}{1+\mu }\overline{w}\\
 \text{se} \ h >0, & 0\\
@@ -4426,7 +4426,7 @@ Studiamola nello spirito della sovrapposizione degli effetti
 \end{equation*}
 \item effetto di $\overline{m}$ costante\begin{equation*}
 \begin{aligned}
-\overline{e} & =F( 0)\overline{m} =\frac{L( 0)}{1+L( 0)}\overline{m} =\left(\frac{\frac{\mu }{s^{h}}}{1+\frac{\mu }{s^{h}}}\overline{m}\right)_{s=0} =\left(\frac{\mu }{s^{h} +\mu }\overline{m}\right)_{s=0}\\
+\overline{e} & =F( 0)\overline{m} =\frac{L( 0)}{1+L( 0)}\overline{m} =\left(\frac{\frac{\mu }{s^h}}{1+\frac{\mu }{s^h}}\overline{m}\right)_{s=0} =\left(\frac{\mu }{s^h +\mu }\overline{m}\right)_{s=0}\\
  & =\begin{cases}
 \text{se} \ h=0, & \frac{\mu }{1+\mu }\overline{m}\xrightarrow{\mu \rightarrow \infty }\overline{m}\\
 \text{se} \ h >0, & \overline{m}
@@ -4572,7 +4572,7 @@ Restituiscono le risposte in modulo e argomento (in gradi centigradi) ma non dis
 
 
 \begin{itemize}
-\item {\fontfamily{pcr}\selectfont conv} Restituisce i coefficienti del \ polinomio \ prodotto di due polinomi in ingresso. Ad esempio, per i coefficienti di $( 1+s)^{3}$:
+\item {\fontfamily{pcr}\selectfont conv} Restituisce i coefficienti del \ polinomio \ prodotto di due polinomi in ingresso. Ad esempio, per i coefficienti di $( 1+s)^3$:
 
 {\fontfamily{pcr}\selectfont den = conv(conv([1 1],[1 1]),[1 1])}
 \end{itemize}

@@ -1,4 +1,4 @@
-# Appunti di Equazioni alle Derivate Parziali
+# Appunti di Fondamenti di Automatica
 
 ## Quali sono i file importanti
 

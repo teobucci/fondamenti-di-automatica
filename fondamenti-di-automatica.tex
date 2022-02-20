@@ -189,10 +189,10 @@ Siano dati
 \begin{itemize}
 	\item $\dot{x}(t) =f(x(t) ,u(t))$ con $f$ abbastanza regolare
 	\item lo stato iniziale $x(0)$
-	\item un ingresso applicato $u(\tau) ,0\leqslant \tau < t$
+	\item un ingresso applicato $u(\tau) ,0\leq \tau < t$
 \end{itemize}
 
-Allora $\exists !\ x(\tau) ,0\leqslant \tau < t,\exists !\ y(\tau) =g(x(\tau) ,u(\tau))$ e possiamo estendere $t$ quanto vogliamo. Discorso analogo per quelli a tempo discreto. Per trovare la soluzione ci servono solo lo stato iniziale e l'ingresso applicato.
+Allora $\exists !\ x(\tau) ,0\leq \tau < t,\exists !\ y(\tau) =g(x(\tau) ,u(\tau))$ e possiamo estendere $t$ quanto vogliamo. Discorso analogo per quelli a tempo discreto. Per trovare la soluzione ci servono solo lo stato iniziale e l'ingresso applicato.
 \section{Linearità}
 
 Un sistema a tempo continuo è lineare se
@@ -248,16 +248,16 @@ Ovvero scriviamo tutto come
 \chapter{Modello interno}
 \section{Movimento e traiettoria}
 
-Il \textbf{movimento} è la soluzione. La \textbf{traiettoria} è il movimento proiettato sullo spazio di stato. Se $u(t) =\overline{u} \ \forall t\geqslant 0$, cioè l'ingresso è costante, non si intersecano le traiettorie.
+Il \textbf{movimento} è la soluzione. La \textbf{traiettoria} è il movimento proiettato sullo spazio di stato. Se $u(t) =\overline{u} \ \forall t\geq 0$, cioè l'ingresso è costante, non si intersecano le traiettorie.
 
-Supponendo $u(t) =\overline{u} \ \forall t\geqslant 0$, consideriamo sistemi lineari del tipo
+Supponendo $u(t) =\overline{u} \ \forall t\geq 0$, consideriamo sistemi lineari del tipo
 \begin{gather*}
 	\dot{x} (t)=Ax(t)+bu(t)\\
 	x(t+1)=Ax(t)+bu(t)
 \end{gather*}
 \section{Equilibrio: esistenza e unicità}
 \begin{definition}
-	Si dice che $\overline{x} \in \mathbb{R}^n$ è un equilibrio se $x(0) =\overline{x} \Rightarrow x(t) =\overline{x} \ \forall t\geqslant 0$.
+	Si dice che $\overline{x} \in \mathbb{R}^n$ è un equilibrio se $x(0) =\overline{x} \Rightarrow x(t) =\overline{x} \ \forall t\geq 0$.
 \end{definition}
 Ovvero, se è in uno stato e poi ci rimane per sempre, quello è uno stato di equilibrio. Esistono tanti tipi di situazioni di questo tipo.
 
@@ -452,7 +452,7 @@ Il grado di $cP(s) b$ è $< n$, mentre il grado di $d\Delta _A(s)$ è $n$. Di co
 \begin{equation*}
 	G(s) =\frac{N(s)}{D(s)} =\frac{N(s)}{\Delta _A(s)} =\frac{\beta _0 s^n +\beta _1 s^{n-1} +\cdots +\beta _n}{s^n +\alpha _1 s^{n-1} +\cdots +\alpha _n}
 \end{equation*}
-Il denominatore ha sempre grado $n$, mentre il numeratore ha grado $\leqslant n$. Indichiamo con $\beta _m$ il primo coefficiente non nullo.
+Il denominatore ha sempre grado $n$, mentre il numeratore ha grado $\leq n$. Indichiamo con $\beta _m$ il primo coefficiente non nullo.
 \begin{equation*}
 	G(s) =\frac{\beta _m s^{n-m} +\cdots +\beta _n}{s^n +\alpha _1 s^{n-1} +\cdots +\alpha _n}
 \end{equation*}
@@ -557,7 +557,7 @@ Queste definizioni generano una partizione fra i tipi di sistemi. \textit{La sta
 \begin{theorem}
 	$\Sigma $ asintoticamente stabile se e solo se
 	\begin{equation*}
-		u\left(t\right) =\overline{u} \ \forall t\geqslant 0,\ \begin{cases}
+		u\left(t\right) =\overline{u} \ \forall t\geq 0,\ \begin{cases}
 		\overline{x} \ \exists !\\
 		\lim _{t\rightarrow \infty } x\left(t\right) =\overline{x} \ \forall x\left(0\right)
 		\end{cases}
@@ -592,7 +592,7 @@ Queste definizioni generano una partizione fra i tipi di sistemi. \textit{La sta
 
 \textit{In particolare, se }$a< 0$\textit{ ci sono oscillazioni.}
 
-\textbf{Stabilità a t. continuo con }$n\geqslant 1$\textbf{ generico.} Facciamo l'ipotesi che $A$ sia diagonalizzabile e $\dot{x}\left(t\right) =Ax\left(t\right)$
+\textbf{Stabilità a t. continuo con }$n\geq 1$\textbf{ generico.} Facciamo l'ipotesi che $A$ sia diagonalizzabile e $\dot{x}\left(t\right) =Ax\left(t\right)$
 \begin{equation*}
 	x=\begin{bmatrix}
 	x_1\\
@@ -623,7 +623,7 @@ Una matrice è diagonalizzabile quando ammette $n$ autovettori linearmente indip
 sono $n$ sistemi di ordine $1$ che evolvono in maniera indipendente come $z_i\left(t\right) =e^{\lambda _i t} z_i\left(0\right)$. Allora, se $A$ è diagonalizzabile,
 \begin{enumerate}
 	\item $A$ è asint. stabile $\Leftrightarrow $ $\Re\left(\lambda _i\right) < 0\ \forall i$
-	\item $A$ è sempl. stabile $\Leftrightarrow $ $\Re\left(\lambda _i\right) \leqslant 0\ \forall i,\ \exists i:\Re\left(\lambda _i\right) =0$
+	\item $A$ è sempl. stabile $\Leftrightarrow $ $\Re\left(\lambda _i\right) \leq 0\ \forall i,\ \exists i:\Re\left(\lambda _i\right) =0$
 	\item $A$ è instabile $\Leftarrow $ $\exists i:\Re\left(\lambda _i\right)  >0$
 \end{enumerate}
 
@@ -699,7 +699,7 @@ Se invece $A$ non è diagonalizzabile, studiamo $\dot{x} =Ax$ e ricordiamo alcun
 \end{ricalg}
 Ci chiediamo allora: esistono polinomi di grado $< n$ che comunque annullano la matrice? In generale no, ma molte matrici lo hanno e si dice \textbf{polinomio minimo} di $A$: $\psi _A\left(\lambda \right)$ tale che $\psi _A\left(A\right) =0$. Ha la seguente struttura, molto simile al polinomio caratteristico, cambia l'esponente
 \begin{equation}
-	\psi _A\left(\lambda \right) =\prod ^k_{i=1}\left(\lambda -\lambda _i\right)^{b_i} ,\ 1\leqslant b_i \leqslant a
+	\psi _A\left(\lambda \right) =\prod ^k_{i=1}\left(\lambda -\lambda _i\right)^{b_i} ,\ 1\leq b_i \leq a
 \end{equation}
 $b_i$ è l'indice dell'autovalore $\lambda _i$. Ha le stesse radici di $\Delta _A\left(\lambda \right)$, ma in generale la molteplicità può essere più bassa. Andiamo ora a definire la \textbf{forma canonica di Jordan}. Nuovamente facciamo un cambio di coordinate $z=Tx$ che ci porta in $\dot{z} =\tilde{A} z$, ma stiamo considerando $A$ non diagonalizzabile, quindi non troviamo una $\tilde{A}$ diagonale, tuttavia la cosa più vicina ad essa è la forma di Jordan, che ci permette di capire quando il sistema è stabile o instabile. È una matrice diagonale a blocchi: ci sono $k$ blocchi distinti, ciascuno di dimensione $a_1 ,a_2 ,\dotsc ,a_k$ relativa all'autovalore
 \begin{equation*}
@@ -794,7 +794,7 @@ che non diverge. Dalla dimensione $2$ in poi si includono i $t$ e diverge. La di
 	\begin{itemize}
 		\item $\Re\left(\lambda _i\right) < 0\ \forall i\Leftrightarrow A$ asint. stabile
 		\item $\exists i:\Re\left(\lambda _i\right)  >0\Rightarrow A$ instabile (instabilità forte)
-		\item $\Re\left(\lambda _i\right) \leqslant 0\ \forall i,\exists i:\Re\left(\lambda _i\right) =0$
+		\item $\Re\left(\lambda _i\right) \leq 0\ \forall i,\exists i:\Re\left(\lambda _i\right) =0$
 		      \begin{itemize}
 		      	\item $b_i =1$ (ossia $a_i =n_i$) $\forall i:\Re\left(\lambda _i\right) =0\Leftrightarrow A$ sempl. stabile
 		      	\item $b_i  >1$ per almeno un $i$, cioè l'autovalore è irregolare e tale che $\Re\left(\lambda _i\right) =0\Rightarrow A$ instabile (instabilità debole)
@@ -890,7 +890,7 @@ In entrambi i casi gli autovalori sono $\lambda _1 =\lambda _2 =0$ con molteplic
 	\begin{itemize}
 		\item $\left| \lambda _i\right| < 1\ \forall i\Leftrightarrow A$ asint. stabile
 		\item $\exists i:\left| \lambda _i\right|  >1\Rightarrow A$ instabile (instabilità forte)
-		\item $\left| \lambda _i\right| \leqslant 1\ \forall i,\exists i:\left| \lambda _i\right| =1$
+		\item $\left| \lambda _i\right| \leq 1\ \forall i,\exists i:\left| \lambda _i\right| =1$
 		      \begin{itemize}
 		      	\item se $b_i =1\ \left(a_i =n_i\right) \ \forall i\ \left| \lambda _i\right| =1$, cioè quelli critici sono regolari, $\Rightarrow A$ sempl. stabile
 		      	\item se $b_i  >1\ \left(a_i \neq n_i\right)$ per almeno un $i:\left| \lambda _i\right| =1\Rightarrow A$ instabile (debolmente)
@@ -907,7 +907,7 @@ In entrambi i casi gli autovalori sono $\lambda _1 =\lambda _2 =0$ con molteplic
 
 Consideriamo $x_L\left(t\right) =A^t x\left(0\right)$. Un sistema discreto si dice \textbf{a memoria finita} se $\exists \overline{t}  >0:x_L\left(\overline{t}\right) =0\ \forall x\left(0\right)$, ossia stiamo chiedendo che $A^t$ diventi $0$ in un tempo finito, ossia $A$ è nilpotente $\left(A^{\overline{t}} =0\right)$, ossia tutti gli autovalori sono nulli $\lambda _i =0\ \forall i$.
 
-\textit{In tal caso il tempo di risposta è sempre }$\leqslant n$\textit{, dato che }$A^n =0$\textit{.}
+\textit{In tal caso il tempo di risposta è sempre }$\leq n$\textit{, dato che }$A^n =0$\textit{.}
 \section{Test di stabilità}
 
 Un modo furbo per vedere se è stabile.
@@ -970,7 +970,7 @@ Non lo dimostriamo perché è rognoso ma si verifica che
 \end{equation*}
 \subsection{Test dei coefficienti del polinomio caratteristico}
 
-Si tratta del caso a \textit{tempo continuo} con $n\geqslant 2$. Se il polinomio caratteristico di $A$ vale
+Si tratta del caso a \textit{tempo continuo} con $n\geq 2$. Se il polinomio caratteristico di $A$ vale
 \begin{equation*}
 	\Delta _A\left(\lambda \right) =\lambda ^n +\alpha _1 \lambda ^{n-1} +\cdots +\alpha 
 \end{equation*}
@@ -1045,8 +1045,8 @@ Non sappiamo nulla su dinamiche oscillatorie, tempi di risposta ecc. Vediamo anc
 
 Consideriamo due tipi di matrici, rispettivamente per i sistemi a tempo continuo e discreto:
 \begin{itemize}
-	\item t. continuo: \textbf{matrici di Metzler} (o matrici essenzialmente non negative), sono tali che $a_{ij} \geqslant 0,\forall i\neq j$
-	\item t. discreto: \textbf{matrici non negative}, sono tali che $a_{ij} \geqslant 0$
+	\item t. continuo: \textbf{matrici di Metzler} (o matrici essenzialmente non negative), sono tali che $a_{ij} \geq 0,\forall i\neq j$
+	\item t. discreto: \textbf{matrici non negative}, sono tali che $a_{ij} \geq 0$
 \end{itemize}
 
 Se sussistono queste cose, vale la seguente proprietà: \textit{se tutte le componenti del vettore di stato }$x_i(t)$\textit{ sono non negative allo stato iniziale, allora si mantengono tali} (\textbf{sistemi positivi}); questa proprietà è molto comune, ad esempio nei sistemi compartimentali. Vediamo un'altra interessante proprietà di questi sistemi, parte del lavoro sviluppato da Frobenius e Perron. Ricordiamo che
@@ -1085,8 +1085,8 @@ Allora valgono le seguenti $4$ disuguaglianze
 \begin{equation*}
 	\boxed{
 		\begin{array}{{>{\displaystyle}l}}
-			\min r_i \leqslant \lambda _D \leqslant \max r_i \\
-			\min c_i \leqslant \lambda _D \leqslant \max c_i 
+			\min r_i \leq \lambda _D \leq \max r_i \\
+			\min c_i \leq \lambda _D \leq \max c_i 
 		\end{array}
 	}
 \end{equation*}
@@ -1295,7 +1295,7 @@ Studieremo le traiettorie per i sistemi a t. continuo e con $n=2$. Il sistema ch
 \begin{equation*}
 	\dot{x} =Ax+bu
 \end{equation*}
-ma possiamo semplificare il nostro studio supponendo $u\left(t\right) =\overline{u} =0,\ \forall t\geqslant 0$. Non perdiamo generalità in quanto a meno di un cambio di coordinate possiamo traslare il movimento. Infatti se $\overline{u} \neq 0$ e $\overline{x}$ è il nostro equilibrio, si ha
+ma possiamo semplificare il nostro studio supponendo $u\left(t\right) =\overline{u} =0,\ \forall t\geq 0$. Non perdiamo generalità in quanto a meno di un cambio di coordinate possiamo traslare il movimento. Infatti se $\overline{u} \neq 0$ e $\overline{x}$ è il nostro equilibrio, si ha
 \begin{equation*}
 	\begin{aligned}
 		z=x-\overline{x} \Rightarrow \dot{z} & =\dot{x}                                           \\
@@ -1672,7 +1672,7 @@ Ricordiamo che in generale i sistemi si scrivono come
 	\dot{x}(t) =f(x(t) ,u(t))\\
 	x(t+1) =f(x(t) ,u(t))
 \end{gather*}
-Rinnoviamo l'ipotesi di ingresso costante $u(t) =\overline{u} \ \forall t\geqslant 0$. Dato che lo possiamo considerare come un parametro, studieremo
+Rinnoviamo l'ipotesi di ingresso costante $u(t) =\overline{u} \ \forall t\geq 0$. Dato che lo possiamo considerare come un parametro, studieremo
 \begin{gather*}
 	\dot{x}(t) =f(x(t))\\
 	x(t+1) =f(x(t))
@@ -1689,7 +1689,7 @@ Gli equilibri, analogamente ai sistemi lineari, li troviamo imponendo
 La trattazione di equilibrio è dovuta a Liapunov. Un equilibrio è
 \begin{itemize}
 	\item \textbf{stabile} se $\forall \varepsilon  >0\ \exists \delta _{\varepsilon }  >0$ tale che\begin{equation*}
-	      \Vert x(0) -\overline{x}\Vert < \delta _{\varepsilon } \Rightarrow \Vert x(t) -\overline{x}\Vert < \varepsilon \ \ \forall x(0) :\Vert x(0) -\overline{x}\Vert < \delta _{\varepsilon } ,\forall t\geqslant 0
+	      \Vert x(0) -\overline{x}\Vert < \delta _{\varepsilon } \Rightarrow \Vert x(t) -\overline{x}\Vert < \varepsilon \ \ \forall x(0) :\Vert x(0) -\overline{x}\Vert < \delta _{\varepsilon } ,\forall t\geq 0
 	\end{equation*}
 	
 	cioè tale per cui per stati iniziali vicini all'equilibrio, non mi allontano
@@ -1806,7 +1806,7 @@ Consideriamo ora $\dot{x} =f(x)$ con $\overline{x}$ equilibrio e il suo sistema 
 	\item centro
 \end{itemize}
 
-È un insieme definito, in $\mathbb{R}^n$, localmente nell'intorno di un punto, tale da essere localmente in corrispondenza biunivoca con uno spazio di $\mathbb{R}^m ,m\leqslant n$. Per esempio una curva in un piano.
+È un insieme definito, in $\mathbb{R}^n$, localmente nell'intorno di un punto, tale da essere localmente in corrispondenza biunivoca con uno spazio di $\mathbb{R}^m ,m\leq n$. Per esempio una curva in un piano.
 
 Gli autovalori del sistema linearizzato sono
 \begin{equation*}
@@ -2121,7 +2121,7 @@ $X_{NO}(t)$ è un sottospazio di $\mathbb{R}^n$.
 
 Se $t_2  >t_1 \Rightarrow X_{NO}(t_2) \subset X_{NO}(t_1)$. Se l'uscita è nulla in $[ 0,t_2]$, allora lo è anche in $[ 0,t_1]$. Al passare del tempo tende a diventare più piccolo, con discontinuità perché è un sottospazio. Definiamo $t^{*}$ l'ultimo istante in cui non cambia $X_{NO}$, cioè
 \begin{equation*}
-	X_{NO}(t) =X_{NO}\left(t^{*}\right) \ \forall t\geqslant t^{*}
+	X_{NO}(t) =X_{NO}\left(t^{*}\right) \ \forall t\geq t^{*}
 \end{equation*}
 Questo spazio $X_{NO}\left(t^{*}\right)$ lo chiamiamo semplicemente \textbf{sottospazio di non osservabilità}.
 \begin{definition}
@@ -2767,7 +2767,7 @@ La trasformata gode delle seguenti \textbf{proprietà}
 	\end{equation*}
 	\item \textbf{traslazione}, sia $f(t)\rightarrow F(s)$\begin{equation}
 	      h(t) =\begin{cases}
-	      0, & 0\leqslant t< T\\
+	      0, & 0\leq t< T\\
 	      f(t-T) , & t >T
 	\end{cases} \ \ \xrightarrow{\mathcal{L}
 		} \ \ H(s) =F(s) e^{-sT}
@@ -3034,7 +3034,7 @@ $r=1$, allora
 	
 	Allora
 	\begin{equation*}
-		\boxed{m_s \leqslant N\leqslant m_s +\delta }
+		\boxed{m_s \leq N\leq m_s +\delta }
 	\end{equation*}
 	Corollario:
 	\begin{equation*}
@@ -3055,7 +3055,7 @@ con $T_1 ,T_2  >0$ per la stabilità, $\mu  >0$ a piacere, ma $\tau < 0$. Si ha 
 \begin{equation*}
 	y(0) =0\ \ \ \ \dot{y}(0) =\frac{\mu \tau }{T_1 T_2} < 0
 \end{equation*}
-parte verso il basso, con un estremo dato che $1\leqslant N\leqslant 1$.
+parte verso il basso, con un estremo dato che $1\leq N\leq 1$.
 
 Consideriamo un altro caso con zero nell'origine
 \begin{equation*}
@@ -3264,7 +3264,7 @@ Allora
 
 Si dice \textbf{filtro passa basso}.
 \begin{equation*}
-	\text{Banda passante} \ =\left\{\omega :\ \frac{G_{\text{max}}}{\sqrt{2}} \leqslant | G(i\omega)| \leqslant G_{\text{max}}\right\}
+	\text{Banda passante} \ =\left\{\omega :\ \frac{G_{\text{max}}}{\sqrt{2}} \leq | G(i\omega)| \leq G_{\text{max}}\right\}
 \end{equation*}
 
 Se studiamo
@@ -3893,7 +3893,7 @@ In base alla grandezza che vorremo descrivere (errore o uscita di solito) e agli
 
 Non dobbiamo studiare $L$ ma $H(s) =\frac{L(s)}{1+L(s)}$. Usiamo il \textbf{criterio di Bode}. Immaginiamo $L(s)$ propria e
 \begin{itemize}
-	\item $\Re(p_i) \leqslant 0\ \forall i$ (poli di $L(s)$)
+	\item $\Re(p_i) \leq 0\ \forall i$ (poli di $L(s)$)
 	\item $| L(i\omega)| $ attraversa $0\ \si{dB}$ una sola volta in $\omega =\omega _c$ (quindi per forza dall'alto verso il basso)
 \end{itemize}
 

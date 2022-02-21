@@ -4,7 +4,7 @@ Il file principale è `fondamenti-di-automatica.tex`.
 
 ## Modifiche ed errori
 
-Questo è il risultato di appunti presi durante il corso, trascritti e rivisti in parte durante la preparazione dell'esame. Di conseguenza, conterrà inevitabilmente errori e imprecisioni. Specifichiamo che nessun docente ha revisionato il contenuto. Pertanto, usatelo a piacimento e con responsabilità. E se proprio volete essere dei pro, potete fare una PR per aggiustare errori o proporre modifiche.
+Questo è il risultato di appunti presi durante il corso, trascritti e rivisti in parte durante la preparazione dell'esame. Di conseguenza, conterrà inevitabilmente errori e imprecisioni. Nessun docente ha revisionato il contenuto. Pertanto, usatelo a piacimento e con responsabilità. E se proprio volete essere dei pro, potete fare una PR per aggiustare errori o proporre modifiche.
 
 ## Licenza
 

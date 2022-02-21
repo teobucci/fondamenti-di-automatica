@@ -1,7 +1,5 @@
 # Appunti di Fondamenti di Automatica
 
-## Quali sono i file importanti
-
 Il file principale è `fondamenti-di-automatica.tex`.
 
 ## Modifiche ed errori

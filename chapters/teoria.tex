@@ -1,104 +1,4 @@
-\documentclass[10pt,a4paper]{book}
-
-\input{style.tex}
-
-\usepackage{geometry}
-\geometry{
-	nomarginpar, % Toglie doppi margini
-	margin=1in, % Imposta i margini a 1 inch
-}
-
-\DeclareMathOperator{\tr}{tr}
-\DeclareMathOperator{\rank}{rank}
-\DeclareMathOperator{\Span}{span}
-\DeclareMathOperator{\imp}{imp}
-\DeclareMathOperator{\sca}{sca}
-\DeclareMathOperator{\ramp}{ramp}
-
-
-\usepackage{chngcntr}
-\counterwithout{figure}{chapter}
-\counterwithout{equation}{chapter}
-
-\allowdisplaybreaks[4] % Consente di rompere equazioni su più pagine
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{document}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% COPERTINA
-
-\pagestyle{empty} % SWITCHA PER NON AVERE NUMERO PAGINA
-\vspace*{\fill}
-%Teo Bucci \\
-\begin{center}
-	{\large \textsc{Appunti di}}\\
-	\vspace*{0.4cm}
-	{\Huge \textsc{Fondamenti di Automatica}}\\
-	\vspace*{1cm}
-	{\large {Dalle lezioni del Prof. Carlo Piccardi}}\\
-	\vspace*{0.1cm}
-	{\large per il corso di Ingegneria Matematica}\\
-	\vspace*{0.4cm}
-	{\large {di Teo Bucci}}\\
-	\vspace*{1cm}
-	Politecnico di Milano\\A.A. 2019/2020
-\end{center}
-\vspace*{\fill}
-\newpage
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\thispagestyle{empty}
-%\clearpage
-
-{\Large \textit{Appunti di Fondamenti di Automatica}}
-
-\vspace*{\fill}
-
-\textcopyright \ Gli autori, tutti i diritti riservati
-
-Sono proibite tutte le riproduzioni senza autorizzazione scritta degli autori.
-
-Revisione del \today
-
-Developed by Teo Bucci - \texttt{teobucci8@gmail.com}\\ \\
-Compiled with \ensuremath\heartsuit \\
-
-%\textbf{Prefazione}
-
-Per segnalare eventuali errori o suggerimenti potete contattare gli autori.
-
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% INDICE
-\addtocontents{toc}{\protect\thispagestyle{empty}}
-\tableofcontents
-\newpage
-
-% PAGINA VUOTA
-%$ $\\
-%\newpage
-\pagestyle{fancy} % RISWITCHA PER RIAVERE IL NUMERO PAGINA
-\setcounter{page}{1} % FA RIPARTIRE IL CONTATORE PAGINA DA 1
-%\newpage
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%!TEX root = ../main.tex
 
 \chapter{Sistemi dinamici lineari a tempo continuo e a tempo discreto}
 
@@ -135,7 +35,9 @@ Questo definisce un sistema dinamico. $\dot{x}$ denota la derivata rispetto al t
 		\dot{x}_2 (t)=\frac{1}{c}(u(t)-x_1 (t))       
 	\end{cases}
 \end{equation*}
+
 \section{Sistemi a tempo discreto}
+
 Un'equazione alle differenze è del tipo
 \begin{equation*}
 	x(t+1) =f(x(t) ,u(t)) ,\ t=0,1,2,\dotsc 
@@ -193,6 +95,7 @@ Siano dati
 \end{itemize}
 
 Allora $\exists !\ x(\tau) ,0\leq \tau < t,\exists !\ y(\tau) =g(x(\tau) ,u(\tau))$ e possiamo estendere $t$ quanto vogliamo. Discorso analogo per quelli a tempo discreto. Per trovare la soluzione ci servono solo lo stato iniziale e l'ingresso applicato.
+
 \section{Linearità}
 
 Un sistema a tempo continuo è lineare se
@@ -245,7 +148,9 @@ Ovvero scriviamo tutto come
 			y(t)    & =cx(t) +du(t) 
 		\end{aligned} \ \ }
 \end{equation*}
+
 \chapter{Modello interno}
+
 \section{Movimento e traiettoria}
 
 Il \textbf{movimento} è la soluzione. La \textbf{traiettoria} è il movimento proiettato sullo spazio di stato. Se $u(t) =\overline{u} \ \forall t\geq 0$, cioè l'ingresso è costante, non si intersecano le traiettorie.
@@ -255,48 +160,50 @@ Supponendo $u(t) =\overline{u} \ \forall t\geq 0$, consideriamo sistemi lineari 
 	\dot{x} (t)=Ax(t)+bu(t)\\
 	x(t+1)=Ax(t)+bu(t)
 \end{gather*}
+
 \section{Equilibrio: esistenza e unicità}
-\begin{definition}
-	Si dice che $\overline{x} \in \mathbb{R}^n$ è un equilibrio se $x(0) =\overline{x} \Rightarrow x(t) =\overline{x} \ \forall t\geq 0$.
-\end{definition}
+
+\begin{defn}
+	Si dice che $\overline{x} \in \mathbb{R}^n$ è un equilibrio se $x(0) =\overline{x} \implies x(t) =\overline{x} \ \forall t\geq 0$.
+\end{defn}
 Ovvero, se è in uno stato e poi ci rimane per sempre, quello è uno stato di equilibrio. Esistono tanti tipi di situazioni di questo tipo.
 
 A tempo continuo l'equilibrio si traduce in
 \begin{equation*}
-	0=\dot{x} (t)=A\underbrace{x(t)}_{\overline{x}} +bu(t)\Rightarrow A\overline{x} =-b\overline{u}
+	0=\dot{x} (t)=A\underbrace{x(t)}_{\overline{x}} +bu(t)\implies A\overline{x} =-b\overline{u}
 \end{equation*}
 È un sistema lineare, ricordiamo quindi i risultati di Rouche-Capelli-Cramer
 \begin{enumerate}
-	\item se $\det A\neq 0\Rightarrow \exists A^{-1}$ e $\boxed{\overline{x} =-A^{-1} b\overline{u}}$
-	\item se $\det A=0\Rightarrow \nexists A^{-1}$
+	\item se $\det A\neq 0\implies \exists A^{-1}$ e $\boxed{\overline{x} =-A^{-1} b\overline{u}}$
+	\item se $\det A=0\implies \nexists A^{-1}$
 	      \begin{enumerate}
 	      	\item $\nexists \overline{x}$, non esiste nessuno stato di equilibrio
 	      	\item $\exists \infty \overline{x}$, esistono infiniti equilibri
 	      \end{enumerate}
 \end{enumerate}
-\begin{definition}
+\begin{defn}
 	Si dice \textbf{guadagno} la quantità $\mu $
 	\begin{equation*}
-		\overline{y} =\mu \overline{u} \ \ \Rightarrow \ \ \boxed{\mu =\frac{\overline{y}}{\overline{u}}}
+		\overline{y} =\mu \overline{u} \ \ \implies \ \ \boxed{\mu =\frac{\overline{y}}{\overline{u}}}
 	\end{equation*}
-\end{definition}
+\end{defn}
 La si può ricavare dalle relazioni del sistema a tempo continuo in questo modo
 \begin{equation*}
 	\begin{aligned}
 		\overline{y} & =c\overline{x} +d\overline{u}           \\
 		             & =-cA^{-1} b\overline{u} +d\overline{u}  \\
 		             & =\left(-cA^{-1} b+d\right)\overline{u} 
-	\end{aligned} \ \ \Rightarrow \ \ \boxed{\mu =-cA^{-1} b+d}
+	\end{aligned} \ \ \implies \ \ \boxed{\mu =-cA^{-1} b+d}
 \end{equation*}
 
 Nel caso a tempo discreto l'equilibrio significa
 \begin{equation*}
-	\overline{x} =A\overline{x} +b\overline{u} \Rightarrow I\overline{x} -A\overline{x} =b\overline{u} \Rightarrow (I-A)\overline{x} =b\overline{u}
+	\overline{x} =A\overline{x} +b\overline{u} \implies I\overline{x} -A\overline{x} =b\overline{u} \implies (I-A)\overline{x} =b\overline{u}
 \end{equation*}
 È un sistema lineare, valgono gli stessi risultati di prima:
 \begin{enumerate}
-	\item se $\det(I-A) \neq 0\Rightarrow \exists (I-A)^{-1}$ e $\boxed{\overline{x} =(I-A)^{-1} b\overline{u}}$
-	\item se $\det(I-A) =0\Rightarrow \nexists (I-A)^{-1}$
+	\item se $\det(I-A) \neq 0\implies \exists (I-A)^{-1}$ e $\boxed{\overline{x} =(I-A)^{-1} b\overline{u}}$
+	\item se $\det(I-A) =0\implies \nexists (I-A)^{-1}$
 	      \begin{enumerate}
 	      	\item $\nexists \overline{x}$, non esiste nessuno stato di equilibrio
 	      	\item $\exists \infty \overline{x}$, esistono infiniti equilibri
@@ -309,21 +216,24 @@ Mentre per il guadagno è (si noti che è diverso dal caso a tempo continuo)
 		\overline{y} & =c\overline{x} +d\overline{u}               \\
 		             & =c(I-A)^{-1} b\overline{u} +d\overline{u}  \\
 		             & =\left(c(I-A)^{-1} b+d\right)\overline{u} 
-	\end{aligned} \ \ \Rightarrow \ \ \boxed{\mu =c(I-A)^{-1} b+d}
+	\end{aligned} \ \ \implies \ \ \boxed{\mu =c(I-A)^{-1} b+d}
 \end{equation*}
 Nota: nei casi in cui le matrici (rispettivamente $A$ nel caso continuo e $(I-A)$ nel caso discreto) non siano invertibili, \textbf{il guadagno non è definito}.
+
 \section{Casi critici}
-\begin{ricalg}
+
+\begin{rem}
 	Data una qualunque matrice quadrata $A$, il determinante è uguale al prodotto degli autovalori:
 	\begin{equation*}
 		\det A=\prod ^n_{i=1} \lambda _i
 	\end{equation*}
-\end{ricalg}
+\end{rem}
 Quindi:
 \begin{itemize}
-	\item tempo continuo: $\det A=0\Leftrightarrow \exists \lambda _i =0$ (se ne esiste almeno uno nullo)
-	\item tempo discreto: $\det(I-A) =0\Leftrightarrow \exists \lambda _i =1$ (se ne esiste almeno uno unitario)
+	\item tempo continuo: $\det A=0\iff \exists \lambda _i =0$ (se ne esiste almeno uno nullo)
+	\item tempo discreto: $\det(I-A) =0\iff \exists \lambda _i =1$ (se ne esiste almeno uno unitario)
 \end{itemize}
+
 \section{Formula di Lagrange e sovrapposizione degli effetti}
 
 Nei sistemi dinamici lineari a tempo continuo abbiamo già detto che il movimento è univocamente determinato. Vale allora la formula di Lagrange, la quale ci dice che il movimento è separabile in due fattori additivi, movimento libero e movimento forzato:
@@ -345,28 +255,28 @@ ed è detto \textbf{matrice di transizione}. Non si pone il problema di converge
 Il \textbf{movimento libero} è quello che abbiamo se il sistema funziona ad ingresso $u=0$.
 
 Il \textbf{movimento forzato} è quello che osserviamo se il sistema parte dallo stato iniziale $x(0) =0$.
-\begin{theorem}
+\begin{thm}
 	[Sovrapposizione di cause-effetti]
 	\begin{equation*}
 		\begin{drcases}
 			x_1(0)\\
 			u_1(t)
-		\end{drcases} \Rightarrow x_1(t) \ \ \ \ \begin{drcases}
+		\end{drcases} \implies x_1(t) \ \ \ \ \begin{drcases}
 		x_2(0)\\
 		u_2(t)
-		\end{drcases} \Rightarrow x_2(t)
+		\end{drcases} \implies x_2(t)
 	\end{equation*}
 	Allora
 	\begin{equation*}
 		\begin{drcases}
 			x_3(0) =\alpha x_1(0) +\beta x_2(0)\\
 			u_3(t) =\alpha u_1(t) +\beta u_2(t)
-		\end{drcases} \Rightarrow x_3(t) =\alpha x_1(t) +\beta x_2(t)
+		\end{drcases} \implies x_3(t) =\alpha x_1(t) +\beta x_2(t)
 	\end{equation*}
-\end{theorem}
-\begin{ricalg}
+\end{thm}
+\begin{rem}
 	Una matrice $A\in \mathbb{R}^{n\times n}$ si dice \textbf{nilpotente} se ha tutti gli autovalori nulli, in particolare in tal caso si ha $A^n =0$.
-\end{ricalg}
+\end{rem}
 \textbf{Formula di Lagrange per sistemi a tempo discreto.} Il caso discreto è più facile da trattare e si può ricavare a partire da $x(t+1)=Ax(t)+bu(t)$
 \begin{equation*}
 	\begin{aligned}
@@ -386,6 +296,7 @@ Allora
 		\end{aligned}
 	}
 \end{equation}
+
 \section{Modello esterno e funzione di trasferimento}
 
 Per i sistemi a tempo continuo, introduciamo l'operatore $s$ (trasformata di Laplace)
@@ -410,7 +321,7 @@ Quindi riassumendo entrambi i casi:
 	      \begin{cases}
 	      	\dot{x} =Ax+bu \\
 	      	y=cx+du        
-	      \end{cases} \ \ \rightarrow \ \ \begin{cases}
+	      \end{cases} \ \ \implies \ \ \begin{cases}
 	      sx=Ax+bu\\
 	      y=cx+du
 	\end{cases}
@@ -419,7 +330,7 @@ Quindi riassumendo entrambi i casi:
 	      \begin{cases}
 	      	x(t+1)=Ax(t)+bu(t) \\
 	      	y(t)=cx(t)+du(t)   
-	      \end{cases} \ \ \rightarrow \ \ \begin{cases}
+	      \end{cases} \ \ \implies \ \ \begin{cases}
 	      zx=Ax+bu\\
 	      y=cx+du
 	\end{cases}
@@ -459,8 +370,8 @@ Il denominatore ha sempre grado $n$, mentre il numeratore ha grado $\leq n$. Ind
 e fattorizziamo questi polinomi
 \begin{equation}
 	G(s) =\frac{\beta _m(s-q_1)(s-q_2) \cdots (s-q_{n-m})}{(s-p_1)(s-p_2) \cdots (s-p_n)}\begin{array}{ l }
-	\rightarrow \ \text{zeri}\\
-	\rightarrow \ \text{poli}
+	\implies \ \text{zeri}\\
+	\implies \ \text{poli}
 	\end{array}
 \end{equation}
 I $p_i$ sono le radici del denominatore e sono dette \textbf{poli}, i $q_i$ sono le radici del numeratore e sono detti \textbf{zeri}. Se dovessero esserci poli e zeri uguali, ci sarebbe una terrificante semplificazione e perdita di grado.
@@ -476,6 +387,7 @@ Notiamo infine un risultato importante:
 	\end{array}
 \end{equation*}
 Nel caso continuo, questo risultato non vale se $s=0$ è un polo, cioè è a denominatore, infatti si dividerebbe per $0$; anche in questo caso \textbf{il guadagno non è definito}. Analogamente si ragiona per il caso discreto.
+
 \section{Problema della realizzazione}
 
 Da modello interno $(A,b,c,d)$ a esterno $(G(s))$ il passaggio è univoco $G(s) =c(sI-A)^{-1} b+d$, il passaggio inverso si chiama realizzazione.
@@ -486,7 +398,7 @@ Data $G(s)$ la quaterna non è unica. Se ne abbiamo una, qualunque altra ottenut
 	x_1\\
 	\vdots \\
 	x_n
-	\end{bmatrix} \in \mathbb{R}^n \ \ \rightarrow \ \ z=Tx
+	\end{bmatrix} \in \mathbb{R}^n \ \ \implies \ \ z=Tx
 \end{equation*}
 dove $T\in \mathcal{M}(n\times n) ,\det T\neq 0$ e quindi $x=T^{-1} z$.
 
@@ -540,36 +452,37 @@ Tra tutte le forme, con $d=0$, la forma canonica è
 		\end{bmatrix}
 	\end{aligned}
 \end{equation*}
+
 \chapter{Stabilità}
 
-Chiamiamo $\Sigma $ il sistema lineare che stiamo studiando. Studiare la stabilità significa chiedersi cosa succede al sistema per $t\rightarrow \infty $ quando non si parte dall'equilibrio. Sappiamo che la soluzione si può scrivere come somma di movimento libero e movimento forzato:
+Chiamiamo $\Sigma $ il sistema lineare che stiamo studiando. Studiare la stabilità significa chiedersi cosa succede al sistema per $t\implies \infty $ quando non si parte dall'equilibrio. Sappiamo che la soluzione si può scrivere come somma di movimento libero e movimento forzato:
 \begin{equation*}
 	x\left(t\right) =x_L\left(t\right) +x_F\left(t\right)
 \end{equation*}
 \textit{La stabilità riguarda solo il movimento libero.}
 \begin{enumerate}
-	\item $\Sigma $ è \textbf{asintoticamente stabile} se $\lim\limits _{t\rightarrow \infty } x_L\left(t\right) =0\ \forall x\left(0\right)$, ovvero se $\phi \left(t\right) x\left(0\right)\rightarrow 0$. Tutte le funzioni dentro $\phi \left(t\right)$ devono tendere a $0$, quindi $x\left(t\right)\rightarrow x_F\left(t\right)$, si perde la memoria iniziale del sistema.
+	\item $\Sigma $ è \textbf{asintoticamente stabile} se $\lim\limits _{t\implies \infty } x_L\left(t\right) =0\ \forall x\left(0\right)$, ovvero se $\phi \left(t\right) x\left(0\right)\implies 0$. Tutte le funzioni dentro $\phi \left(t\right)$ devono tendere a $0$, quindi $x\left(t\right)\implies x_F\left(t\right)$, si perde la memoria iniziale del sistema.
 	\item $\Sigma $ è \textbf{semplicemente stabile} se $x_L\left(t\right) =\phi \left(t\right) x\left(0\right)$ è limitato $\forall x\left(0\right)$ ma esiste almeno un $x\left(0\right)$ per cui $\phi \left(t\right) x\left(0\right) \nrightarrow 0$ (il limite o non esiste o non tende a zero).
 	\item $\Sigma $ è \textbf{instabile} se esiste un $x\left(0\right)$ per cui $x_L\left(t\right) =\phi \left(t\right) x\left(0\right)$ è illimitato (diverge).
 \end{enumerate}
 
 Queste definizioni generano una partizione fra i tipi di sistemi. \textit{La stabilità non dipende dall'ingresso }$u$\textit{ o da }$b$\textit{, ma solo dalla matrice }$A$\textit{.}
-\begin{theorem}
+\begin{thm}
 	$\Sigma $ asintoticamente stabile se e solo se
 	\begin{equation*}
 		u\left(t\right) =\overline{u} \ \forall t\geq 0,\ \begin{cases}
 		\overline{x} \ \exists !\\
-		\lim _{t\rightarrow \infty } x\left(t\right) =\overline{x} \ \forall x\left(0\right)
+		\lim _{t\implies \infty } x\left(t\right) =\overline{x} \ \forall x\left(0\right)
 		\end{cases}
 	\end{equation*}
-\end{theorem}
+\end{thm}
 \textbf{Stabilità a t. continuo con }$n=1$\textbf{ }
 \begin{equation*}
-	\dot{x} =ax+bu\ \ \Rightarrow \ \ x_L\left(t\right) =\phi \left(t\right) x\left(0\right) =e^{at} x\left(0\right)
+	\dot{x} =ax+bu\ \ \implies \ \ x_L\left(t\right) =\phi \left(t\right) x\left(0\right) =e^{at} x\left(0\right)
 \end{equation*}
 \begin{itemize}
 	\item se $a< 0$ è asint. stabile. Se inoltre l'ingresso è costante il valore a equilibrio si trova\begin{equation*}
-	      0=a\overline{x} +b\overline{u} \Rightarrow \overline{x} =-\frac{b}{a}\overline{u}
+	      0=a\overline{x} +b\overline{u} \implies \overline{x} =-\frac{b}{a}\overline{u}
 	\end{equation*}
 	
 	Introduciamo la \textbf{costante di tempo a t. continuo}\begin{equation*}
@@ -584,7 +497,7 @@ Queste definizioni generano una partizione fra i tipi di sistemi. \textit{La sta
 \textbf{Stabilità a t. discreto con} $n=1$
 \begin{itemize}
 	\item se $\left| a\right| < 1$ è asint. stabile con \textbf{costante di tempo a t. discreto}\begin{equation*}
-	      \boxed{T=-\frac{1}{\log\left| a\right| }} \ \ \Rightarrow \ \ \boxed{T_R \simeq 5T=-\frac{5}{\log\left| a\right| }}
+	      \boxed{T=-\frac{1}{\log\left| a\right| }} \ \ \implies \ \ \boxed{T_R \simeq 5T=-\frac{5}{\log\left| a\right| }}
 	\end{equation*}
 	\item se $\left| a\right| =1$ è sempl. stabile
 	\item se $\left| a\right|  >1$ è instabile
@@ -614,7 +527,7 @@ Allora $\dot{z} =\tilde{A} z,\tilde{A} =TAT^{-1}$ e $\sigma \left(A\right) =\sig
 \end{equation*}
 Una matrice è diagonalizzabile quando ammette $n$ autovettori linearmente indipendenti, cioè quando gli autovalori sono regolari. In particolare la condizione è soddisfatta se gli autovalori sono distinti. Si ha che
 \begin{equation*}
-	\dot{z} =\tilde{A} z\ \ \Leftrightarrow \ \ \begin{array}{ c }
+	\dot{z} =\tilde{A} z\ \ \iff \ \ \begin{array}{ c }
 	\dot{z}_1 =\lambda _1 z_1\\
 	\vdots \\
 	\dot{z}_n =\lambda _n z_n
@@ -622,9 +535,9 @@ Una matrice è diagonalizzabile quando ammette $n$ autovettori linearmente indip
 \end{equation*}
 sono $n$ sistemi di ordine $1$ che evolvono in maniera indipendente come $z_i\left(t\right) =e^{\lambda _i t} z_i\left(0\right)$. Allora, se $A$ è diagonalizzabile,
 \begin{enumerate}
-	\item $A$ è asint. stabile $\Leftrightarrow $ $\Re\left(\lambda _i\right) < 0\ \forall i$
-	\item $A$ è sempl. stabile $\Leftrightarrow $ $\Re\left(\lambda _i\right) \leq 0\ \forall i,\ \exists i:\Re\left(\lambda _i\right) =0$
-	\item $A$ è instabile $\Leftarrow $ $\exists i:\Re\left(\lambda _i\right)  >0$
+	\item $A$ è asint. stabile $\iff $ $\Re\left(\lambda _i\right) < 0\ \forall i$
+	\item $A$ è sempl. stabile $\iff $ $\Re\left(\lambda _i\right) \leq 0\ \forall i,\ \exists i:\Re\left(\lambda _i\right) =0$
+	\item $A$ è instabile $\impliedby $ $\exists i:\Re\left(\lambda _i\right)  >0$
 \end{enumerate}
 
 Gli autovalori sono le radici del polinomio caratteristico
@@ -654,7 +567,7 @@ Se gli autovalori dominanti sono una coppia complessa coniugata la costante di t
 \begin{equation*}
 	\boxed{T_{1,2} =-\frac{1}{\Re\left(\lambda _{1,2}\right)}}
 \end{equation*}
-\begin{ricalg}
+\begin{rem}
 	Se $A$ è triangolare a blocchi, il suo spettro è l'unione degli spettri dei blocchi.
 	\begin{equation*}
 		A=\begin{bmatrix}
@@ -669,19 +582,19 @@ Se gli autovalori dominanti sono una coppia complessa coniugata la costante di t
 		\begin{array}{ c c }
 			0 & 0 
 		\end{array} & e
-		\end{bmatrix} \Rightarrow \sigma \left(A\right) =\sigma \left(\begin{bmatrix}
+		\end{bmatrix} \implies \sigma \left(A\right) =\sigma \left(\begin{bmatrix}
 		a & b\\
 		c & d
 		\end{bmatrix}\right) \cup \sigma \left(\begin{bmatrix}
 		e
 		\end{bmatrix}\right)
 	\end{equation*}
-\end{ricalg}
-\begin{ricalg}
+\end{rem}
+\begin{rem}
 	Se la matrice è a coefficienti reali, allora se ci sono autovalori complessi, questi sono per forza coniugati.
-\end{ricalg}
+\end{rem}
 Se invece $A$ non è diagonalizzabile, studiamo $\dot{x} =Ax$ e ricordiamo alcuni risultati.
-\begin{ricalg}
+\begin{rem}
 	Il polinomio caratteristico può essere fattorizzato come un polinomio monico come segue\begin{equation*}
 	\begin{aligned}
 		\Delta _A\left(\lambda \right) =\det\left(\lambda I-A\right) & =\lambda ^n +\alpha _1 \lambda ^{n-1} +\cdots +\alpha _n                    \\
@@ -691,12 +604,12 @@ Se invece $A$ non è diagonalizzabile, studiamo $\dot{x} =Ax$ e ricordiamo alcun
 	\end{aligned}
 	\end{equation*}
 	con $k$ il numero di autovalori distinti e $a_i$ la loro molteplicità algebrica.
-\end{ricalg}
-\begin{ricalg}
+\end{rem}
+\begin{rem}
 	Ogni polinomio caratteristico è annullato dalla propria matrice (teorema di Cayley-Hamilton):\begin{equation*}
 	\Delta _A\left(A\right) =A^n +\alpha _1 A^{n-1} +\cdots +\alpha _n I=0
 	\end{equation*}
-\end{ricalg}
+\end{rem}
 Ci chiediamo allora: esistono polinomi di grado $< n$ che comunque annullano la matrice? In generale no, ma molte matrici lo hanno e si dice \textbf{polinomio minimo} di $A$: $\psi _A\left(\lambda \right)$ tale che $\psi _A\left(A\right) =0$. Ha la seguente struttura, molto simile al polinomio caratteristico, cambia l'esponente
 \begin{equation}
 	\psi _A\left(\lambda \right) =\prod ^k_{i=1}\left(\lambda -\lambda _i\right)^{b_i} ,\ 1\leq b_i \leq a
@@ -751,7 +664,7 @@ Questi mini-blocchi quanto sono grandi? Diciamo subito cosa sono $a_i ,b_i ,n_i$
 
 Dire che l'autovalore $\lambda _i$ è \textbf{regolare} significa dire che la molteplicità algebrica è uguale alla molteplicità geometrica, ovvero che ogni mini-blocco deve essere unitario
 \begin{equation*}
-	\boxed{\lambda _i \ \text{regolare} \ \ \Leftrightarrow \ \ n_i =a_i \ \ \Leftrightarrow \ \ b_i =1}
+	\boxed{\lambda _i \ \text{regolare} \ \ \iff \ \ n_i =a_i \ \ \iff \ \ b_i =1}
 \end{equation*}
 Guardiamo ora il singolo mini-blocco
 \begin{equation*}
@@ -787,17 +700,18 @@ Contiene esponenziali ed esponenziali moltiplicati per potenze di $t$, quello ch
 	\end{bmatrix}
 \end{equation*}
 che non diverge. Dalla dimensione $2$ in poi si includono i $t$ e diverge. La dimensione della matrice dipende dalla regolarità dell'autovalore, che a sua volta dipende da $b_i$. La dimensione della matrice è $1$ se $b_i =1$.
+
 \section{Riassunto della stabilità a tempo continuo}
 
 \boxedText{
 	Sia $\dot{x} =Ax$, allora
 	\begin{itemize}
-		\item $\Re\left(\lambda _i\right) < 0\ \forall i\Leftrightarrow A$ asint. stabile
-		\item $\exists i:\Re\left(\lambda _i\right)  >0\Rightarrow A$ instabile (instabilità forte)
+		\item $\Re\left(\lambda _i\right) < 0\ \forall i\iff A$ asint. stabile
+		\item $\exists i:\Re\left(\lambda _i\right)  >0\implies A$ instabile (instabilità forte)
 		\item $\Re\left(\lambda _i\right) \leq 0\ \forall i,\exists i:\Re\left(\lambda _i\right) =0$
 		      \begin{itemize}
-		      	\item $b_i =1$ (ossia $a_i =n_i$) $\forall i:\Re\left(\lambda _i\right) =0\Leftrightarrow A$ sempl. stabile
-		      	\item $b_i  >1$ per almeno un $i$, cioè l'autovalore è irregolare e tale che $\Re\left(\lambda _i\right) =0\Rightarrow A$ instabile (instabilità debole)
+		      	\item $b_i =1$ (ossia $a_i =n_i$) $\forall i:\Re\left(\lambda _i\right) =0\iff A$ sempl. stabile
+		      	\item $b_i  >1$ per almeno un $i$, cioè l'autovalore è irregolare e tale che $\Re\left(\lambda _i\right) =0\implies A$ instabile (instabilità debole)
 		      \end{itemize}
 	\end{itemize}
 	
@@ -805,11 +719,12 @@ che non diverge. Dalla dimensione $2$ in poi si includono i $t$ e diverge. La di
 }
 
 La morale è che in caso di autovalori nulli dobbiamo distinguere tra semplice stabilità e instabilità, dobbiamo vedere se gli autovalori sono tutti regolari o se almeno uno è irregolare.
+
 \section{Integratore}
 
 È un sistema tale che $\dot{x} =u$.
 
-Se lo equipaggiamo con $y=x$, quindi $\dot{y} =u\Rightarrow sy=u\Rightarrow \boxed{G\left(s\right) =\frac{1}{s}}$.
+Se lo equipaggiamo con $y=x$, quindi $\dot{y} =u\implies sy=u\implies \boxed{G\left(s\right) =\frac{1}{s}}$.
 
 Costruiamo due configurazioni con degli integratori, una in cascata e una in parallelo
 
@@ -883,17 +798,18 @@ In entrambi i casi gli autovalori sono $\lambda _1 =\lambda _2 =0$ con molteplic
 	      0 & 0
 	\end{bmatrix} \neq 0$. Non è il polinomio minimo, allora $b_1 =2$ e abbiamo \textit{instabilità}.
 \end{itemize}
+
 \section{Riassunto della stabilità a tempo discreto}
 
 \boxedText{
 	Sia $x\left(t+1\right) =Ax\left(t\right)$, allora
 	\begin{itemize}
-		\item $\left| \lambda _i\right| < 1\ \forall i\Leftrightarrow A$ asint. stabile
-		\item $\exists i:\left| \lambda _i\right|  >1\Rightarrow A$ instabile (instabilità forte)
+		\item $\left| \lambda _i\right| < 1\ \forall i\iff A$ asint. stabile
+		\item $\exists i:\left| \lambda _i\right|  >1\implies A$ instabile (instabilità forte)
 		\item $\left| \lambda _i\right| \leq 1\ \forall i,\exists i:\left| \lambda _i\right| =1$
 		      \begin{itemize}
-		      	\item se $b_i =1\ \left(a_i =n_i\right) \ \forall i\ \left| \lambda _i\right| =1$, cioè quelli critici sono regolari, $\Rightarrow A$ sempl. stabile
-		      	\item se $b_i  >1\ \left(a_i \neq n_i\right)$ per almeno un $i:\left| \lambda _i\right| =1\Rightarrow A$ instabile (debolmente)
+		      	\item se $b_i =1\ \left(a_i =n_i\right) \ \forall i\ \left| \lambda _i\right| =1$, cioè quelli critici sono regolari, $\implies A$ sempl. stabile
+		      	\item se $b_i  >1\ \left(a_i \neq n_i\right)$ per almeno un $i:\left| \lambda _i\right| =1\implies A$ instabile (debolmente)
 		      \end{itemize}
 	\end{itemize}
 	
@@ -903,35 +819,40 @@ In entrambi i casi gli autovalori sono $\lambda _1 =\lambda _2 =0$ con molteplic
 		\item $\exists \lambda _i$ complessi coniugati
 	\end{itemize}
 }
+
 \section{Sistemi discreti: sistemi a memoria finita}
 
 Consideriamo $x_L\left(t\right) =A^t x\left(0\right)$. Un sistema discreto si dice \textbf{a memoria finita} se $\exists \overline{t}  >0:x_L\left(\overline{t}\right) =0\ \forall x\left(0\right)$, ossia stiamo chiedendo che $A^t$ diventi $0$ in un tempo finito, ossia $A$ è nilpotente $\left(A^{\overline{t}} =0\right)$, ossia tutti gli autovalori sono nulli $\lambda _i =0\ \forall i$.
 
 \textit{In tal caso il tempo di risposta è sempre }$\leq n$\textit{, dato che }$A^n =0$\textit{.}
+
 \section{Test di stabilità}
 
 Un modo furbo per vedere se è stabile.
+
 \subsection{Test della traccia}
-\begin{ricalg}
+
+\begin{rem}
 	Data una qualunque matrice quadrata $A$, la traccia, che per definizione è la somma degli elementi sulla diagonale, è uguale al prodotto degli autovalori
 	\begin{equation*}
 		\tr A=\sum\limits ^n_{i=1} a_{ii} =\sum\limits ^n_{i=1} \lambda _i
 	\end{equation*}
-\end{ricalg}
+\end{rem}
 
 Consideriamo i sistemi a \textit{tempo continuo} $\dot{x} =Ax$.
 \begin{itemize}
-	\item Se $\tr A >0$, ovvero $\left(\lambda _1 +\cdots +\lambda _n  >0\right)$, allora esiste almeno un autovalore positivo $\Rightarrow A$ instabile.
-	\item Se $\tr A=0\Rightarrow A$ non è asintoticamente stabile.
+	\item Se $\tr A >0$, ovvero $\left(\lambda _1 +\cdots +\lambda _n  >0\right)$, allora esiste almeno un autovalore positivo $\implies A$ instabile.
+	\item Se $\tr A=0\implies A$ non è asintoticamente stabile.
 	\item Se $\tr A< 0$ non possiamo dedurre niente.
 \end{itemize}
 
 Consideriamo i sistemi a \textit{tempo discreto} $x\left(t+1\right) =Ax\left(t\right)$.
 \begin{itemize}
-	\item Se $\left| \tr A\right|  >n$, allora almeno uno di loro è maggiore di $1$ in modulo $\Rightarrow A$ instabile.
-	\item Se $\left| \tr A\right| =n\Rightarrow A$ non è asintoticamente stabile.
+	\item Se $\left| \tr A\right|  >n$, allora almeno uno di loro è maggiore di $1$ in modulo $\implies A$ instabile.
+	\item Se $\left| \tr A\right| =n\implies A$ non è asintoticamente stabile.
 	\item Se $\left| \tr A\right| < n$ non possiamo dedurre niente.
 \end{itemize}
+
 \subsection{Test della traccia e del determinante}
 
 Lo si usa nel caso $n=2$.
@@ -963,11 +884,12 @@ Consideriamo i sistemi a \textit{tempo discreto} $x\left(t+1\right) =Ax\left(t\r
 
 Non lo dimostriamo perché è rognoso ma si verifica che
 \begin{equation*}
-	A\ \text{asint. stabile} \ \ \Leftrightarrow \ \ \begin{cases}
+	A\ \text{asint. stabile} \ \ \iff \ \ \begin{cases}
 	\left| \tr A\right| < 1+\det A\\
 	\left| \det A\right| < 1
 	\end{cases}
 \end{equation*}
+
 \subsection{Test dei coefficienti del polinomio caratteristico}
 
 Si tratta del caso a \textit{tempo continuo} con $n\geq 2$. Se il polinomio caratteristico di $A$ vale
@@ -976,7 +898,7 @@ Si tratta del caso a \textit{tempo continuo} con $n\geq 2$. Se il polinomio cara
 \end{equation*}
 si può dire che
 \begin{equation*}
-	\boxed{\text{se} \ A\ \text{è asint. stabile} \ \Rightarrow \alpha _i  >0\ \forall i}
+	\boxed{\text{se} \ A\ \text{è asint. stabile} \ \implies \alpha _i  >0\ \forall i}
 \end{equation*}
 La coimplicazione vale solo per $n=2$. La dimostrazione è la seguente:
 \begin{equation*}
@@ -986,6 +908,7 @@ La coimplicazione vale solo per $n=2$. La dimostrazione è la seguente:
 	\end{aligned}
 \end{equation*}
 Se tutti i $\lambda $ sono negativi ($A$ asint. stabile) il loro prodotto è positivo se sono in numero pari, negativo se sono dispari, ma in tal caso c'è $-1$. I prodotti a coppie, i prodotti a terne, e tutti gli altri, danno luogo a coefficienti positivi. Non vale il contrario in generale, ma solo per $n=2$. \textit{È un test rapido per escludere l'asint. stabilità.} Ad esempio, se almeno un coefficiente di $\Delta _A\left(\lambda \right)$ fosse nullo o negativo, possiamo escludere l'asint. stabilità subito.
+
 \section{Test di Hurwitz (sistemi a tempo continuo)}
 
 Consideriamo $\dot{x} =Ax$ e il polinomio caratteristico
@@ -1006,7 +929,7 @@ Costruiamo la matrice $H\in \mathbb{R}^{n\times n}$, ciascuna riga comincia con 
 \end{equation*}
 Se consideriamo le sottomatrici appoggiate all'angolo Nord-Ovest, di dimensione crescente $D_1 ,D_2 ,\dotsc ,D_n =H$ il criterio di Hurwitz afferma che
 \begin{equation*}
-	\boxed{A\ \text{asint. stabile} \ \ \Leftrightarrow \ \ \det D_i  >0\ \forall i=1,\dotsc ,n}
+	\boxed{A\ \text{asint. stabile} \ \ \iff \ \ \det D_i  >0\ \forall i=1,\dotsc ,n}
 \end{equation*}
 Non sappiamo nulla su dinamiche oscillatorie, tempi di risposta ecc. Vediamo anche nello specifico due casi:
 \begin{itemize}
@@ -1018,7 +941,7 @@ Non sappiamo nulla su dinamiche oscillatorie, tempi di risposta ecc. Vediamo anc
 	\end{equation*}
 	
 	di conseguenza per il criterio di Hurwitz\begin{equation*}
-	A\ \text{asint. stabile} \ \ \Leftrightarrow \ \ \alpha _1  >0,\alpha _2  >0
+	A\ \text{asint. stabile} \ \ \iff \ \ \alpha _1  >0,\alpha _2  >0
 	\end{equation*}
 	\item $n=3$, il polinomio caratteristico è $\Delta _A\left(\lambda \right) =\lambda ^3 +\alpha _1 \lambda ^2 +\alpha _2 \lambda +\alpha _3$, la matrice $H$ è quindi\begin{equation*}
 	      H=\begin{bmatrix}
@@ -1033,13 +956,12 @@ Non sappiamo nulla su dinamiche oscillatorie, tempi di risposta ecc. Vediamo anc
 		\alpha _1  >0                                                              \\
 		\alpha _2 \alpha _1  >\alpha _3 \ \left(\text{cioè} \ \det D_2  >0\right) \\
 		\alpha _3\left(\det D_2\right)  >0                                         
-	\end{cases} \ \ \Leftrightarrow \ \ \begin{cases}
+	\end{cases} \ \ \iff \ \ \begin{cases}
 	\alpha _i  >0,\forall i\\
 	\alpha _2 \alpha _1  >\alpha _3
 	\end{cases}
 	\end{equation*}
 \end{itemize}
-
 
 \section{Criterio righe/colonne}
 
@@ -1090,8 +1012,8 @@ Allora valgono le seguenti $4$ disuguaglianze
 		\end{array}
 	}
 \end{equation*}
-\chapter{Sistemi aggregati}
 
+\chapter{Sistemi aggregati}
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -1174,8 +1096,9 @@ Osserviamo che $\tilde{A}$ è triangolare a blocchi
 
 Per quanto riguarda le funzioni di trasferimento vale
 \begin{equation*}
-	y=G_2 u_2 =G_2 y_1 =G_2 G_1 u_1 \Rightarrow \boxed{G\left(s\right) =G_1\left(s\right) G_2\left(s\right)}
+	y=G_2 u_2 =G_2 y_1 =G_2 G_1 u_1 \implies \boxed{G\left(s\right) =G_1\left(s\right) G_2\left(s\right)}
 \end{equation*}
+
 \section{Parallelo}
 
 In questo caso $u_1 =u_2 =u$. Si verifica
@@ -1187,7 +1110,7 @@ In questo caso $u_1 =u_2 =u$. Si verifica
 \end{equation*}
 Il discorso sulla stabilità è uguale. Per la funzione di trasferimento vale
 \begin{equation*}
-	y=y_1 +y_2 =G_1 u_1 +G_2 u_2 =\left(G_1 +G_2\right) u\Rightarrow \boxed{G\left(s\right) =G_1\left(s\right) +G_2\left(s\right)}
+	y=y_1 +y_2 =G_1 u_1 +G_2 u_2 =\left(G_1 +G_2\right) u\implies \boxed{G\left(s\right) =G_1\left(s\right) +G_2\left(s\right)}
 \end{equation*}
 
 \section{Retroazione}
@@ -1286,9 +1209,10 @@ Per la funzione di trasferimento vale
 \end{equation*}
 Possiamo raccogliere la $y$
 \begin{equation*}
-	y\left(1\mp G_1 G_2\right) =G_1 u\Rightarrow y=\frac{G_1}{1\mp G_1 G_2} u\Rightarrow \boxed{G\left(s\right) =\frac{G_1\left(s\right)}{1\mp G_1\left(s\right) G_2\left(s\right)}}
+	y\left(1\mp G_1 G_2\right) =G_1 u\implies y=\frac{G_1}{1\mp G_1 G_2} u\implies \boxed{G\left(s\right) =\frac{G_1\left(s\right)}{1\mp G_1\left(s\right) G_2\left(s\right)}}
 \end{equation*}
 Si dice \textbf{funzione di trasferimento d'anello}.
+
 \chapter{Studio delle traiettorie}
 
 Studieremo le traiettorie per i sistemi a t. continuo e con $n=2$. Il sistema che studiamo è
@@ -1298,7 +1222,7 @@ Studieremo le traiettorie per i sistemi a t. continuo e con $n=2$. Il sistema ch
 ma possiamo semplificare il nostro studio supponendo $u\left(t\right) =\overline{u} =0,\ \forall t\geq 0$. Non perdiamo generalità in quanto a meno di un cambio di coordinate possiamo traslare il movimento. Infatti se $\overline{u} \neq 0$ e $\overline{x}$ è il nostro equilibrio, si ha
 \begin{equation*}
 	\begin{aligned}
-		z=x-\overline{x} \Rightarrow \dot{z} & =\dot{x}                                           \\
+		z=x-\overline{x} \implies \dot{z} & =\dot{x}                                           \\
 		                                     & =Ax+b\overline{u}                                  \\
 		                                     & =A\left(z+\overline{x}\right) +b\overline{u}       \\
 		                                     & =Az+\underbrace{A\overline{x} +b\overline{u}}_{=0} 
@@ -1321,13 +1245,13 @@ Consideriamo l'\textbf{equazione agli autovettori}
 \end{equation*}
 Se $x$ è l'autovettore relativo all'autovalore $\lambda _i$, allora anche $\alpha x$ lo è $\left(\alpha \in \mathbb{R} ,\alpha \neq 0\right)$. Inoltre, sempre se $x$ è l'autovettore, l'equazione agli autovettori si può pensare come
 \begin{equation*}
-	\dot{x} =Ax=\lambda _i x\ \ \Leftrightarrow \ \ \begin{bmatrix}
+	\dot{x} =Ax=\lambda _i x\ \ \iff \ \ \begin{bmatrix}
 	\dot{x}_1\\
 	\dot{x}_2
 	\end{bmatrix} =\begin{bmatrix}
 	\lambda _i x_1\\
 	\lambda _i x_2
-	\end{bmatrix} \ \ \Leftrightarrow \ \ \begin{array}{ c }
+	\end{bmatrix} \ \ \iff \ \ \begin{array}{ c }
 	x_1\left(t\right) =e^{\lambda _i t} x_1\left(0\right)\\
 	x_2\left(t\right) =e^{\lambda _i t} x_2\left(0\right)
 	\end{array}
@@ -1506,7 +1430,7 @@ deduciamo che \textbf{gli autovettori sono gli unici luoghi di traiettorie retti
 	\end{bmatrix}
 	\end{equation*}
 	\begin{itemize}
-		\item Nel primo caso, l'equazione agli autovettori è $\tilde{A} x=\lambda x\Rightarrow \lambda Ix=\lambda x$, tutti i punti si trovano su degli autovettori. Si dice \textit{nodo stellato}.
+		\item Nel primo caso, l'equazione agli autovettori è $\tilde{A} x=\lambda x\implies \lambda Ix=\lambda x$, tutti i punti si trovano su degli autovettori. Si dice \textit{nodo stellato}.
 		      
 		      \begin{figure}[htpb]\centering
 		      	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -1665,6 +1589,7 @@ deduciamo che \textbf{gli autovettori sono gli unici luoghi di traiettorie retti
 \end{itemize}
 
 In dimensione $3$ si può ragionare analogamente.
+
 \chapter{Sistemi non lineari}
 
 Ricordiamo che in generale i sistemi si scrivono come
@@ -1677,6 +1602,7 @@ Rinnoviamo l'ipotesi di ingresso costante $u(t) =\overline{u} \ \forall t\geq 0$
 	\dot{x}(t) =f(x(t))\\
 	x(t+1) =f(x(t))
 \end{gather*}
+
 \section{Equilibrio: esistenza e unicità}
 
 Gli equilibri, analogamente ai sistemi lineari, li troviamo imponendo
@@ -1684,19 +1610,20 @@ Gli equilibri, analogamente ai sistemi lineari, li troviamo imponendo
 	f(x(t)) =0\\
 	f(x(t)) =x
 \end{gather*}
+
 \section{Stabilità dell'equilibrio}
 
 La trattazione di equilibrio è dovuta a Liapunov. Un equilibrio è
 \begin{itemize}
 	\item \textbf{stabile} se $\forall \varepsilon  >0\ \exists \delta _{\varepsilon }  >0$ tale che\begin{equation*}
-	      \Vert x(0) -\overline{x}\Vert < \delta _{\varepsilon } \Rightarrow \Vert x(t) -\overline{x}\Vert < \varepsilon \ \ \forall x(0) :\Vert x(0) -\overline{x}\Vert < \delta _{\varepsilon } ,\forall t\geq 0
+	      \Vert x(0) -\overline{x}\Vert < \delta _{\varepsilon } \implies \Vert x(t) -\overline{x}\Vert < \varepsilon \ \ \forall x(0) :\Vert x(0) -\overline{x}\Vert < \delta _{\varepsilon } ,\forall t\geq 0
 	\end{equation*}
 	
 	cioè tale per cui per stati iniziali vicini all'equilibrio, non mi allontano
 	\item \textbf{asintoticamente stabile} se
 	      \begin{itemize}
 	      	\item è stabile
-	      	\item $\lim _{t\rightarrow \infty } x(t) =\overline{x} \ \forall x(0) :\Vert x(0) -\overline{x}\Vert < \delta _{\varepsilon }$
+	      	\item $\lim _{t\implies \infty } x(t) =\overline{x} \ \forall x(0) :\Vert x(0) -\overline{x}\Vert < \delta _{\varepsilon }$
 	      \end{itemize}
 	      
 	      sono un sottoinsieme di quelli stabili. Col passare del tempo non solo non mi devo allontanare, ma mi devo riavvicinare all'equilibrio.
@@ -1705,12 +1632,11 @@ La trattazione di equilibrio è dovuta a Liapunov. Un equilibrio è
 
 Se un equilibrio è asint. stabile si definisce il suo \textbf{bacino di attrazione}
 \begin{equation*}
-	B(\overline{x}) =\left\{x(0) :x(t)\rightarrow \overline{x}\right\}
+	B(\overline{x}) =\left\{x(0) :x(t)\implies \overline{x}\right\}
 \end{equation*}
 Si può poi dire che $\overline{x}$ asint. stabile è \textbf{globalmente stabile} se $B(\overline{x}) =\mathbb{R}^n$, ma possiamo dare una definizione più morbida: $\overline{x}$ asint. stabile è \textbf{quasi globalmente stabile} se $B(\overline{x}) =\mathbb{R}^n$ a meno di un insieme di misura nulla.
 
 Nei sistemi non lineari la classificazione è diversa dai sistemi lineari:
-
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -1754,11 +1680,9 @@ Si presenta una casistica, i cui primi $3$ casi erano presenti anche per i siste
 	\item $\exists \infty \overline{x}$, infiniti (numerabili) di equilibri (infinite conche)
 \end{itemize}
 
-
-
 \textit{Esempio: crescita logistica. }Parto dal modello di Malthus e arrivo alla crescita logistica. Sia $x(t)$ la dimensione della popolazione.
 \begin{equation*}
-	\dot{x}(t) =rx(t) ,\ r >0\ \ \Rightarrow \ \ x(t) =e^{rt} x(0)
+	\dot{x}(t) =rx(t) ,\ r >0\ \ \implies \ \ x(t) =e^{rt} x(0)
 \end{equation*}
 La popolazione crescerebbe all'infinito, ma le risorse dopo un po' scarseggiano, quindi non è lecito supporre $r$ costante, ma dipende da $x$ e descresce con essa.
 \begin{equation*}
@@ -1769,6 +1693,7 @@ Quindi la relazione diventa
 	\dot{x}(t) =r_0\left(1-\frac{x}{k}\right) x=f(x)
 \end{equation*}
 non è lineare. Siamo nel caso di $2$ equilibri: $\overline{x} =0,\overline{x} =k$. Matematicamente se siamo tra $0$ e $k$, $f(x)$ è positiva, quindi $\dot{x}(t)$. Invece se siamo oltre $k$ uno dei due fattori diventa negativo e quindi $\dot{x}(t)$. Ipotizzando di considerare anche $x$ negativi, si deduce anche che $0$ è un equilibrio instabile. $k$ è un equilibrio stabile, viene detto capacità portante. Il bacino di attrazione di $\overline{x} =k$ è $B(\overline{x}) =\mathbb{R}_{+}$.
+
 \section{Isocline}
 
 Studiare le isocline significa studiare
@@ -1776,6 +1701,7 @@ Studiare le isocline significa studiare
 	f_i(x_1 ,x_2) =k
 \end{equation*}
 Nello specifico, se studiamo il caso $k=0$, stiamo sostanzialmente cercando i punti a tangente nulla rispetto a una specifica variabile.
+
 \section{Metodo di linearizzazione}
 
 Vediamo il caso a tempo continuo. Sia $\dot{x}(t) =f(x(t)) ,\dot{x} \in \mathbb{R}^n$ e sia $\overline{x} :f(\overline{x}) =0$ uno stato di equilibrio. Consideriamo $z(t) =x(t) -\overline{x}$. Si ha
@@ -1835,15 +1761,15 @@ ovviamente $n^{-} +n^{+} +n^0 =n$. Si possono dimostrare i seguenti risultati
 
 Valgono inoltre i seguenti importanti risultati (non sono coimplicazioni)
 \begin{itemize}
-	\item $A(\overline{x})$ asint. stabile $\Rightarrow $ $\overline{x}$ asint. stabile
-	\item $A(\overline{x})$ fortemente instabile $\Rightarrow $ $\overline{x}$ instabile
+	\item $A(\overline{x})$ asint. stabile $\implies $ $\overline{x}$ asint. stabile
+	\item $A(\overline{x})$ fortemente instabile $\implies $ $\overline{x}$ instabile
 \end{itemize}
 
 Se ci sono autovalori nulli e nessuno strettamente positivo in $A(\overline{x})$ non possiamo dire nulla su $\overline{x}$ proprio per il problema che la dinamica sulle varietà centro è governata da termini di ordine superiore al primo.
 
 Se non ci sono autovalori nulli, ovvero non ci sono varietà centro, l'equilibro si dice anche \textit{iperbolico}.
-\chapter{Raggiungibilità}
 
+\chapter{Raggiungibilità}
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -1875,24 +1801,24 @@ Non ci serve mettere in evidenza l'uscita. Ci interroghiamo su come l'ingresso i
 \begin{equation*}
 	x(t) =\phi (t) x(0) +\psi (t) u_{[ 0,t)}
 \end{equation*}
-ricordiamo che $\psi $ è un operatore, non una matrice. Se $x(0) =0\Rightarrow x(t) =\psi (t) u_{[ 0,t)}$
-\begin{definition}
+ricordiamo che $\psi $ è un operatore, non una matrice. Se $x(0) =0\implies x(t) =\psi (t) u_{[ 0,t)}$
+\begin{defn}
 	$\tilde{x}$ è uno \textbf{stato raggiungibile} all'istante $t$ se esiste $u_{[ 0,t)}$ tale che $x(t) =\tilde{x}$, con $x(0) =0$.
-\end{definition}
+\end{defn}
 Chiamiamo \textbf{insieme di raggiungibilità}
 \begin{equation*}
 	X_R(t) =\left\{\text{insieme degli} \ \tilde{x} \ \text{raggiungibili in} \ t\right\} =\Im(\psi (t)) \subseteq \mathbb{R}^n
 \end{equation*}
 $X_R(t)$ è un sottospazio di $\mathbb{R}^n$, quindi gode ad esempio della proprietà
 \begin{equation*}
-	v_1 ,v_2 \in S\Rightarrow \alpha v_1 +\beta v_2 \in S\ \ \ \ \alpha ,\beta \in \mathbb{R}
+	v_1 ,v_2 \in S\implies \alpha v_1 +\beta v_2 \in S\ \ \ \ \alpha ,\beta \in \mathbb{R}
 \end{equation*}
 quindi sono rette, piani, iperpiani, ecc.
 
-Un'altra proprietà è che: se $t_2  >t_1 \Rightarrow X_R(t_2) \supset X_R(t_1)$, l'insieme di raggiungibilità tende a diventare più grande, includendo sempre i precedenti. In particolare, si espande con \textit{discontinuità}.
-\begin{definition}
+Un'altra proprietà è che: se $t_2  >t_1 \implies X_R(t_2) \supset X_R(t_1)$, l'insieme di raggiungibilità tende a diventare più grande, includendo sempre i precedenti. In particolare, si espande con \textit{discontinuità}.
+\begin{defn}
 	$(A,b)$ è completamente raggiungibile se $X_R =\mathbb{R}^n$, ovvero $\dim X_R =n$.
-\end{definition}
+\end{defn}
 Introduciamo la \textbf{matrice di raggiungibilità} $R$:
 \begin{equation*}
 	\boxed{
@@ -1911,7 +1837,7 @@ da cui si deduce anche
 \end{equation*}
 e che
 \begin{equation*}
-	(A,b) \ \text{compl. ragg.} \ \ \Leftrightarrow \ \ \rank(R) =n\ \ \Leftrightarrow \ \ \det R\neq 0
+	(A,b) \ \text{compl. ragg.} \ \ \iff \ \ \rank(R) =n\ \ \iff \ \ \det R\neq 0
 \end{equation*}
 \textit{Dimostrazione a tempo discreto (perché più facile).}
 
@@ -1950,15 +1876,15 @@ Se parto in $x(0) =0$, cosa posso raggiungere all'istante $t=1$? Siccome $u(0)$ 
 Qui si vede bene che il sottospazio tende ad espandersi, se il nuovo vettore è linearmente indipendente dagli altri. Perché ci fermiamo in $n-1$? Perché tutti quelli successivi saranno sicuramente combinazioni lineari dei precedenti. Questo vale per il teorema di Cayley-Hamilton
 \begin{gather*}
 	\Delta _A(\lambda) =\lambda ^n +\alpha _1 \lambda ^{n-1} +\cdots +\alpha _n\\
-	\Rightarrow \Delta _A(A) =A^n +\alpha _1 A^{n-1} +\cdots +\alpha _n I=0
+	\implies \Delta _A(A) =A^n +\alpha _1 A^{n-1} +\cdots +\alpha _n I=0
 \end{gather*}
 Possiamo moltiplicare tutto per $b$
 \begin{equation*}
-	A^n b+\alpha _1 A^{n-1} b+\cdots +\alpha _n b=0\ \ \Rightarrow \ \ A^n b=-\alpha _1 A^{n-1} b-\cdots -\alpha _n b
+	A^n b+\alpha _1 A^{n-1} b+\cdots +\alpha _n b=0\ \ \implies \ \ A^n b=-\alpha _1 A^{n-1} b-\cdots -\alpha _n b
 \end{equation*}
 È inutile andare avanti, all'$n$-esimo iniziano a essere combinazioni dei precedenti. Tutti gli stati raggiungibili sono raggiungibili in al più $n$ passi, dopo quelli non apriamo più nuove direzioni.
-\section{Legge di controllo}
 
+\section{Legge di controllo}
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -2013,14 +1939,15 @@ Come si mette a funzionare il sistema? Sostituiamo $u$ nel sistema
 	\boxed{\dot{x} =(A+bk) x+bv}
 \end{equation*}
 Evolve con la matrice $A+bk$, ma possiamo cambiarla? Sì, col seguente teorema.
-\begin{theorem}
+\begin{thm}
 	Teorema di assegnamento degli autovalori. Per ogni polinomio $\Delta ^{*}(\lambda) =\lambda ^n +\alpha ^{*}_1 \lambda ^{n-1} +\cdots +\alpha ^{*}_n$ esiste $k$ tale che $\Delta _{A+bk}(\lambda) =\Delta ^{*}(\lambda)$, se e solo se $(A,b)$ è completamente raggiungibile.
-\end{theorem}
+\end{thm}
+
 \section{Scomposizione in parte raggiungibile e non raggiungibile}
 
 Studiamo il caso di non completa raggiungibilità, cioè $\rank(R) =r< n$. Definiamo $X_{NR}$ \textbf{sottospazio di non raggiungibilità}
 \begin{equation*}
-	X_{NR} =X^{\perp }_R \ \ \Rightarrow \ \ \dim X_{NR} =n-r
+	X_{NR} =X^{\perp }_R \ \ \implies \ \ \dim X_{NR} =n-r
 \end{equation*}
 è il complemento ortogonale di $X_R$. Qualunque sistema non completamente raggiungibile si scompone in $2$ sistemi di cui uno compl. ragg. e uno non compl. ragg. Questa scomposizione si vede facendo un cambio di coordinate, che esiste sempre:
 \begin{equation*}
@@ -2046,7 +1973,7 @@ z_R\\
 
 Il cambio di coordinate permette di guardare $A$ e $b$ in modo diverso:
 \begin{equation*}
-	(A,b)\rightarrow \left(\underbrace{TAT^{-1}}_{\tilde{A}} ,\underbrace{Tb}_{\tilde{b}} ,\underbrace{cT^{-1}}_{\tilde{c}}\right)
+	(A,b)\implies \left(\underbrace{TAT^{-1}}_{\tilde{A}} ,\underbrace{Tb}_{\tilde{b}} ,\underbrace{cT^{-1}}_{\tilde{c}}\right)
 \end{equation*}
 Algebricamente
 \begin{equation*}
@@ -2067,18 +1994,18 @@ Algebricamente
 		}_{\tilde{b}} u
 \end{equation*}
 Dove $A_R ,b_R$ è un sistema completamente raggiungibile.
-\begin{definition}
+\begin{defn}
 	$(A,b)$ si dice stabilizzabile se $\exists k$ tale che $(A+bk)$ è asint. stabile.
-\end{definition}
+\end{defn}
 Segue quindi che
 \begin{itemize}
 	\item se $(A,b)$ è completamente raggiungibile, allora è stabilizzabile
 	\item se $(A,b)$ non è completamente raggiungibile, si induce la scomposizione e vuol dire che possiamo assegnare liberamente solo gli autovalori della parte raggiungibile. Pertanto è stabilizzabile se e solo se $A_{NR}$ è di suo asint. stabile.
 \end{itemize}
+
 \chapter{Osservabilità}
 
 È il duale della raggiungibilità.
-
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -2109,9 +2036,9 @@ Segue quindi che
 
 La $y$ consiste in una misurazione, che di solito è costosa e vogliamo farne poche. Sotto certe ipotesi, possiamo \textit{ricostruire} lo stato a partire dall'uscita.
 
-\begin{definition}
+\begin{defn}
 	$\tilde{x}$ è uno \textbf{stato non osservabile} in $[ 0,t]$ se lasciando evolvere il sistema di movimento libero, trovo in uscita $y(\tau) =0\ \forall \tau \in [ 0,t]$.
-\end{definition}
+\end{defn}
 
 Chiamiamo \textbf{insieme di non osservabilità}
 \begin{equation*}
@@ -2119,14 +2046,14 @@ Chiamiamo \textbf{insieme di non osservabilità}
 \end{equation*}
 $X_{NO}(t)$ è un sottospazio di $\mathbb{R}^n$.
 
-Se $t_2  >t_1 \Rightarrow X_{NO}(t_2) \subset X_{NO}(t_1)$. Se l'uscita è nulla in $[ 0,t_2]$, allora lo è anche in $[ 0,t_1]$. Al passare del tempo tende a diventare più piccolo, con discontinuità perché è un sottospazio. Definiamo $t^{*}$ l'ultimo istante in cui non cambia $X_{NO}$, cioè
+Se $t_2  >t_1 \implies X_{NO}(t_2) \subset X_{NO}(t_1)$. Se l'uscita è nulla in $[ 0,t_2]$, allora lo è anche in $[ 0,t_1]$. Al passare del tempo tende a diventare più piccolo, con discontinuità perché è un sottospazio. Definiamo $t^{*}$ l'ultimo istante in cui non cambia $X_{NO}$, cioè
 \begin{equation*}
 	X_{NO}(t) =X_{NO}\left(t^{*}\right) \ \forall t\geq t^{*}
 \end{equation*}
 Questo spazio $X_{NO}\left(t^{*}\right)$ lo chiamiamo semplicemente \textbf{sottospazio di non osservabilità}.
-\begin{definition}
+\begin{defn}
 	$(A,c)$ è completamente osservabile se $X_{NO} =\{0\}$, ovvero $\dim X_{NO} =0$.
-\end{definition}
+\end{defn}
 Introduciamo la \textbf{matrice di osservabilità} $O$
 \begin{equation*}
 	\boxed{O=\begin{bmatrix}
@@ -2147,7 +2074,7 @@ da cui si deduce anche
 \end{equation*}
 e che
 \begin{equation*}
-	(A,b) \ \text{compl. oss.} \ \ \Leftrightarrow \ \ \rank(O) =n\ \ \Leftrightarrow \ \ \det O\neq 0
+	(A,b) \ \text{compl. oss.} \ \ \iff \ \ \rank(O) =n\ \ \iff \ \ \det O\neq 0
 \end{equation*}
 \textit{Dimostrazione a tempo discreto (perché più facile).}
 
@@ -2175,13 +2102,13 @@ Possiamo riscrivere le uscite come
 	\end{bmatrix}\tilde{x}
 \end{equation*}
 Gli stati $\tilde{x}$ che danno luogo a $y=0$, ovvero sono tutti e soli gli $\tilde{x}$ che compongono lo spazio nullo di quella matrice, cioè il suo nucleo. Mi fermo a $cA^{n-1}$ per il discorso fatto per la raggiungibilità con il teorema di Cayley-Hamilton.
+
 \section{Ricostruzione dello stato}
 
 Chiamiamo $\hat{x}(t)$ la nostra ricostruzione dello stato. Se $\Sigma $ è il processo/impianto originale, diciamo che $\hat{\Sigma }$ è un ricostruttore asintotico di $\Sigma $ se
 \begin{equation*}
-	(\hat{x}(t) -x(t))\xrightarrow{t\rightarrow \infty } 0\ \ \forall \hat{x}(0) ,x(0)
+	(\hat{x}(t) -x(t))\xrightarrow{t\implies \infty } 0\ \ \forall \hat{x}(0) ,x(0)
 \end{equation*}
-
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -2225,10 +2152,9 @@ Questi due sistemi sono descritti da
 \end{gather*}
 facciamo la differenza e definiamo un errore
 \begin{equation*}
-	\underbrace{\dot{\hat{x}} -\dot{x}}_{\dot{e}(t)} =A\underbrace{(\hat{x} -x)}_{e(t)} \ \ \Rightarrow \ \ \dot{e}(t) =Ae(t)
+	\underbrace{\dot{\hat{x}} -\dot{x}}_{\dot{e}(t)} =A\underbrace{(\hat{x} -x)}_{e(t)} \ \ \implies \ \ \dot{e}(t) =Ae(t)
 \end{equation*}
-L'errore che vorremmo far tendere a $0$ è governato dalla matrice $A$. Se $A$ è asint. stabile, $e(t)\rightarrow 0\ \forall e(0)$ e cioè $\hat{x}(t)\rightarrow x(t) \ \forall \hat{x}(0) ,x(0)$, che è il requisito affinché $\tilde{\Sigma }$ sia un ricostruttore asintotico. Non ci soddisfa perché non tutti i sistemi sono asint. stabili e il tempo che ci mette ad andare a regime è governato sempre dal sistema $A$. L'approccio giusto è sfruttare l'informazione dell'uscita.
-
+L'errore che vorremmo far tendere a $0$ è governato dalla matrice $A$. Se $A$ è asint. stabile, $e(t)\implies 0\ \forall e(0)$ e cioè $\hat{x}(t)\implies x(t) \ \forall \hat{x}(0) ,x(0)$, che è il requisito affinché $\tilde{\Sigma }$ sia un ricostruttore asintotico. Non ci soddisfa perché non tutti i sistemi sono asint. stabili e il tempo che ci mette ad andare a regime è governato sempre dal sistema $A$. L'approccio giusto è sfruttare l'informazione dell'uscita.
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -2309,14 +2235,15 @@ con
 	l_n
 	\end{bmatrix}
 \end{equation*}
-\begin{theorem}
+\begin{thm}
 	Teorema di assegnamento degli autovalori. Per ogni polinomio $\Delta ^{*}(\lambda) =\lambda ^n +\alpha ^{*}_1 \lambda ^{n-1} +\cdots +\alpha ^{*}_n$ esiste $l$ tale che $\Delta _{A+lc}(\lambda) =\Delta ^{*}(\lambda)$, se e solo se $(A,c)$ è completamente osservabile.
-\end{theorem}
+\end{thm}
+
 \section{Scomposizione in parte osservabile e non osservabile}
 
 Studiamo il caso di non completa osservabilità, cioè $\rank(O) =o< n$. Definiamo $X_O$ \textbf{sottospazio di osservabilità}
 \begin{equation*}
-	X_O =X^{\perp }_{NO} \ \ \Rightarrow \ \ \dim X_O =\rank(O) =o
+	X_O =X^{\perp }_{NO} \ \ \implies \ \ \dim X_O =\rank(O) =o
 \end{equation*}
 è il complemento ortogonale di $X_{NO}$. Qualunque sistema non completamente osservabile si scompone in $2$ sistemi di cui uno compl. oss. e uno non compl. oss. Questa scomposizione si vede facendo un cambio di coordinate, che esiste sempre:
 \begin{equation*}
@@ -2336,7 +2263,7 @@ z_{NO}
 
 Il cambio di coordinate permette di guardare $A$ e $b$ in modo diverso:
 \begin{equation*}
-	(A,b)\rightarrow \left(\underbrace{TAT^{-1}}_{\tilde{A}} ,\underbrace{Tb}_{\tilde{b}} ,\underbrace{cT^{-1}}_{\tilde{c}}\right)
+	(A,b)\implies \left(\underbrace{TAT^{-1}}_{\tilde{A}} ,\underbrace{Tb}_{\tilde{b}} ,\underbrace{cT^{-1}}_{\tilde{c}}\right)
 \end{equation*}
 Algebricamente
 \begin{equation*}
@@ -2348,18 +2275,18 @@ Algebricamente
 	\end{bmatrix}
 \end{equation*}
 Dove $A_O ,c_O$ è un sistema completamente osservabile.
-\begin{definition}
+\begin{defn}
 	$(A,c)$ si dice rivelabile se $\exists l$ tale che $(A+lc)$ è asint. stabile, cioè se ammette un ricostruttore asintotico.
-\end{definition}
+\end{defn}
 Segue quindi che
 \begin{itemize}
 	\item se $(A,c)$ è completamente osservabile, allora è rivelabile
 	\item se $(A,b)$ non è completamente osservabile, si induce la scomposizione e vuol dire che possiamo assegnare liberamente solo gli autovalori della parte osservabile. Pertanto è rivelabile se e solo se $A_{NO}$ è di suo asint. stabile.
 \end{itemize}
+
 \chapter{Teorema di separazione e sintesi del regolatore}
 
 Legge di controllo + ricostruttore dello stato.
-
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -2480,7 +2407,6 @@ Questo si chiama \textbf{Teorema di Separazione}: se è compl. oss. e compl. rag
 
 Vediamo ora la scomposizione in $4$ parti, o \textbf{scomposizione di Kalman}.
 
-
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 	
@@ -2599,33 +2525,35 @@ La funzione di trasferimento descrive solo la parte $b$
 	G(s) =c(sI-A)^{-1} b=c_b(sI-A_b)^{-1} b_b =G_b(s)
 \end{equation*}
 Quindi concludiamo che perde di grado se il sistema non è compl. oss. e compl. ragg. Gli $n$ autovalori della matrice $A$ si distribuiscono tra i vari sottosistemi.
+
 \chapter{Stabilità esterna}
 
-La stabilità interna è quella che abbiamo descritto come $\phi (t) x(0)\rightarrow 0\ \forall x(0)$.
-\begin{definition}
+La stabilità interna è quella che abbiamo descritto come $\phi (t) x(0)\implies 0\ \forall x(0)$.
+\begin{defn}
 	$(A,b,c)$ è \textbf{esternamente stabile} se l'uscita forzata $y_{\text{for}}(t)$ è limitata $\forall u(t)$ limitato.
-\end{definition}
+\end{defn}
 C'è un'ipotesi di stato iniziale nullo $x(0) =0$. Il movimento forzato lo scriviamo come $x_F(t) =\psi (t) u_{[ 0,t)}$, quindi l'uscita forzata è $y_{\text{for}}(t) =cx_F(t)$
-\begin{theorem}
-	$(A,b,c)$ esternamente stabile $\Leftrightarrow $ $R,O$ asint. stabile $\Leftrightarrow $ $A_b$ asint. stabile.
-\end{theorem}
+\begin{thm}
+	$(A,b,c)$ esternamente stabile $\iff $ $R,O$ asint. stabile $\iff $ $A_b$ asint. stabile.
+\end{thm}
 Ma i suoi autovalori sono i poli della funzione di trasferimento.
 \begin{equation*}
-	A_b \ \text{asint. stabile.} \ \Leftrightarrow \ \begin{cases}
+	A_b \ \text{asint. stabile.} \ \iff \ \begin{cases}
 	\Re(p_i) < 0\ \forall i & \text{t.c.}\\
 	| p_i| < 1\ \forall i & \text{t.d.}
 	\end{cases}
 \end{equation*}
-Se $A$ è asint. stabile, tutti i suoi autovalori negativi si distribuiscono nelle quattro parti, quindi la funzione di trasferimento avrà poli negativi, $\Rightarrow $ $(A,b,c)$ esternamente stabile. Non vale l'opposto in generale, non sappiamo nulla sulle tre parti al di fuori di quella $(O,R)$. Se $(A,b,c)$ è compl. oss. e compl. ragg. vale la coimplicazione
+Se $A$ è asint. stabile, tutti i suoi autovalori negativi si distribuiscono nelle quattro parti, quindi la funzione di trasferimento avrà poli negativi, $\implies $ $(A,b,c)$ esternamente stabile. Non vale l'opposto in generale, non sappiamo nulla sulle tre parti al di fuori di quella $(O,R)$. Se $(A,b,c)$ è compl. oss. e compl. ragg. vale la coimplicazione
 \begin{equation*}
-	A\ \text{asint. stabile.} \ \Leftrightarrow \ (A,b,c) \ \text{esternamente stabile}
+	A\ \text{asint. stabile.} \ \iff \ (A,b,c) \ \text{esternamente stabile}
 \end{equation*}
 Salvo quasi critici, sono quasi sempre compl. oss. e compl. ragg. Il fatto che l'ingresso non influenzi uno stato e che l'uscita non dipenda da qualcuno di questi, è in qualche modo una cosa anomala.
+
 \chapter{Risposte canoniche}
 
 Studiamo il movimento forzato, ovvero la risposta del sistema a specifici ingressi, impulso, scalino, rampa e sinusoide (risposta in frequenza). Quindi ipotizziamo $x(0) =0$.
-\section{Risposta all'impulso (tempo continuo)}
 
+\section{Risposta all'impulso (tempo continuo)}
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -2647,7 +2575,7 @@ Studiamo il movimento forzato, ovvero la risposta del sistema a specifici ingres
 	\end{tikzpicture}
 \end{figure}\FloatBarrier
 
-Si ha $\int ^{+\infty }_0 u_{\delta }(t) dt=1$. Facciamo tendere $\delta \rightarrow 0$ e troviamo l'impulso. Ha queste proprietà:
+Si ha $\int ^{+\infty }_0 u_{\delta }(t) dt=1$. Facciamo tendere $\delta \implies 0$ e troviamo l'impulso. Ha queste proprietà:
 \begin{itemize}
 	\item $\imp(t) =0\ \forall t\neq 0$
 	\item $\int ^{0^{+}}_{0^{-}}\imp(t) dt=1$
@@ -2662,6 +2590,7 @@ Studiamo l'uscita
 		            & =\boxed{ce^{At} b=c\phi (t) b=g(t)}                     
 	\end{aligned}
 \end{equation*}
+
 \section{Risposta all'impulso (tempo discreto)}
 
 Si definisce come
@@ -2691,6 +2620,7 @@ In generale
 		\end{cases}
 	}
 \end{equation*}
+
 \section{Trasformata di Laplace}
 
 Notiamo ora che
@@ -2707,7 +2637,7 @@ Notiamo ora che
 \end{equation}
 La trasformata di Laplace è definita come
 \begin{equation}
-	F(s) :\mathbb{C}\rightarrow \mathbb{C} \ \ \ \ F(s) =\mathcal{L} a[ f(t)] =\int ^{+\infty }_0 f(t) e^{-st} dt
+	F(s) :\mathbb{C}\implies \mathbb{C} \ \ \ \ F(s) =\mathcal{L} a[ f(t)] =\int ^{+\infty }_0 f(t) e^{-st} dt
 \end{equation}
 In particolare
 \begin{equation*}
@@ -2721,7 +2651,7 @@ Consideriamo ora la trasformata di Laplace di alcuni ingressi $u(t)$ canonici
 	      	     & =\int ^{0^{+}}_{0^{-}}\imp(t) dt=1    
 	      \end{aligned}
 	\end{equation*}
-	\item $u(t) =\sca(t)$, allora\begin{equation*}
+	\item $u(t) =\step(t)$, allora\begin{equation*}
 	      \begin{aligned}
 	      	U(s) & =\int ^{+\infty }_0 1\cdotp e^{-st} dt                                                   \\
 	      	     & =-\frac{1}{s}\left[ e^{-st}\right]^{+\infty }_0 =\frac{1}{s} ,\ \ \text{se} \ \Re(s)  >0 
@@ -2743,41 +2673,41 @@ Consideriamo ora la trasformata di Laplace di alcuni ingressi $u(t)$ canonici
 	
 	\begin{tabular}{ccccccc}
 		\toprule 
-		$u(t)$ & $\imp(t)$ & $\sca(t)$     & $e^{at}$        & $te^{at}$           & $\frac{1}{2!} t^2 e^{at}$ & $\ramp(t)$      \\
+		$u(t)$ & $\imp(t)$ & $\step(t)$     & $e^{at}$        & $te^{at}$           & $\frac{1}{2!} t^2 e^{at}$ & $\ramp(t)$      \\
 		\midrule 
 		$U(s)$ & $1$       & $\frac{1}{s}$ & $\frac{1}{s-a}$ & $\frac{1}{(s-a)^2}$ & $\frac{1}{(s-a)^3}$       & $\frac{1}{s^2}$ \\
 		\bottomrule
 	\end{tabular}
 \end{center}
 
-
 La trasformata gode delle seguenti \textbf{proprietà}
 \begin{itemize}
-	\item \textbf{linearità}, siano $f_1(t)\rightarrow F_1(s) ,f_2(t)\rightarrow F_2(s)$ e siano $\alpha ,\beta \in \mathbb{R}$\begin{equation*}
+	\item \textbf{linearità}, siano $f_1(t)\implies F_1(s) ,f_2(t)\implies F_2(s)$ e siano $\alpha ,\beta \in \mathbb{R}$\begin{equation*}
 	      \alpha f_1(t) +\beta f_2(t) \ \ \xrightarrow{\mathcal{L}} \ \ \alpha F_1(s) +\beta F_2(s)
 	\end{equation*}
-	\item \textbf{derivazione}, sia $f(t)\rightarrow F(s)$\begin{gather*}
+	\item \textbf{derivazione}, sia $f(t)\implies F(s)$\begin{gather*}
 	      h(t) =\frac{df(t)}{dt} \ \ \xrightarrow{\mathcal{L}} \ \ H(s) =\mathcal{L}\left[\frac{df(t)}{dt}\right] =sF(s) -f(0)\\
 	      \mathcal{L}\left[\frac{d^2 f(t)}{dt^2}\right] =s\mathcal{L}\left[\frac{df(t)}{dt}\right] -f'(0) =s^2 F(s) -sf(0) -f'(0)
 	\end{gather*}
 	
 	il termine $f(0) ,\dotsc $ è quasi sempre $0$ nei nostri casi.
-	\item \textbf{integrazione}, sia $f(t)\rightarrow F(s)$\begin{equation*}
+	\item \textbf{integrazione}, sia $f(t)\implies F(s)$\begin{equation*}
 	      h(t) =\int ^t_0 f(\tau) d\tau \ \ \xrightarrow{\mathcal{L}} \ \ H(s) =\frac{1}{s} F(s)
 	\end{equation*}
-	\item \textbf{traslazione}, sia $f(t)\rightarrow F(s)$\begin{equation}
+	\item \textbf{traslazione}, sia $f(t)\implies F(s)$\begin{equation}
 	      h(t) =\begin{cases}
 	      0, & 0\leq t< T\\
 	      f(t-T) , & t >T
 	\end{cases} \ \ \xrightarrow{\mathcal{L}
 		} \ \ H(s) =F(s) e^{-sT}
 	\end{equation}
-	\item \textbf{convoluzione}, siano $f(t)\rightarrow F(s) ,h(t)\rightarrow H(s)$\begin{equation*}
+	\item \textbf{convoluzione}, siano $f(t)\implies F(s) ,h(t)\implies H(s)$\begin{equation*}
 	      f(t) *h(t) =\int ^t_0 f(t-\tau) h(\tau) d\tau \ \ \xrightarrow{\mathcal{L}} \ \ F(s) H(s)
 	\end{equation*}
 \end{itemize}
 
 Con la trasformata di Laplace (e da qui alla fine del corso) analizzeremo solo sistemi a tempo continuo.
+
 \section{Relazione tra funzione di trasferimento e risposta all'impulso}
 
 Abbiamo visto che la risposta all'impulso $u(t) =\imp(t)$ è $y(t) =ce^{At} b=g(t)$ che ha una sua trasformata di Laplace
@@ -2785,12 +2715,14 @@ Abbiamo visto che la risposta all'impulso $u(t) =\imp(t)$ è $y(t) =ce^{At} b=g(
 	\mathcal{L}[ g(t)] =\mathcal{L}\left[ ce^{At} b\right] =c\mathcal{L}\left[ e^{At}\right] b=c(sI-A)^{-1} b=G(s)
 \end{equation*}
 La sua funzione di trasferimento è la trasformata di Laplace della risposta all'impulso, ponte importantissimo!
+
 \section{Relazione tra risposta allo scalino e risposta all'impulso}
 
 Si ha che la risposta all'impulso è uguale alla derivata della risposta allo scalino:
 \begin{equation*}
-	\boxed{y_{\imp}(t) =\frac{d}{dt}[ y_{\sca}(t)]}
+	\boxed{y_{\imp}(t) =\frac{d}{dt}[ y_{\step}(t)]}
 \end{equation*}
+
 \section{Calcolo di risposte canoniche}
 
 Ricordiamo che l'uscita si può vedere come convoluzione e possiamo passare alle trasformate
@@ -2799,14 +2731,15 @@ Ricordiamo che l'uscita si può vedere come convoluzione e possiamo passare alle
 \end{equation*}
 Il percorso che dovremmo fare in generale è
 \begin{equation*}
-	u(t)\xrightarrow{\mathcal{L}} U(s) \ \ \Rightarrow \ \ Y(s) =G(s) U(s) \ \ \Rightarrow \ \ Y(s)\xrightarrow{\mathcal{L}^{-1}} y(t)
+	u(t)\xrightarrow{\mathcal{L}} U(s) \ \ \implies \ \ Y(s) =G(s) U(s) \ \ \implies \ \ Y(s)\xrightarrow{\mathcal{L}^{-1}} y(t)
 \end{equation*}
 In generale le trasformate sono rognose, ma \textbf{se l'ingresso è canonico, la sua trasformata è razionale fratta}. Tutto diventa più facile.
+
 \section{Risposta allo scalino}
 
 \textit{Esempio.} Sia
 \begin{equation*}
-	G(s) =\frac{2(s-1)}{(s+1)(s+2)^2} \ \ \ \ u(t) =\sca(t) \Rightarrow U(s) =\frac{1}{s}
+	G(s) =\frac{2(s-1)}{(s+1)(s+2)^2} \ \ \ \ u(t) =\step(t) \implies U(s) =\frac{1}{s}
 \end{equation*}
 Introduciamo il \textbf{grado relativo}
 \begin{equation*}
@@ -2832,10 +2765,10 @@ La scomposizione (8) si fa così:
 	\frac{A(s+1)(s+2)^2 +Bs(s+2)^2 +Cs(s+1)(s+2)+Ds(s+1)}{s(s+1)(s+2)^2} =\frac{2(s-1)}{s(s+1)(s+2)^2}
 \end{equation*}
 \begin{itemize}
-	\item Se $s=-1\Rightarrow -B=-4\Rightarrow B=4$.
-	\item Se $s=-2\Rightarrow 2D=-6\Rightarrow D=-3$.
-	\item Se $s=0\Rightarrow 4A=-2\Rightarrow A=-\frac{1}{2}$.
-	\item Se $s=1\Rightarrow 18A+9B+6C+2D=0\Rightarrow C=-\frac{7}{2}$.
+	\item Se $s=-1\implies -B=-4\implies B=4$.
+	\item Se $s=-2\implies 2D=-6\implies D=-3$.
+	\item Se $s=0\implies 4A=-2\implies A=-\frac{1}{2}$.
+	\item Se $s=1\implies 18A+9B+6C+2D=0\implies C=-\frac{7}{2}$.
 \end{itemize}
 
 Si ottiene quindi l'uscita
@@ -2848,7 +2781,7 @@ Che si può studiare:
 	      y(0) =-\frac{1}{2} +4-\frac{7}{2} =\frac{-1+8-7}{2} =0
 	\end{equation*}
 	\item valore asintotico\begin{equation*}
-	      \lim _{t\rightarrow +\infty } y(t) =-\frac{1}{2}
+	      \lim _{t\implies +\infty } y(t) =-\frac{1}{2}
 	\end{equation*}
 	
 	questo risultato lo sapevamo già ($\overline{u} =1$ perché stiamo considerando lo scalino unitario)\begin{equation*}
@@ -2856,11 +2789,11 @@ Che si può studiare:
 	\end{equation*}
 	\item derivata prima\begin{gather*}
 	      y'(t) =-4e^{-t} +7e^{-2t} -3\left(e^{-2t} -2te^{-2t}\right) =-4e^{-t} +4e^{-2t} +6te^{-2t}\\
-	      \Rightarrow y'(0) =-4+4=0
+	      \implies y'(0) =-4+4=0
 	\end{gather*}
 	\item derivata seconda\begin{gather*}
 	      y''(t) =4e^{-t} -8e^{-2t} +6\left[ e^{-2t} -2te^{-2t}\right] =4e^{-t} -2e^{-2t} -12te^{-2t}\\
-	      \Rightarrow y''(0) =4-2=2
+	      \implies y''(0) =4-2=2
 	\end{gather*}
 \end{itemize}
 
@@ -2873,22 +2806,22 @@ Che si può studiare:
 	\item estremi (massimi e minimi)
 	\item oscillazioni (poli complessi)
 \end{itemize}
-\begin{theorem}{Teorema del valore iniziale.}{}
+\begin{thm}{Teorema del valore iniziale.}{}
 	Sia $f(t)\xrightarrow{\mathcal{L}} F(s)$ allora
 	\begin{equation*}
-		\boxed{f(0) =\lim _{t\rightarrow 0^{+}} f(t) =\lim _{\Re(s)\rightarrow \infty }[ sF(s)]}
+		\boxed{f(0) =\lim _{t\implies 0^{+}} f(t) =\lim _{\Re(s)\implies \infty }[ sF(s)]}
 	\end{equation*}
-\end{theorem}
+\end{thm}
 Lo possiamo usare insieme ad altri teoremi, come quello della derivazione
 \begin{equation*}
-	f'(0) =\lim _{s\rightarrow \infty } s\mathcal{L}[ f'(t)] =\lim _{s\rightarrow \infty } s(sF(s) -f(0))
+	f'(0) =\lim _{s\implies \infty } s\mathcal{L}[ f'(t)] =\lim _{s\implies \infty } s(sF(s) -f(0))
 \end{equation*}
-\begin{theorem}{Teorema del valore finale.}{}
+\begin{thm}{Teorema del valore finale.}{}
 	Sia $f(t)\xrightarrow{\mathcal{L}} F(s)$ allora
 	\begin{equation*}
-		\boxed{\lim _{t\rightarrow \infty } f(t) =\lim _{\Re(s)\rightarrow 0}[ sF(s)]}
+		\boxed{\lim _{t\implies \infty } f(t) =\lim _{\Re(s)\implies 0}[ sF(s)]}
 	\end{equation*}
-\end{theorem}
+\end{thm}
 \textit{Esempio.} Sia $T >0$
 \begin{equation*}
 	G(s) =\frac{\mu }{1+sT}
@@ -2903,25 +2836,25 @@ Invece
 \end{equation*}
 Questo modo mette in evidenza costante di tempo e guadagno. Com'è la risposta allo scalino? Usiamo il teorema del valore iniziale e ricordiamo che con lo scalino si ha $U(s) =\frac{1}{s}$ per ottenere:
 \begin{equation*}
-	y(0) =\lim _{s\rightarrow \infty } sY(s) =\lim _{s\rightarrow \infty } sG(s) U(s) =\lim _{s\rightarrow \infty } s\frac{\mu }{1+sT}\frac{1}{s} =\lim _{s\rightarrow \infty }\frac{\mu }{1+sT} =0
+	y(0) =\lim _{s\implies \infty } sY(s) =\lim _{s\implies \infty } sG(s) U(s) =\lim _{s\implies \infty } s\frac{\mu }{1+sT}\frac{1}{s} =\lim _{s\implies \infty }\frac{\mu }{1+sT} =0
 \end{equation*}
 Vediamo la derivata prima
 \begin{equation*}
-	\dot{y}(t) =\lim _{s\rightarrow \infty } s\left(sY(s) -\cancel{y(0)}\right) =\lim _{s\rightarrow \infty } s^2 Y(s) =\lim _{s\rightarrow \infty } s^2\frac{\mu }{1+sT}\frac{1}{s} =\frac{\mu }{T}
+	\dot{y}(t) =\lim _{s\implies \infty } s\left(sY(s) -\cancel{y(0)}\right) =\lim _{s\implies \infty } s^2 Y(s) =\lim _{s\implies \infty } s^2\frac{\mu }{1+sT}\frac{1}{s} =\frac{\mu }{T}
 \end{equation*}
 \textit{Complichiamo:}
 \begin{equation*}
 	G(s)=\frac{\mu }{(1+sT_1)(1+sT_2)} \ \ 
 \end{equation*}
-supponiamo $T_1 ,T_2  >0\Rightarrow $ è asint. stabile. $r=2$.
+supponiamo $T_1 ,T_2  >0\implies $ è asint. stabile. $r=2$.
 \begin{equation*}
 	\begin{aligned}
 		y(\infty)    & =G(0)\cdot 1=\mu                                                                                                                                                                          \\
-		y(0)         & =\lim _{s\rightarrow \infty } sY(s)                                                                                                                                                       \\
-		             & =\lim _{s\rightarrow \infty } s\frac{1}{s}\frac{\mu }{(1+sT_1)(1+sT_2)} =0                                                                                                                \\
-		\dot{y} (0)  & =\lim _{s\rightarrow \infty } s(sY(s)-\cancel{y(0)})                                                                                                                                      \\
-		             & =\lim _{s\rightarrow \infty } s^2\frac{1}{s}\frac{\mu }{(1+sT_1)(1+sT_2)} =0                                                                                                              \\
-		\ddot{y} (0) & =\lim _{s\rightarrow \infty } s\left(s^2 Y(s)-\cancel{sy(0)} -\cancel{\dot{y} (0)}\right) =\lim _{s\rightarrow \infty } s^3\frac{1}{s}\frac{\mu }{(1+sT_1)(1+sT_2)} =\frac{\mu }{T_1 T_2} 
+		y(0)         & =\lim _{s\implies \infty } sY(s)                                                                                                                                                       \\
+		             & =\lim _{s\implies \infty } s\frac{1}{s}\frac{\mu }{(1+sT_1)(1+sT_2)} =0                                                                                                                \\
+		\dot{y} (0)  & =\lim _{s\implies \infty } s(sY(s)-\cancel{y(0)})                                                                                                                                      \\
+		             & =\lim _{s\implies \infty } s^2\frac{1}{s}\frac{\mu }{(1+sT_1)(1+sT_2)} =0                                                                                                              \\
+		\ddot{y} (0) & =\lim _{s\implies \infty } s\left(s^2 Y(s)-\cancel{sy(0)} -\cancel{\dot{y} (0)}\right) =\lim _{s\implies \infty } s^3\frac{1}{s}\frac{\mu }{(1+sT_1)(1+sT_2)} =\frac{\mu }{T_1 T_2} 
 	\end{aligned}
 \end{equation*}
 Generalizziamo. \textbf{Se stiamo analizzando la risposta allo scalino} e se abbiamo una $G(s)$ di grado relativo $r$
@@ -2942,7 +2875,7 @@ Allora
 \end{equation*}
 \textit{Complichiamo:}
 
-Siano $T_1 ,T_2  >0,\mu  >0,\tau  >0,T_D =T_1  >T_2 ,u(t) =\sca(t)$
+Siano $T_1 ,T_2  >0,\mu  >0,\tau  >0,T_D =T_1  >T_2 ,u(t) =\step(t)$
 \begin{equation*}
 	G(s)=\frac{\mu (1+s\tau)}{(1+sT_1)(1+sT_2)}
 \end{equation*}
@@ -2957,7 +2890,7 @@ $r=1$, allora
 		\dot{y} (0) & =\frac{\mu \tau }{T_1 T_2}  >0 
 	\end{aligned}
 \end{equation*}
-\begin{theorem}
+\begin{thm}
 	Estremi della risposta \textbf{allo scalino}. Sia $G(s)$ \textbf{propria}, cioè $r >0$, con \textbf{tutti i poli e gli zeri reali distinti}.\\
 	
 	
@@ -3040,12 +2973,12 @@ $r=1$, allora
 	\begin{equation*}
 		\boxed{
 			\begin{array}{{>{\displaystyle}l}}
-				m_s \ \text{dispari} \ \Rightarrow N\ \text{dispari} \\
-				m_s \ \text{pari} \ \Rightarrow N\ \text{pari}       
+				m_s \ \text{dispari} \ \implies N\ \text{dispari} \\
+				m_s \ \text{pari} \ \implies N\ \text{pari}       
 			\end{array}
 		}
 	\end{equation*}
-\end{theorem}
+\end{thm}
 
 Consideriamo un caso con lo \textit{zero instabile}.
 \begin{equation*}
@@ -3090,7 +3023,7 @@ I poli valgono
 \end{equation*}
 L'ipotesi affinché siano \textit{complessi} e che ci sia \textit{stabilità} è $0< \xi < 1$
 \begin{equation*}
-	p_{1,2} =-\xi \omega _n \pm i\omega _n\sqrt{1-\xi ^2} \ \ \Rightarrow \ \ T=-\frac{1}{\Re(p)} =\frac{1}{\xi \omega _n}
+	p_{1,2} =-\xi \omega _n \pm i\omega _n\sqrt{1-\xi ^2} \ \ \implies \ \ T=-\frac{1}{\Re(p)} =\frac{1}{\xi \omega _n}
 \end{equation*}
 Qui $r=2$, allora
 \begin{gather*}
@@ -3112,7 +3045,6 @@ Cosa significa invece avere una $G(s)$ fatta come
 	G(s) =\tilde{G}(s) e^{-sT} ,\ \ T >0
 \end{equation*}
 con $\tilde{G}(s)$ razionale fratta? Ricordiamo il risultato della traslazione (7). Possiamo pensare il sistema come una cascata
-
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -3143,7 +3075,6 @@ con $\tilde{G}(s)$ razionale fratta? Ricordiamo il risultato della traslazione (
 
 Vediamo quindi che il termine $e^{-sT}$ induce un ritardo di $T$, si chiama \textbf{ritardatore puro}.
 
-
 \chapter{Regime sinusoidale}
 
 Consideriamo ingressi del tipo
@@ -3162,23 +3093,23 @@ Studiare il regime sinusoidale significa studiare tutti i regimi periodici che p
 \begin{equation*}
 	u(t) =U_0 +\sum\limits ^{\infty }_{k=1} U_k\sin\left(k\frac{2\pi }{T} t+\varphi _k\right) ,\ \ k\in \mathbb{N}
 \end{equation*}
-Affinché ci sia convergeza della serie è necessario, ma non sufficiente, che $U_k\xrightarrow{k\rightarrow \infty } 0$.
-\begin{theorem}
+Affinché ci sia convergeza della serie è necessario, ma non sufficiente, che $U_k\xrightarrow{k\implies \infty } 0$.
+\begin{thm}
 	Sia $G(s) =\frac{N(s)}{\Delta (s)}$, immaginiamo che sia compl. oss. e compl. ragg., quindi il modello esterno descrive completamente il sistema, altrimenti potremmo fare poco. Supponiamo che risponda all'ingresso $u_T(t) =U\sin(\omega t) ,\omega =2\pi /T$. Allora $\exists !$ uscita sinusoidale
 	\begin{equation*}
-		y_T(t) =Y\sin(\omega t+\varphi) \ \ \Leftrightarrow \ \ \Delta (i\omega) \neq 0
+		y_T(t) =Y\sin(\omega t+\varphi) \ \ \iff \ \ \Delta (i\omega) \neq 0
 	\end{equation*}
 	In tal caso
 	\begin{equation*}
 		\frac{Y}{U} =R(\omega) ,\ \ \varphi =\varphi (\omega)
 	\end{equation*}
 	$R(\omega) ,\varphi (\omega)$ sono dette \textbf{risposta in frequenza}.
-\end{theorem}
+\end{thm}
 La condizione $\Delta (i\omega) \neq 0$ chiede che \textbf{non ci siano autovalori di modulo} $\omega $.
 
 Possiamo scrivere $G(s) =\frac{N(s)}{\Delta (s)}$ come
 \begin{equation*}
-	\Delta (s) y=N(s) u\ \ \Leftrightarrow \ \ y^{(n)}(t) +\cdots +\alpha _n y(t) =\beta _0 u^{(n)}(t) +\cdots +\beta _n u(t)
+	\Delta (s) y=N(s) u\ \ \iff \ \ y^{(n)}(t) +\cdots +\alpha _n y(t) =\beta _0 u^{(n)}(t) +\cdots +\beta _n u(t)
 \end{equation*}
 e ognuna di queste equazioni differenziali, per ogni set di condizioni iniziali diverse, produrrà diverse uscite, che possiamo genericamente chiamare $y$, mentre una sola di queste sarà quella sinusoidale $y_T$. Scriviamole
 \begin{gather*}
@@ -3194,10 +3125,9 @@ Sottraiamo
 \end{equation*}
 Ma se il sistema è asint. stabile
 \begin{equation*}
-	e(t)\rightarrow 0\ \forall e(0) \ \ \Leftrightarrow \ \ y(t)\rightarrow y_T(t)
+	e(t)\implies 0\ \forall e(0) \ \ \iff \ \ y(t)\implies y_T(t)
 \end{equation*}
 Quindi per ogni condizione iniziale tendiamo alla sinusoide.
-
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -3220,14 +3150,15 @@ Quindi per ogni condizione iniziale tendiamo alla sinusoide.
 	\end{tikzpicture}
 \end{figure}\FloatBarrier
 
-\begin{theorem}
+\begin{thm}
 	Se $\Delta (i\omega) \neq 0$ e $u_T(t) =U\sin(\omega t)$ sappiamo che $y_T(t) =Y\sin(\omega t+\varphi)$. Allora
 	\begin{equation*}
 		\boxed{
 			\frac{Y}{U} =| G(i\omega)| \ \ \ \ \varphi =\arg G(i\omega) ,\ \varphi \in [ -\pi ,\pi)
 		}
 	\end{equation*}
-\end{theorem}
+\end{thm}
+
 \section{Risposta in frequenza}
 
 Studiamo per ora
@@ -3236,9 +3167,8 @@ Studiamo per ora
 \end{equation*}
 Allora
 \begin{equation*}
-	G(i\omega) =\frac{\mu }{1+i\omega } \ \ \Rightarrow \ \ \frac{Y}{U} =| G(i\omega)| =\frac{\mu }{\sqrt{1+\omega ^2}} ,\ \ \varphi =\arg G(i\omega) =-\arctan \omega 
+	G(i\omega) =\frac{\mu }{1+i\omega } \ \ \implies \ \ \frac{Y}{U} =| G(i\omega)| =\frac{\mu }{\sqrt{1+\omega ^2}} ,\ \ \varphi =\arg G(i\omega) =-\arctan \omega 
 \end{equation*}
-
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -3273,7 +3203,7 @@ Se studiamo
 \end{equation*}
 Allora
 \begin{equation*}
-	G(i\omega) =\frac{\mu i\omega }{1+i\omega } \ \ \Rightarrow \ \ | G(i\omega)| =\frac{\mu \omega }{\sqrt{1+\omega ^2}} ,\ \ \arg G(i\omega) =\frac{\pi }{2} -\arctan \omega 
+	G(i\omega) =\frac{\mu i\omega }{1+i\omega } \ \ \implies \ \ | G(i\omega)| =\frac{\mu \omega }{\sqrt{1+\omega ^2}} ,\ \ \arg G(i\omega) =\frac{\pi }{2} -\arctan \omega 
 \end{equation*}
 È un \textbf{filtro passa alto}.
 
@@ -3288,6 +3218,7 @@ Allora
 	| G(i\omega)| =\frac{\mu \omega }{\sqrt{1+\omega ^2}\sqrt{1+0.01\omega ^2}} ,\ \ \arg G(i\omega) =\frac{\pi }{2} -\arctan \omega -\arctan(0.1\omega)
 \end{gather*}
 È un \textbf{filtro passa banda}.
+
 \section{Diagrammi di Bode}
 
 Ipotizziamo di avere poli e zeri tutti reali, introduciamo una forma standard di $G(s)$
@@ -3300,13 +3231,10 @@ I poli e zeri saranno della forma
 \end{equation*}
 Il valore $h$ si dice \textbf{tipo} del sistema, è intero. Se $h=1$ c'è un \textbf{polo dell'origine}, se $h=2,3,\dotsc $ ci sono poli multipli in $0$. Se $h=-1$ c'è uno \textbf{zero nell'origine}. $\mu $ si dice \textbf{guadagno generalizzato}, è parente del guadagno che avevamo introdotto, ma non sempre lo stesso proprio perché c'è quel $s^h$ che dà problemi ogni volta che $h\neq 0$.
 
-
-
 Introduciamo un asse logaritmico in base $10$
 \begin{equation*}
-	v=\log_{10} \omega \ \ \Leftrightarrow \ \ \omega =10^v
+	v=\log_{10} \omega \ \ \iff \ \ \omega =10^v
 \end{equation*}
-
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -3335,13 +3263,13 @@ Introduciamo un asse logaritmico in base $10$
 \end{figure}\FloatBarrier
 
 Si noti che non troviamo mai $\omega =0$. L'intervallo tra due tacchette del grafico si chiama \textbf{decade}.
+
 \subsection{Diagrammi di Bode del modulo}
 
 Sull'asse delle ordinate rappresenteremo il modulo di $G(i\omega)$ in decibel
 \begin{equation*}
 	\boxed{| G(i\omega)| _{\si{dB}} =20\log_{10}| G(i\omega)| }
 \end{equation*}
-
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -3444,9 +3372,9 @@ Se riusciamo a rappresentarle individualmente sarà la somma di ciascuna di ques
 	      Sommando i primi due pezzi si vede che a $\omega =1$, il modulo vale $\mu $ espresso in decibel.
 	\item pezzo ${\textstyle f=20\log| 1+i\omega \tau | =20\log\sqrt{1+\omega ^2 \tau ^2}}$
 	      
-	      se $\omega \rightarrow 0,f\rightarrow 0$
+	      se $\omega \implies 0,f\implies 0$
 	      
-	      se $\omega \rightarrow +\infty ,f\rightarrow 20\log(\omega | \tau |) =20\log \omega +20\log| \tau | $, questa quantità è $0$ per $\omega =\frac{1}{| \tau | }$
+	      se $\omega \implies +\infty ,f\implies 20\log(\omega | \tau |) =20\log \omega +20\log| \tau | $, questa quantità è $0$ per $\omega =\frac{1}{| \tau | }$
 	      
 	      \begin{figure}[htpb]\centering
 	      	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -3486,6 +3414,7 @@ Se riusciamo a rappresentarle individualmente sarà la somma di ciascuna di ques
 	Altro passo importante, ogni termine $f$ \textbf{non conta niente prima della sua frequenza caratteristica}, dopo quella c'è un aumento/diminuzione di $20\ \si{dB}$ a seconda che sia zero/polo.
 	\item il grado relativo $r$ rappresenta il \textbf{bilancio finale} tra i poli e gli zeri, alla fine ci aspettiamo una pendenza di $-20r\ \si{dB/dec}$.
 \end{itemize}
+
 \subsection{Diagrammi di Bode dell'argomento}
 
 Si ha
@@ -3514,14 +3443,12 @@ Studiamo i pezzi singolarmente
 	\end{tabular}
 \end{center}
 
-
 Notiamo che il segno di $\tau ,T$ non conta nel modulo, ma conta se è un polo o uno zero.
 
 Consideriamo ora la seguente funzione di trasferimento
 \begin{equation*}
 	G(s) =\frac{10(1\pm 10s)}{s(1+s)(1+0.1s)}
 \end{equation*}
-
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -3582,6 +3509,7 @@ In realtà ne esistono infinite che hanno lo stesso diagramma, basta considerare
 	\tilde{G}(s) =G(s) \cdotp \frac{1-s\tau }{1+s\tau }
 \end{equation*}
 Il secondo oggetto si chiama \textbf{sfasatore puro}. Sul modulo non cambia niente, ma sfasa la fase di $-\pi $, concentrato in $\frac{1}{| \tau | }$.
+
 \section{Poli complessi coniugati}
 
 Supponiamo $\mu =1$ e scriviamo la $G(s)$ come
@@ -3590,7 +3518,7 @@ Supponiamo $\mu =1$ e scriviamo la $G(s)$ come
 \end{equation*}
 Ricordiamo che per avere stabilità e poli complessi coniugati dobbiamo avere
 \begin{equation*}
-	0< \xi < 1\ \ \Rightarrow \ \ p_{1,2} =-\omega _n \xi \pm i\omega _n\sqrt{1-\xi ^2}
+	0< \xi < 1\ \ \implies \ \ p_{1,2} =-\omega _n \xi \pm i\omega _n\sqrt{1-\xi ^2}
 \end{equation*}
 $G(i\omega)$ possiamo scriverla in forma normalizzata
 \begin{equation*}
@@ -3601,7 +3529,6 @@ Scriviamo il modulo
 	| G(i\omega)| =\frac{1}{\sqrt{\left[ 1-\left(\frac{\omega }{\omega _n}\right)^2\right]^2 +\left[ 2\xi \frac{\omega }{\omega _n}\right]^2}}
 \end{equation*}
 Ci accorgiamo che si forma un massimo per $\xi < \frac{1}{\sqrt{2}} \approx 0,707$ e il massimo ha valore $| G(i\omega _{\text{max}})| =\frac{1}{2\xi \sqrt{1-\xi ^2}}$ in corrispondenza di $\omega _{\text{max}} =\omega _n\sqrt{1-2\xi ^2}$
-
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -3634,7 +3561,7 @@ Ci accorgiamo che si forma un massimo per $\xi < \frac{1}{\sqrt{2}} \approx 0,70
 		\draw (334,128.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$10$};
 		\draw (173,128.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$0.1$};
 		\draw (89,115.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$0$};
-		\draw (340,72.4) node [anchor=north west][inner sep=0.75pt]    {$\xi \rightarrow 0$};
+		\draw (340,72.4) node [anchor=north west][inner sep=0.75pt]    {$\xi \implies 0$};
 		\draw (288,172.4) node [anchor=north west][inner sep=0.75pt]    {$\xi =1$};
 		\draw (348,162.4) node [anchor=north west][inner sep=0.75pt]    {$-40\si{dB/dec}$};
 		
@@ -3648,7 +3575,6 @@ L'argomento invece vale
 \begin{equation*}
 	\arg G(i\omega) =-\arctan\left[\left(2\xi \frac{\omega }{\omega _n}\right) /\left(1-\left(\frac{\omega }{\omega _n}\right)^2\right)\right]
 \end{equation*}
-
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -3681,7 +3607,7 @@ L'argomento invece vale
 		\draw (354,48.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$10$};
 		\draw (193,48.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$0.1$};
 		\draw (109,65.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$0$};
-		\draw (290,36.4) node [anchor=north west][inner sep=0.75pt]    {$\xi \rightarrow 0$};
+		\draw (290,36.4) node [anchor=north west][inner sep=0.75pt]    {$\xi \implies 0$};
 		
 		
 	\end{tikzpicture}
@@ -3697,8 +3623,8 @@ Nello studio di queste funzioni di trasferimento è importante mettere in eviden
 \end{equation*}
 pertanto ricaviamo i valori della \textbf{pulsazione naturale} $\omega _n$ e dello \textbf{smorzamento} $\xi $
 \begin{gather*}
-	\omega ^2_n =100\ \ \Rightarrow \ \ \omega _n =10\\
-	2\xi \omega _n =1\ \ \Rightarrow \ \ \xi =\frac{1}{20} =0.05
+	\omega ^2_n =100\ \ \implies \ \ \omega _n =10\\
+	2\xi \omega _n =1\ \ \implies \ \ \xi =\frac{1}{20} =0.05
 \end{gather*}
 Alle basse frequenze abbiamo che il tipo è $h=-1$, quindi saliamo di $+20\ \si{dB/dec}$, mentre per $\omega =1$ deve valere $10$, cioè $20\ \si{dB}$. Alla frequenza $\omega =1$ interviene un polo. Alla frequenza $\omega =10$ interviene la coppia di poli facendo scendere di $-40\ \si{dB/dec}$. Questa conferma si ha dal fatto che $r=2$.
 
@@ -3804,10 +3730,9 @@ Se il guadagno è ben definito e non nullo, allora
 \begin{equation*}
 	\overline{y} =G(0)\overline{u}
 \end{equation*}
-C'è un problema, affinché $y(t)\rightarrow \overline{y}$ serve che $G(s)$ sia asintoticamente stabile, ma la $G(s)$ reale è in generale diversa dalla $\tilde{G}(s)$ approssimata del modello. Quindi usiamo sistemi in \textbf{retroazione}.
+C'è un problema, affinché $y(t)\implies \overline{y}$ serve che $G(s)$ sia asintoticamente stabile, ma la $G(s)$ reale è in generale diversa dalla $\tilde{G}(s)$ approssimata del modello. Quindi usiamo sistemi in \textbf{retroazione}.
 
 La differenza tra il valore desiderato di $y$ e la $y(t)$ va a zero? La retroazione, come sappiamo, può non mantenere la stabilità. Chiamiamo $w(t)$ l'uscita desiderata, $e(t)$ l'errore commesso e $d(t)$ un eventuale disturbo in uscita.
-
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -3860,7 +3785,7 @@ La differenza tra il valore desiderato di $y$ e la $y(t)$ va a zero? La retroazi
 		y       & =d+CGe     \\
 		        & =d+CG(w-y) \\
 		y(1+CG) & =d+CGw     
-	\end{aligned} \ \ \Rightarrow \ \ y=\frac{1}{1+CG} d+\frac{CG}{1+CG} w
+	\end{aligned} \ \ \implies \ \ y=\frac{1}{1+CG} d+\frac{CG}{1+CG} w
 \end{equation*}
 Definiamo la \textbf{funzione di trasferimento d'anello}
 \begin{equation*}
@@ -3876,7 +3801,7 @@ E analogamente possiamo anche descrivere l'errore come
 		e      & =w-y      \\
 		       & =w-(d+Le) \\
 		e(1+L) & =w-d      
-	\end{aligned} \ \ \Rightarrow \ \ e=\frac{1}{1+L} w-\frac{1}{1+L} d
+	\end{aligned} \ \ \implies \ \ e=\frac{1}{1+L} w-\frac{1}{1+L} d
 \end{equation*}
 In base alla grandezza che vorremo descrivere (errore o uscita di solito) e agli elementi che lo influenzano, vari tipi di disturbi che vedremo più avanti, avremo diverse funzioni di $L$.
 
@@ -3889,6 +3814,7 @@ In base alla grandezza che vorremo descrivere (errore o uscita di solito) e agli
 	\item attenuazione dei disturbi
 	\item piccolo errore a regime
 \end{itemize}
+
 \section{Stabilità asintotica}
 
 Non dobbiamo studiare $L$ ma $H(s) =\frac{L(s)}{1+L(s)}$. Usiamo il \textbf{criterio di Bode}. Immaginiamo $L(s)$ propria e
@@ -3905,10 +3831,10 @@ Allora $H(s)$ è asint. stabile se e solo se
 	      	\item ovvero se $| \varphi _c| < \pi $
 	      \end{itemize}
 \end{itemize}
+
 \section{Banda passante e tempo di risposta}
 
 Consideriamo un semplice sistema di controllo
-
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -3941,7 +3867,7 @@ Consideriamo un semplice sistema di controllo
 
 \begin{equation*}
 	\begin{aligned}
-		H(s) =\frac{L(s)}{1+L(s)} \Rightarrow | H(i\omega)|  & =\left| \frac{L(i\omega)}{1+L(i\omega)}\right| =\frac{| L(i\omega)| }{| 1+L(i\omega)| } \\
+		H(s) =\frac{L(s)}{1+L(s)} \implies | H(i\omega)|  & =\left| \frac{L(i\omega)}{1+L(i\omega)}\right| =\frac{| L(i\omega)| }{| 1+L(i\omega)| } \\
 		                                                     & =\begin{cases}                                                                          
 		\frac{| L(i\omega)| }{| L(i\omega)| } =1=0\ \si{dB}, & | L(i\omega)| \gg 1\ (0 \si{dB})                                                        \\
 		| L(i\omega)| ,                                      & | L(i\omega)| \ll 1\ (0 \si{dB})                                                        
@@ -3949,7 +3875,6 @@ Consideriamo un semplice sistema di controllo
 	\end{aligned}
 \end{equation*}
 Lontano da $\omega _c$ possiamo approssimare $H$ così, ipotizzando quella specifica $L$
-
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -3983,6 +3908,7 @@ L'esponente è $2$ perché nell'esempio considerato la pendenza finale è $-40$,
 \begin{equation*}
 	\boxed{T_R \simeq 5T_D =\frac{5}{\omega _c}}
 \end{equation*}
+
 \section{Errore a regime}
 
 Consideriamo un sistema asint. stabile. In generale i disturbi presenti saranno dovuti a
@@ -3991,7 +3917,6 @@ Consideriamo un sistema asint. stabile. In generale i disturbi presenti saranno 
 	\item un disturbo in uscita $d(t)$
 	\item un disturbo di misura $m(t)$ dovuto alla misurazione stessa dell'uscita
 \end{itemize}
-
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -4052,11 +3977,11 @@ Supponiamo $d(t) ,m(t) ,w(t)$ costanti e calcoliamo l'errore.
 		       & =w-d+Lm-L(w-y)    \\
 		       & =w-d+Lm-Le        \\
 		e(1+L) & =w-d+Lm           
-	\end{aligned} \ \ \Rightarrow \ \ \boxed{e=\frac{1}{1+L} w-\frac{1}{1+L} d+\frac{L}{1+L} m}
+	\end{aligned} \ \ \implies \ \ \boxed{e=\frac{1}{1+L} w-\frac{1}{1+L} d+\frac{L}{1+L} m}
 \end{equation*}
 Studiamola nello spirito della sovrapposizione degli effetti
 \begin{itemize}
-	\item effetto di $\overline{w}$ costante. I termini delle produttorie nella $L(s)$ non contano nel limite per $s\rightarrow 0$\begin{equation*}
+	\item effetto di $\overline{w}$ costante. I termini delle produttorie nella $L(s)$ non contano nel limite per $s\implies 0$\begin{equation*}
 	      \begin{aligned}
 	      	\overline{e}      & =F(0)\overline{w} =\frac{1}{1+L(0)}\overline{w} =\left(\frac{1}{1+\frac{\mu }{s^h}}\overline{w}\right)_{s=0} =\left(\frac{s^h}{s^h +\mu }\overline{w}\right)_{s=0} \\
 	      	                  & =\begin{cases}                                                                                                                                                     
@@ -4081,7 +4006,7 @@ Studiamola nello spirito della sovrapposizione degli effetti
 	      \begin{aligned}
 	      	\overline{e}      & =F(0)\overline{m} =\frac{L(0)}{1+L(0)}\overline{m} =\left(\frac{\frac{\mu }{s^h}}{1+\frac{\mu }{s^h}}\overline{m}\right)_{s=0} =\left(\frac{\mu }{s^h +\mu }\overline{m}\right)_{s=0} \\
 	      	                  & =\begin{cases}                                                                                                                                                                        
-	      	\text{se} \ h=0,  & \frac{\mu }{1+\mu }\overline{m}\xrightarrow{\mu \rightarrow \infty }\overline{m}                                                                                                      \\
+	      	\text{se} \ h=0,  & \frac{\mu }{1+\mu }\overline{m}\xrightarrow{\mu \implies \infty }\overline{m}                                                                                                      \\
 	      	\text{se} \ h >0, & \overline{m}                                                                                                                                                                          
 	      	\end{cases}
 	      \end{aligned}
@@ -4096,9 +4021,10 @@ Questa trattazione è stata fatta sull'errore, ma analogamente si può ragionare
 		       & =d+L(w-(m+y)) \\
 		       & =d+Lw-Lm-Ly   \\
 		y(1+L) & =Lw+d-Lm      
-	\end{aligned} \ \ \Rightarrow \ \ \boxed{y=\frac{L}{1+L} w+\frac{1}{1+L} d-\frac{L}{1+L} m}
+	\end{aligned} \ \ \implies \ \ \boxed{y=\frac{L}{1+L} w+\frac{1}{1+L} d-\frac{L}{1+L} m}
 \end{equation*}
 Vale poi l'analogo studio dei disturbi a regime.
+
 \section{Disturbo sinusoidale}
 
 Analizziamo cosa succede se il disturbo che consideriamo è sinusoidale. Abbiamo visto che l'errore si può genericamente scrivere come
@@ -4129,7 +4055,6 @@ Attenzione che
 	\left(\frac{1}{| L(i\omega)| }\right)_{\si{dB}} =20\log\frac{1}{| L(i\omega)| } =-20\log| L(i\omega)| 
 \end{equation*}
 pertanto prima di $\omega _c$ si ha un ribaltamento nell'approssimazione della $F$.
-
 
 \begin{figure}[htpb]\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
@@ -4162,77 +4087,79 @@ Una nota importante: se il disturbo è \textbf{somma di uno sinusoidale e uno co
 \textbf{Comandi Matlab}
 
 \begin{itemize}
-	\item {\fontfamily{pcr}\selectfont inv(A)} calcola l’inversa di una matrice
-	\item {\fontfamily{pcr}\selectfont SYS = ss(A,B,C,D)} crea il modello di stato a tempo continuo
-	\item {\fontfamily{pcr}\selectfont SYS = ss(A,B,C,D,1)} crea il modello di stato a tempo discreto
+	\item \texttt{inv(A)} calcola l’inversa di una matrice
+	\item \texttt{SYS = ss(A,B,C,D)} crea il modello di stato a tempo continuo
+	\item \texttt{SYS = ss(A,B,C,D,1)} crea il modello di stato a tempo discreto
 	\item Per creare il sistema con il modello esterno si può procedere come segue
 	      
-	      {\fontfamily{pcr}\selectfont num = [10,2]}
+	      \texttt{num = [10,2]}
 	      
-	      {\fontfamily{pcr}\selectfont den = poly([-1,-1,-1])} (polinomio con queste radici)
+	      \texttt{den = poly([-1,-1,-1])} (polinomio con queste radici)
 	      
-	      {\fontfamily{pcr}\selectfont SYS = tf(num,den)}
-	\item {\fontfamily{pcr}\selectfont K = dcgain(SYS)} restituisce il guadagno del sistema a regime
-	\item {\fontfamily{pcr}\selectfont poli = roots([1 0.7 0.12 -0.09])} calcola le radici di un polinomio
+	      \texttt{SYS = tf(num,den)}
+	\item \texttt{K = dcgain(SYS)} restituisce il guadagno del sistema a regime
+	\item \texttt{poli = roots([1 0.7 0.12 -0.09])} calcola le radici di un polinomio
 	\item Per trovare il sistema in forma di stato a partire dalla funzione di trasferimento basta utilizzare il comando tf2ss
 	      
-	      {\fontfamily{pcr}\selectfont [A,B,C,D] = tf2ss([0 3 -0.1 -0.43],[1 0.7 0.12 -0.09])}
-	\item Per \ costruire i sistemi non lineari su simulink si usa il blocco FCN. Questo riceve in ingresso un vettore colonna {\fontfamily{pcr}\selectfont [u(1)…u(n)]}.
+	      \texttt{[A,B,C,D] = tf2ss([0 3 -0.1 -0.43],[1 0.7 0.12 -0.09])}
+	\item Per \ costruire i sistemi non lineari su simulink si usa il blocco FCN. Questo riceve in ingresso un vettore colonna \texttt{[u(1)…u(n)]}.
 
 	\item Per calcolare la risposta allo scalino:
 	      
-	      {\fontfamily{pcr}\selectfont [out\_sca,time\_sca] = step(S)} (dove S è il Sistema)
+	      \texttt{[out\_sca,time\_sca] = step(S)} (dove S è il Sistema)
 	\item Per calcolare la risposta all’impulso:
 	      
-	      {\fontfamily{pcr}\selectfont [out\_imp,time\_imp] = impulse(S)}
+	      \texttt{[out\_imp,time\_imp] = impulse(S)}
 
-	\item Per calcolare la matrice di raggiungibilità: {\fontfamily{pcr}\selectfont R = ctrb(A,B)}
-	\item Per calcolare la matrice di osservabilità: {\fontfamily{pcr}\selectfont O = obsv(A,C)}
-	\item Per calcolare il vettore riga {\fontfamily{pcr}\selectfont k} della legge di controllo:
+	\item Per calcolare la matrice di raggiungibilità: \texttt{R = ctrb(A,B)}
+	\item Per calcolare la matrice di osservabilità: \texttt{O = obsv(A,C)}
+	\item Per calcolare il vettore riga \texttt{k} della legge di controllo:
 	      
-	      {\fontfamily{pcr}\selectfont k = acker(A, -B, autov\_controllore);}
-	\item Per calcolare il vettore colonna {\fontfamily{pcr}\selectfont l} del ricostruttore:
+	      \texttt{k = acker(A, -B, autov\_controllore);}
+	\item Per calcolare il vettore colonna \texttt{l} del ricostruttore:
 	      
-	      {\fontfamily{pcr}\selectfont lT = acker(A', -C', autov\_ricostruttore)}
+	      \texttt{lT = acker(A', -C', autov\_ricostruttore)}
 
-	\item {\fontfamily{pcr}\selectfont bode(SYS)} disegna i diagrammi di Bode e il range di frequenze è scelto in automatico.
-	\item {\fontfamily{pcr}\selectfont bode(SYS,\{WMIN,WMAX\})} disegna i diagrammi di bode nel range di frequenze indicato.
-	\item {\fontfamily{pcr}\selectfont bode(SYS,W)} valuta la risposta in frequenza nei punti indicati dal vettore {\fontfamily{pcr}\selectfont W}.
-	\item {\fontfamily{pcr}\selectfont bode(SYS1,SYS2,...,W)} disegna i diagrammi di Bode sovrapposti di tutti i sistemi indicati ({\fontfamily{pcr}\selectfont W} è opzionale)
+	\item \texttt{bode(SYS)} disegna i diagrammi di Bode e il range di frequenze è scelto in automatico.
+	\item \texttt{bode(SYS,\{WMIN,WMAX\})} disegna i diagrammi di bode nel range di frequenze indicato.
+	\item \texttt{bode(SYS,W)} valuta la risposta in frequenza nei punti indicati dal vettore \texttt{W}.
+	\item \texttt{bode(SYS1,SYS2,...,W)} disegna i diagrammi di Bode sovrapposti di tutti i sistemi indicati (\texttt{W} è opzionale)\\
+	Chiamate:
 	      \begin{itemize}
 	      	
-	      	Chiamate:
-	      	\item {\fontfamily{pcr}\selectfont [MOD,FASE] = bode(SYS,W)} e {\fontfamily{pcr}\selectfont [MOD,FASE,W] = bode(SYS)}
+	      	
+	      	\item \texttt{[MOD,FASE] = bode(SYS,W)} e \texttt{[MOD,FASE,W] = bode(SYS)}
 	      	      
 	      	      Restituiscono le risposte in modulo e argomento (in gradi centigradi) ma non disegnano i diagrammi.
 	      	\item Per ottenere i valori di MOD in dB:
 	      	      
-	      	      {\fontfamily{pcr}\selectfont MODDB = 20*log10(MOD)}
+	      	      \texttt{MODDB = 20*log10(MOD)}
 	      \end{itemize}
 
-	\item {\fontfamily{pcr}\selectfont conv} Restituisce i coefficienti del \ polinomio \ prodotto di due polinomi in ingresso. Ad esempio, per i coefficienti di $(1+s)^3$:
+	\item \texttt{conv} Restituisce i coefficienti del \ polinomio \ prodotto di due polinomi in ingresso. Ad esempio, per i coefficienti di $(1+s)^3$:
 	      
-	      {\fontfamily{pcr}\selectfont den = conv(conv([1 1],[1 1]),[1 1])}
+	      \texttt{den = conv(conv([1 1],[1 1]),[1 1])}
 
-	\item {\fontfamily{pcr}\selectfont lsim} simula la risposta nel tempo del sistema dinamico per ingressi arbitrari.
-	\item {\fontfamily{pcr}\selectfont lsim(SYS,U,T)} simula la risposta di {\fontfamily{pcr}\selectfont SYS} all’ingresso {\fontfamily{pcr}\selectfont U} nel tempo {\fontfamily{pcr}\selectfont T}.
-	\item {\fontfamily{pcr}\selectfont lsim(SYS,U,T,X0)} simula la risposta di {\fontfamily{pcr}\selectfont SYS} quando lo stato iniziale è {\fontfamily{pcr}\selectfont X0}, altrimenti è zero di default.
-	\item {\fontfamily{pcr}\selectfont lsim(SYS1,SYS2,...,U,T,X0)} simula la risposta di numerosi sistemi in un singolo plot.
+	\item \texttt{lsim} simula la risposta nel tempo del sistema dinamico per ingressi arbitrari.
+	\item \texttt{lsim(SYS,U,T)} simula la risposta di \texttt{SYS} all’ingresso \texttt{U} nel tempo \texttt{T}.
+	\item \texttt{lsim(SYS,U,T,X0)} simula la risposta di \texttt{SYS} quando lo stato iniziale è \texttt{X0}, altrimenti è zero di default.
+	\item \texttt{lsim(SYS1,SYS2,...,U,T,X0)} simula la risposta di numerosi sistemi in un singolo plot.
+	      Chiamate:
 	      \begin{itemize}
 	      	
-	      	Chiamate:
-	      	\item {\fontfamily{pcr}\selectfont Y = lsim(SYS,U,T)} restituisce l’uscita {\fontfamily{pcr}\selectfont Y} e non disegna nulla sullo schermo.
-	      	\item {\fontfamily{pcr}\selectfont [Y,T,X] = lsim(SYS,U,T,X0)} restituisce {\fontfamily{pcr}\selectfont Y}, il vettore tempo {\fontfamily{pcr}\selectfont T} e i vettori di stato {\fontfamily{pcr}\selectfont X} (in una matrice dove la colonna $i$ è il vettore $x_i(t)$).
+	      	
+	      	\item \texttt{Y = lsim(SYS,U,T)} restituisce l’uscita \texttt{Y} e non disegna nulla sullo schermo.
+	      	\item \texttt{[Y,T,X] = lsim(SYS,U,T,X0)} restituisce \texttt{Y}, il vettore tempo \texttt{T} e i vettori di stato \texttt{X} (in una matrice dove la colonna $i$ è il vettore $x_i(t)$).
 	      \end{itemize}
 
-	\item con il comando {\fontfamily{pcr}\selectfont margin} è possibile valutare il margine di fase di $L(s)$.
+	\item con il comando \texttt{margin} è possibile valutare il margine di fase di $L(s)$.
 		\begin{itemize}
-			\item Chiamata: {\fontfamily{pcr}\selectfont margin(L)}
+			\item Chiamata: \texttt{margin(L)}
 		\end{itemize}
 
-	\item {\fontfamily{pcr}\selectfont feedback} collega in retroazione due sistemi.
+	\item \texttt{feedback} collega in retroazione due sistemi.
 	      
-	      Ad esempio, {\fontfamily{pcr}\selectfont M = feedback(M1,M2)} è il sistema {\fontfamily{pcr}\selectfont y = Mu}
+	      Ad esempio, \texttt{M = feedback(M1,M2)} è il sistema \texttt{y = Mu}
 	      
 	      \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 	      
@@ -4265,7 +4192,5 @@ Una nota importante: se il disturbo è \textbf{somma di uno sinusoidale e uno co
 	      \end{tikzpicture}
 
 	\item Per visualizzare i poli e gli zeri del sistema sotto controllo con guadagno $\mu $:\\
-		{\fontfamily{pcr}\selectfont pzmap(SYS), axis([-a a -b b])}
+		\texttt{pzmap(SYS), axis([-a a -b b])}
 \end{itemize}
-
-\end{document}

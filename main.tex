@@ -1,0 +1,75 @@
+\documentclass[10pt,a4paper,twoside]{book}
+
+\input{style}
+
+\usepackage[
+	left=2.5cm, % inner
+	right=2.5cm, % outer
+	top=2.5cm,
+	bottom=3cm,
+	%showframe,
+	]{geometry}
+
+\DeclareMathOperator{\imp}{imp}
+\DeclareMathOperator{\step}{step}
+\DeclareMathOperator{\ramp}{ramp}
+
+\begin{document}
+
+\frontmatter
+
+\pagestyle{empty}
+
+% COPERTINA
+
+\hypertarget{mytitlepage}{} % set the hypertarget
+\bookmark[dest=mytitlepage,level=chapter]{Title Page} % add the bookmark
+
+\vspace*{\fill}
+
+\begin{center}
+	{\large \textsc{Appunti di}}\\
+	\vspace*{0.4cm}
+	{\Huge \textsc{Fondamenti di Automatica}}\\
+	\vspace*{1cm}
+	{\large per il corso di Ingegneria Matematica}\\
+	\vspace*{0.4cm}
+	{\large {di Teo Bucci}}\\
+	\vspace*{1cm}
+	Politecnico di Milano\\
+	A.A. 2019/2020
+\end{center}
+\vspace*{\fill}
+\clearpage
+
+% COPYRIGHT PAGE
+
+\hypertarget{mycopyright}{} % set the hypertarget
+\bookmark[dest=mycopyright,level=chapter]{Copyright Page} % add the bookmark
+\input{firstpages/copyright}
+\clearpage
+
+% PREFAZIONE
+
+% \hypertarget{mypreface}{} % set the hypertarget
+% \bookmark[dest=mypreface,level=chapter]{Prefazione} % add the bookmark
+% \input{firstpages/prefazione}
+% \clearpage
+
+% INDICE
+
+\cleardoublepage
+\pagestyle{toc}
+\hypertarget{mytoc}{} % set the hypertarget
+\bookmark[dest=mytoc,level=chapter]{\contentsname} % add the bookmark
+\tableofcontents
+\cleardoublepage
+
+% MAIN MATTER
+
+\pagestyle{fancy}
+\mainmatter
+
+\input{chapters/teoria} \cleardoublepage
+
+\end{document}

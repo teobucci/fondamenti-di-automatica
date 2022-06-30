@@ -2814,7 +2814,7 @@ Che si può studiare:
 \end{thm}
 Lo possiamo usare insieme ad altri teoremi, come quello della derivazione
 \begin{equation*}
-	f'(0) =\lim _{s\implies \infty } s\mathcal{L}[ f'(t)] =\lim _{s\implies \infty } s(sF(s) -f(0))
+	f'(0) =\lim _{s\to \infty } s\mathcal{L}[ f'(t)] =\lim _{s\to \infty } s(sF(s) -f(0))
 \end{equation*}
 \begin{thm}{Teorema del valore finale.}{}
 	Sia $f(t)\xrightarrow{\mathcal{L}} F(s)$ allora
@@ -2836,11 +2836,11 @@ Invece
 \end{equation*}
 Questo modo mette in evidenza costante di tempo e guadagno. Com'è la risposta allo scalino? Usiamo il teorema del valore iniziale e ricordiamo che con lo scalino si ha $U(s) =\frac{1}{s}$ per ottenere:
 \begin{equation*}
-	y(0) =\lim _{s\implies \infty } sY(s) =\lim _{s\implies \infty } sG(s) U(s) =\lim _{s\implies \infty } s\frac{\mu }{1+sT}\frac{1}{s} =\lim _{s\implies \infty }\frac{\mu }{1+sT} =0
+	y(0) =\lim _{s\to \infty } sY(s) =\lim _{s\to \infty } sG(s) U(s) =\lim _{s\to \infty } s\frac{\mu }{1+sT}\frac{1}{s} =\lim _{s\to \infty }\frac{\mu }{1+sT} =0
 \end{equation*}
 Vediamo la derivata prima
 \begin{equation*}
-	\dot{y}(t) =\lim _{s\implies \infty } s\left(sY(s) -\cancel{y(0)}\right) =\lim _{s\implies \infty } s^2 Y(s) =\lim _{s\implies \infty } s^2\frac{\mu }{1+sT}\frac{1}{s} =\frac{\mu }{T}
+	\dot{y}(t) =\lim _{s\to \infty } s\left(sY(s) -\cancel{y(0)}\right) =\lim _{s\to \infty } s^2 Y(s) =\lim _{s\to \infty } s^2\frac{\mu }{1+sT}\frac{1}{s} =\frac{\mu }{T}
 \end{equation*}
 \textit{Complichiamo:}
 \begin{equation*}
@@ -2850,11 +2850,11 @@ supponiamo $T_1 ,T_2  >0\implies $ è asint. stabile. $r=2$.
 \begin{equation*}
 	\begin{aligned}
 		y(\infty)    & =G(0)\cdot 1=\mu                                                                                                                                                                          \\
-		y(0)         & =\lim _{s\implies \infty } sY(s)                                                                                                                                                       \\
-		             & =\lim _{s\implies \infty } s\frac{1}{s}\frac{\mu }{(1+sT_1)(1+sT_2)} =0                                                                                                                \\
-		\dot{y} (0)  & =\lim _{s\implies \infty } s(sY(s)-\cancel{y(0)})                                                                                                                                      \\
-		             & =\lim _{s\implies \infty } s^2\frac{1}{s}\frac{\mu }{(1+sT_1)(1+sT_2)} =0                                                                                                              \\
-		\ddot{y} (0) & =\lim _{s\implies \infty } s\left(s^2 Y(s)-\cancel{sy(0)} -\cancel{\dot{y} (0)}\right) =\lim _{s\implies \infty } s^3\frac{1}{s}\frac{\mu }{(1+sT_1)(1+sT_2)} =\frac{\mu }{T_1 T_2} 
+		y(0)         & =\lim _{s\to \infty } sY(s)                                                                                                                                                       \\
+		             & =\lim _{s\to \infty } s\frac{1}{s}\frac{\mu }{(1+sT_1)(1+sT_2)} =0                                                                                                                \\
+		\dot{y} (0)  & =\lim _{s\to \infty } s(sY(s)-\cancel{y(0)})                                                                                                                                      \\
+		             & =\lim _{s\to \infty } s^2\frac{1}{s}\frac{\mu }{(1+sT_1)(1+sT_2)} =0                                                                                                              \\
+		\ddot{y} (0) & =\lim _{s\to \infty } s\left(s^2 Y(s)-\cancel{sy(0)} -\cancel{\dot{y} (0)}\right) =\lim _{s\to \infty } s^3\frac{1}{s}\frac{\mu }{(1+sT_1)(1+sT_2)} =\frac{\mu }{T_1 T_2} 
 	\end{aligned}
 \end{equation*}
 Generalizziamo. \textbf{Se stiamo analizzando la risposta allo scalino} e se abbiamo una $G(s)$ di grado relativo $r$
@@ -3981,7 +3981,7 @@ Supponiamo $d(t) ,m(t) ,w(t)$ costanti e calcoliamo l'errore.
 \end{equation*}
 Studiamola nello spirito della sovrapposizione degli effetti
 \begin{itemize}
-	\item effetto di $\overline{w}$ costante. I termini delle produttorie nella $L(s)$ non contano nel limite per $s\implies 0$\begin{equation*}
+	\item effetto di $\overline{w}$ costante. I termini delle produttorie nella $L(s)$ non contano nel limite per $s\to 0$\begin{equation*}
 	      \begin{aligned}
 	      	\overline{e}      & =F(0)\overline{w} =\frac{1}{1+L(0)}\overline{w} =\left(\frac{1}{1+\frac{\mu }{s^h}}\overline{w}\right)_{s=0} =\left(\frac{s^h}{s^h +\mu }\overline{w}\right)_{s=0} \\
 	      	                  & =\begin{cases}                                                                                                                                                     

@@ -488,7 +488,7 @@ Queste definizioni generano una partizione fra i tipi di sistemi. \textit{La sta
 	Introduciamo la \textbf{costante di tempo a t. continuo}\begin{equation*}
 	\boxed{T=-\frac{1}{a}  >0}
 	\end{equation*}Dopo circa $5T$ il valore della funzione è meno dell'$1\%$, quindi il \textbf{tempo di risposta} vale\begin{equation*}
-	\boxed{T_R \simeq 5T=-\frac{5}{a}}
+	\boxed{T_R \approx 5T=-\frac{5}{a}}
 	\end{equation*}
 	\item se $a=0$ è sempl. stabile, $x_L\left(t\right) =e^{at} x\left(0\right) =x\left(0\right)$
 	\item se $a >0$ è instabile
@@ -497,7 +497,7 @@ Queste definizioni generano una partizione fra i tipi di sistemi. \textit{La sta
 \textbf{Stabilità a t. discreto con} $n=1$
 \begin{itemize}
 	\item se $\left| a\right| < 1$ è asint. stabile con \textbf{costante di tempo a t. discreto}\begin{equation*}
-	      \boxed{T=-\frac{1}{\log\left| a\right| }} \ \ \implies \ \ \boxed{T_R \simeq 5T=-\frac{5}{\log\left| a\right| }}
+	      \boxed{T=-\frac{1}{\log\left| a\right| }} \ \ \implies \ \ \boxed{T_R \approx 5T=-\frac{5}{\log\left| a\right| }}
 	\end{equation*}
 	\item se $\left| a\right| =1$ è sempl. stabile
 	\item se $\left| a\right|  >1$ è instabile
@@ -559,7 +559,7 @@ con $\alpha ,\beta \in \mathbb{R}$. Vale la discussione sul valore del parametro
 
 La soluzione è una combinazione lineare di esponenziali, pertanto gli esponenziali più lenti sono quelli che governano la risposta. Chiamiamo il \textbf{tempo di risposta dominante}:
 \begin{equation*}
-	\boxed{T_D =\max_i T_i} \ \ \ \ \boxed{T_R \simeq 5T_D}
+	\boxed{T_D =\max_i T_i} \ \ \ \ \boxed{T_R \approx 5T_D}
 \end{equation*}
 È determinato dall'autovalore più a destra, detto \textbf{autovalore dominante}.
 
@@ -3406,7 +3406,7 @@ Se riusciamo a rappresentarle individualmente sarà la somma di ciascuna di ques
 	      
 	      
 	      nel punto di massimo errore abbiamo\begin{equation*}
-	      f| _{\omega =\frac{1}{| \tau | }} =20\log 2\simeq 3\ \si{dB}
+	      f| _{\omega =\frac{1}{| \tau | }} =20\log 2\approx 3\ \si{dB}
 	\end{equation*}
 	
 	Bode propone proprio l'approssimazione spezzata, anziché quella \textit{vera}.
@@ -3561,7 +3561,7 @@ Ci accorgiamo che si forma un massimo per $\xi < \frac{1}{\sqrt{2}} \approx 0,70
 		\draw (334,128.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$10$};
 		\draw (173,128.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$0.1$};
 		\draw (89,115.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$0$};
-		\draw (340,72.4) node [anchor=north west][inner sep=0.75pt]    {$\xi \implies 0$};
+		\draw (340,72.4) node [anchor=north west][inner sep=0.75pt]    {$\xi \to 0$};
 		\draw (288,172.4) node [anchor=north west][inner sep=0.75pt]    {$\xi =1$};
 		\draw (348,162.4) node [anchor=north west][inner sep=0.75pt]    {$-40\si{dB/dec}$};
 		
@@ -3607,7 +3607,7 @@ L'argomento invece vale
 		\draw (354,48.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$10$};
 		\draw (193,48.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$0.1$};
 		\draw (109,65.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$0$};
-		\draw (290,36.4) node [anchor=north west][inner sep=0.75pt]    {$\xi \implies 0$};
+		\draw (290,36.4) node [anchor=north west][inner sep=0.75pt]    {$\xi \to 0$};
 		
 		
 	\end{tikzpicture}
@@ -3906,7 +3906,7 @@ Lontano da $\omega _c$ possiamo approssimare $H$ così, ipotizzando quella speci
 \end{equation*}
 L'esponente è $2$ perché nell'esempio considerato la pendenza finale è $-40$, in generale è diverso, ma la struttura è quella. Il primo cambio di pendenza è alla $\omega _c$ e la prima ci dice il tempo dominante.
 \begin{equation*}
-	\boxed{T_R \simeq 5T_D =\frac{5}{\omega _c}}
+	\boxed{T_R \approx 5T_D =\frac{5}{\omega _c}}
 \end{equation*}
 
 \section{Errore a regime}

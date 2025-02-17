@@ -4,7 +4,7 @@
 
 Relazioni causa-effetto tra segnali. Un segnale è una funzione continua del tempo.
 \begin{itemize}
-	\item a tempo continuo $t\in \mathbb{R} ,i\ t\in [ 0,+\infty)$,
+	\item a tempo continuo $t\in \mathbb{R} ,\ t\in [ 0,+\infty)$,
 	\item a tempo discreto $t\in \mathbb{N} ,\ t\in \{0,1,2,\dotsc \}$
 \end{itemize}
 
@@ -15,11 +15,11 @@ Sono fatti così.
 	\boxed{
 		\begin{cases}
 			\dot{x} (t)=f(x(t),u(t)) \\
-			y(t)=g(x(t),u(t))      
+			y(t)=g(x(t))      
 		\end{cases}
 	}
 \end{equation*}
-Questo definisce un sistema dinamico. $\dot{x}$ denota la derivata rispetto al tempo. In generale $x(t)$ è un vettore di dimensione $n$
+Questo definisce un sistema dinamico. $\dot{x}$ denota la derivata rispetto al tempo. In generale $x(t)$ è un vettore di dimensione $n$, dove $n$ è detto ordine del sistema
 \begin{equation*}
 	x(t) =\begin{bmatrix}
 	x_1(t)\\
@@ -29,10 +29,11 @@ Questo definisce un sistema dinamico. $\dot{x}$ denota la derivata rispetto al t
 	\end{bmatrix}
 \end{equation*}
 \textit{Esempio (circuito elettrico).} Vediamo un modello di ordine 2
+% TODO: aggiungere disegno e definizione della variabile di uscita y(t)
 \begin{equation*}
 	\begin{cases}
 		\dot{x}_1 (t)=\frac{1}{L}(x_2 (t)-Rx_1 (t)) \\
-		\dot{x}_2 (t)=\frac{1}{c}(u(t)-x_1 (t))       
+		\dot{x}_2 (t)=\frac{1}{C}(u(t)-x_1 (t))     
 	\end{cases}
 \end{equation*}
 

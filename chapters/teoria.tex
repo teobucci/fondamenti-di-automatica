@@ -300,7 +300,80 @@ Ovvero scriviamo tutto come
 
 \section{Movimento e traiettoria}
 
-Il \textbf{movimento} è la soluzione. La \textbf{traiettoria} è il movimento proiettato sullo spazio di stato. Se $u(t) =\overline{u} \ \forall t\geq 0$, cioè l'ingresso è costante, non si intersecano le traiettorie.
+Il \textbf{movimento} è una funzione a valori vettoriali, in particolare è la soluzione del vettore di stato $x(t)$.
+
+Ipotizzando che il sistema sia di ordine $2$, il grafico della traiettoria è una curva di $\mathbb R^3$ che mostra l'andamento di $x_1$ e $x_2$ nel tempo.
+
+
+\begin{figure}[htpb]\centering
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Straight Lines [id:da3055123061955123] 
+\draw    (180,190) -- (91.41,278.59) ;
+\draw [shift={(90,280)}, rotate = 315] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da1482030458017568] 
+\draw    (180,190) -- (568,190) ;
+\draw [shift={(570,190)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da04774733935961384] 
+\draw    (180,190) -- (180,2) ;
+\draw [shift={(180,0)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Rectangle [id:dp9465354860663429] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=0.35 ] (180,18.1) -- (180,188.1) -- (100,271.9) -- (100,101.9) -- cycle ;
+%Curve Lines [id:da17612402023901086] 
+\draw    (150,120) .. controls (162.19,110.85) and (229,164.73) .. (251.06,134.4) .. controls (273.12,104.06) and (294.28,140.07) .. (304.56,132.84) .. controls (314.85,125.62) and (406,69.27) .. (390,110) .. controls (374,150.73) and (423.75,123.97) .. (460,130) .. controls (496.25,136.03) and (532.64,155.52) .. (540,150) ;
+%Straight Lines [id:da10729910403508991] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (150,120) -- (180,90) ;
+%Straight Lines [id:da3382406164182523] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (150,220) -- (150,120) ;
+%Straight Lines [id:da542548455022142] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (390,260) -- (390,130) ;
+%Straight Lines [id:da9382200126193075] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (390,260) -- (460,190) ;
+%Straight Lines [id:da9071862164708364] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (110,260) -- (390,260) ;
+%Straight Lines [id:da9783091853808411] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (460,190) -- (460,60) ;
+%Straight Lines [id:da8399278200224751] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (390,130) -- (460,60) ;
+%Straight Lines [id:da8610859099553595] 
+\draw  [dash pattern={on 4.5pt off 4.5pt}]  (180,60) -- (460,60) ;
+
+% Text Node
+\draw (572,193.4) node [anchor=north west][inner sep=0.75pt]    {$t$};
+% Text Node
+\draw (68,270.3) node [anchor=north west][inner sep=0.75pt]    {$x_{1}$};
+% Text Node
+\draw (191,2.4) node [anchor=north west][inner sep=0.75pt]    {$x_{2}$};
+% Text Node
+\draw (117,258.4) node [anchor=north west][inner sep=0.75pt]    {$x_{1}( t_{1})$};
+% Text Node
+\draw (157,212.4) node [anchor=north west][inner sep=0.75pt]    {$x_{1}( 0)$};
+% Text Node
+\draw (187,32.4) node [anchor=north west][inner sep=0.75pt]    {$x_{2}( t_{1})$};
+% Text Node
+\draw (191,80.4) node [anchor=north west][inner sep=0.75pt]    {$x_{2}( 0)$};
+% Text Node
+\draw (462,193.4) node [anchor=north west][inner sep=0.75pt]    {$t_{1}$};
+% Text Node
+\draw (184,170.4) node [anchor=north west][inner sep=0.75pt]    {$t_{0} =0$};
+\end{tikzpicture}
+
+\end{figure}\FloatBarrier
+
+Definiamo lo spazio di stato come l'insieme su cui assume valori $x(t)$. Per un sistema di ordine $2$, nel grafico sopra è rappresentato in grigio lo spazio di stato.
+
+La \textbf{traiettoria} è il movimento proiettato sullo spazio di stato. In altre parole, se immaginassimo di guardare il grafico del movimento con la $t$ uscente, quella che vedremmo sarebbe la traiettoria.
+
+Se $u(t) =\overline{u} \ \forall t\geq 0$, cioè l'ingresso è costante, non si intersecano le traiettorie.
 
 Supponendo $u(t) =\overline{u} \ \forall t\geq 0$, consideriamo sistemi lineari del tipo
 \begin{gather*}
@@ -717,19 +790,14 @@ Se gli autovalori dominanti sono una coppia complessa coniugata la costante di t
 \begin{rem}
 	Se $A$ è triangolare a blocchi, il suo spettro è l'unione degli spettri dei blocchi.
 	\begin{equation*}
-		A=\begin{bmatrix}
-		\begin{array}{ c c }
-			a & b \\
-			c & d 
-		\end{array} & \begin{array}{ c }
-		f\\
-		g
-		\end{array}\\
-		\hline
-		\begin{array}{ c c }
-			0 & 0 
-		\end{array} & e
-		\end{bmatrix} \implies \sigma \left(A\right) =\sigma \left(\begin{bmatrix}
+        \left[
+            \begin{array}{cc|c}
+			        a & b & f \\
+			        c & d & g\\
+		          \hline
+                  0 & 0 & e
+		      \end{array}
+        \right] \implies \sigma \left(A\right) =\sigma \left(\begin{bmatrix}
 		a & b\\
 		c & d
 		\end{bmatrix}\right) \cup \sigma \left(\begin{bmatrix}

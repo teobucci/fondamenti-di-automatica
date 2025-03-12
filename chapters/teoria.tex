@@ -901,11 +901,12 @@ applicando la formula di Lagrange a questo diventa
 Si tratta ora di capire com'è fatta $e^{J^l_i t}$, si può dimostrare che è fatta così
 \begin{equation*}
 	e^{J^l_i t} =\begin{bmatrix}
-	1 & t & t^2 /2 & \dotsc  & \\
-	& 1 & t & \ddots  & \vdots \\
-	&  & 1 & \ddots  & t^2 /2\\
-	&  &  & \ddots  & t\\
-	&  &  &  & 1
+	1 & t & t^2 /2 & t^3/3! & \dotsc  & \\
+	& 1 & t & t^2 /2&\ddots  & \vdots \\
+	&  & 1 & t & \ddots & t^3/3!\\
+	&  &  & 1 & \ddots& t^2 /2\\
+	&  &  &  & \ddots& t\\
+    &  &  &  &  & 1
 	\end{bmatrix} e^{\lambda _i t}
 \end{equation*}
 Contiene esponenziali ed esponenziali moltiplicati per potenze di $t$, quello che fanno dipende dalla parte reale di $\lambda _i$. Si noti che se $\lambda _i =0$, si ha solo la matrice, e ciò che fa \textit{dipende dalla dimensione della matrice}! Se avesse dimensione $1$ sarebbe formata solo da

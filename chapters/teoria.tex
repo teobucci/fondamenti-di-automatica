@@ -675,13 +675,13 @@ Tra tutte le forme, con $d=0$, la forma canonica è
 
 \chapter{Stabilità}
 
-Chiamiamo $\Sigma $ il sistema lineare che stiamo studiando. Studiare la stabilità significa chiedersi cosa succede al sistema per $t\implies \infty $ quando non si parte dall'equilibrio. Sappiamo che la soluzione si può scrivere come somma di movimento libero e movimento forzato:
+Chiamiamo $\Sigma $ il sistema lineare che stiamo studiando. Studiare la stabilità significa chiedersi cosa succede al sistema per $t\to \infty $ quando non si parte dall'equilibrio. Sappiamo che la soluzione si può scrivere come somma di movimento libero e movimento forzato:
 \begin{equation*}
 	x\left(t\right) =x_L\left(t\right) +x_F\left(t\right)
 \end{equation*}
 \textit{La stabilità riguarda solo il movimento libero.}
 \begin{enumerate}
-	\item $\Sigma $ è \textbf{asintoticamente stabile} se $\lim\limits _{t\implies \infty } x_L\left(t\right) =0\ \forall x\left(0\right)$, ovvero se $\phi \left(t\right) x\left(0\right)\implies 0$. Tutte le funzioni dentro $\phi \left(t\right)$ devono tendere a $0$, quindi $x\left(t\right)\implies x_F\left(t\right)$, si perde la memoria iniziale del sistema.
+	\item $\Sigma $ è \textbf{asintoticamente stabile} se $\lim\limits _{t\to \infty } x_L\left(t\right) = 0\ \forall x\left(0\right)$, ovvero se $\phi \left(t\right) x\left(0\right)\to 0$. Tutte le funzioni dentro $\phi \left(t\right)$ devono tendere a $0$, quindi $x\left(t\right)\to x_F\left(t\right)$, si perde la memoria iniziale del sistema.
 	\item $\Sigma $ è \textbf{semplicemente stabile} se $x_L\left(t\right) =\phi \left(t\right) x\left(0\right)$ è limitato $\forall x\left(0\right)$ ma esiste almeno un $x\left(0\right)$ per cui $\phi \left(t\right) x\left(0\right) \nrightarrow 0$ (il limite o non esiste o non è zero).
 	\item $\Sigma $ è \textbf{instabile} se esiste un $x\left(0\right)$ per cui $x_L\left(t\right) =\phi \left(t\right) x\left(0\right)$ è illimitato (diverge).
 \end{enumerate}
@@ -692,7 +692,7 @@ Queste definizioni generano una partizione fra i tipi di sistemi. \textit{La sta
 	\begin{equation*}
 		u\left(t\right) =\overline{u} \ \forall t\geq 0,\ \begin{cases}
 		\overline{x} \ \exists !\\
-		\lim _{t\implies \infty } x\left(t\right) =\overline{x} \ \forall x\left(0\right)
+		 \lim\limits _{t\to \infty } x\left(t\right) =\overline{x} \ \forall x\left(0\right)
 		\end{cases}
 	\end{equation*}
 \end{thm}
@@ -1839,7 +1839,7 @@ La trattazione di equilibrio è dovuta a Lyapunov. Un equilibrio è
 	\item \textbf{asintoticamente stabile} se
 	      \begin{itemize}
 	      	\item è stabile
-	      	\item $\lim _{t\implies \infty } x(t) =\overline{x} \ \forall x(0) :\Vert x(0) -\overline{x}\Vert < \delta _{\varepsilon }$
+	      	\item $\lim\limits _{t\to \infty } x(t) =\overline{x} \ \forall x(0) :\Vert x(0) -\overline{x}\Vert < \delta _{\varepsilon }$
 	      \end{itemize}
 	      
 	      sono un sottoinsieme di quelli stabili. Col passare del tempo non solo non mi devo allontanare, ma mi devo riavvicinare all'equilibrio.
@@ -1848,7 +1848,7 @@ La trattazione di equilibrio è dovuta a Lyapunov. Un equilibrio è
 
 Se un equilibrio è asint. stabile si definisce il suo \textbf{bacino di attrazione}
 \begin{equation*}
-	B(\overline{x}) =\left\{x(0) :x(t)\implies \overline{x}\right\}
+	B(\overline{x}) =\left\{x(0) :x(t)\to \overline{x}\right\}
 \end{equation*}
 Si può poi dire che $\overline{x}$ asint. stabile è \textbf{globalmente stabile} se $B(\overline{x}) =\mathbb{R}^n$, ma possiamo dare una definizione più morbida: $\overline{x}$ asint. stabile è \textbf{quasi globalmente stabile} se $B(\overline{x}) =\mathbb{R}^n$ a meno di un insieme di misura nulla.
 
@@ -2997,7 +2997,7 @@ Che si può studiare:
 	      y(0) =-\frac{1}{2} +4-\frac{7}{2} =\frac{-1+8-7}{2} =0
 	\end{equation*}
 	\item valore asintotico\begin{equation*}
-	      \lim _{t\implies +\infty } y(t) =-\frac{1}{2}
+	      \lim _{t\to +\infty } y(t) =-\frac{1}{2}
 	\end{equation*}
 	
 	questo risultato lo sapevamo già ($\overline{u} =1$ perché stiamo considerando lo scalino unitario)\begin{equation*}
@@ -3025,7 +3025,7 @@ Che si può studiare:
 \begin{thm}{Teorema del valore iniziale.}{}
 	Sia $f(t)\xrightarrow{\mathcal{L}} F(s)$ allora
 	\begin{equation*}
-		\boxed{f(0) =\lim _{t\implies 0^{+}} f(t) =\lim _{\Re(s)\implies \infty }[ sF(s)]}
+		\boxed{f(0) =\lim _{t\to 0^{+}} f(t) =\lim _{\Re(s)\to \infty }[ sF(s)]}
 	\end{equation*}
 \end{thm}
 Lo possiamo usare insieme ad altri teoremi, come quello della derivazione
@@ -3035,7 +3035,7 @@ Lo possiamo usare insieme ad altri teoremi, come quello della derivazione
 \begin{thm}{Teorema del valore finale.}{}
 	Sia $f(t)\xrightarrow{\mathcal{L}} F(s)$ allora
 	\begin{equation*}
-		\boxed{\lim _{t\implies \infty } f(t) =\lim _{\Re(s)\implies 0}[ sF(s)]}
+		\boxed{\lim _{t\to \infty } f(t) =\lim _{\Re(s)\to 0}[ sF(s)]}
 	\end{equation*}
 \end{thm}
 \textit{Esempio.} Sia $T >0$

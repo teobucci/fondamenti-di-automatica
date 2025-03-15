@@ -682,7 +682,7 @@ Chiamiamo $\Sigma $ il sistema lineare che stiamo studiando. Studiare la stabili
 \textit{La stabilità riguarda solo il movimento libero.}
 \begin{enumerate}
 	\item $\Sigma $ è \textbf{asintoticamente stabile} se $\lim\limits _{t\implies \infty } x_L\left(t\right) =0\ \forall x\left(0\right)$, ovvero se $\phi \left(t\right) x\left(0\right)\implies 0$. Tutte le funzioni dentro $\phi \left(t\right)$ devono tendere a $0$, quindi $x\left(t\right)\implies x_F\left(t\right)$, si perde la memoria iniziale del sistema.
-	\item $\Sigma $ è \textbf{semplicemente stabile} se $x_L\left(t\right) =\phi \left(t\right) x\left(0\right)$ è limitato $\forall x\left(0\right)$ ma esiste almeno un $x\left(0\right)$ per cui $\phi \left(t\right) x\left(0\right) \nrightarrow 0$ (il limite o non esiste o non tende a zero).
+	\item $\Sigma $ è \textbf{semplicemente stabile} se $x_L\left(t\right) =\phi \left(t\right) x\left(0\right)$ è limitato $\forall x\left(0\right)$ ma esiste almeno un $x\left(0\right)$ per cui $\phi \left(t\right) x\left(0\right) \nrightarrow 0$ (il limite o non esiste o non è zero).
 	\item $\Sigma $ è \textbf{instabile} se esiste un $x\left(0\right)$ per cui $x_L\left(t\right) =\phi \left(t\right) x\left(0\right)$ è illimitato (diverge).
 \end{enumerate}
 
@@ -934,7 +934,7 @@ che non diverge. Dalla dimensione $2$ in poi si includono i $t$ e diverge. La di
 	Sono presenti oscillazioni se $\exists \lambda _i$ complessi coniugati.
 }
 
-La morale è che in caso di autovalori nulli dobbiamo distinguere tra semplice stabilità e instabilità, dobbiamo vedere se gli autovalori sono tutti regolari o se almeno uno è irregolare.
+La morale è che in caso di autovalori con parte reale nulla dobbiamo distinguere tra semplice stabilità e instabilità, vedendo se gli autovalori sono tutti regolari o se almeno uno è irregolare.
 
 \section{Integratore}
 
@@ -1024,7 +1024,7 @@ In entrambi i casi gli autovalori sono $\lambda _1 =\lambda _2 =0$ con molteplic
 		\item $\exists i:\left| \lambda _i\right|  >1\implies A$ instabile (instabilità forte)
 		\item $\left| \lambda _i\right| \leq 1\ \forall i,\exists i:\left| \lambda _i\right| =1$
 		      \begin{itemize}
-		      	\item se $b_i =1\ \left(a_i =n_i\right) \ \forall i\ \left| \lambda _i\right| =1$, cioè quelli critici sono regolari, $\implies A$ sempl. stabile
+		      	\item se $b_i =1\ \left(a_i =n_i\right) \ \forall i\ \left| \lambda _i\right| =1$, cioè quelli critici sono regolari, $\iff A$ sempl. stabile
 		      	\item se $b_i  >1\ \left(a_i \neq n_i\right)$ per almeno un $i:\left| \lambda _i\right| =1\implies A$ instabile (debolmente)
 		      \end{itemize}
 	\end{itemize}

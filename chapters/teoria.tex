@@ -2015,9 +2015,9 @@ Consideriamo sistemi del tipo
 \end{gather*}
 Non ci serve mettere in evidenza l'uscita. Ci interroghiamo su come l'ingresso influenza lo stato. Ricordiamo che se conosciamo $x(0)$ e l'ingresso $u_{[ 0,t)}$ possiamo determinare lo stato e scomporlo in due parti
 \begin{equation*}
-	x(t) =\phi (t) x(0) +\psi (t) u_{[ 0,t)}
+	x(t) =\phi (t) x(0) +\psi (t)\left( u_{[ 0,t)}\right)
 \end{equation*}
-ricordiamo che $\psi $ è un operatore, non una matrice. Se $x(0) =0\implies x(t) =\psi (t) u_{[ 0,t)}$
+ricordiamo che $\psi $ è un operatore, non una matrice. Se $x(0) =0\implies x(t) =\psi (t)\left( u_{[ 0,t)}\right)$
 \begin{defn}
 	$\tilde{x}$ è uno \textbf{stato raggiungibile} all'istante $t$ se esiste $u_{[ 0,t)}$ tale che $x(t) =\tilde{x}$, con $x(0) =0$.
 \end{defn}
@@ -2748,7 +2748,7 @@ La stabilità interna è quella che abbiamo descritto come $\phi (t) x(0)\implie
 \begin{defn}
 	$(A,b,c)$ è \textbf{esternamente stabile} se l'uscita forzata $y_{\text{for}}(t)$ è limitata $\forall u(t)$ limitato.
 \end{defn}
-C'è un'ipotesi di stato iniziale nullo $x(0) =0$. Il movimento forzato lo scriviamo come $x_F(t) =\psi (t) u_{[ 0,t)}$, quindi l'uscita forzata è $y_{\text{for}}(t) =cx_F(t)$
+C'è un'ipotesi di stato iniziale nullo $x(0) =0$. Il movimento forzato lo scriviamo come $x_F(t) =\psi (t)\left( u_{[ 0,t)}\right)$, quindi l'uscita forzata è $y_{\text{for}}(t) =cx_F(t)$
 \begin{thm}
 	$(A,b,c)$ esternamente stabile $\iff $ $R,O$ asint. stabile $\iff $ $A_b$ asint. stabile.
 \end{thm}

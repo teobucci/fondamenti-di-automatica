@@ -461,7 +461,7 @@ Nei sistemi dinamici lineari a tempo continuo abbiamo già detto che il moviment
 	\boxed{
 		\begin{aligned}
 			{\displaystyle x(t)} & {\displaystyle =e^{At} x(0) +\int ^t_0 e^{A(t-\tau)} bu(\tau) d\tau } \\
-			                     & =\phi (t) x(0) +\psi (t) u_{[ 0,t)}                                              \\
+			                     & =\phi (t) x(0) +\psi (t) \left(u_{[ 0,t)}\right)                                             \\
 			                     & =x_L(t) +x_F(t)                                                                  
 		\end{aligned}
 	}
@@ -675,14 +675,14 @@ Tra tutte le forme, con $d=0$, la forma canonica è
 
 \chapter{Stabilità}
 
-Chiamiamo $\Sigma $ il sistema lineare che stiamo studiando. Studiare la stabilità significa chiedersi cosa succede al sistema per $t\to \infty $ quando non si parte dall'equilibrio. Sappiamo che la soluzione si può scrivere come somma di movimento libero e movimento forzato:
+Chiamiamo $\Sigma $ il sistema lineare che stiamo studiando. Studiare la stabilità significa chiedersi cosa succede al sistema per $t\to \infty $ quando non si parte dall'equilibrio. Sappiamo dalla formula di Lagrange che la soluzione si può scrivere come somma di movimento libero e movimento forzato:
 \begin{equation*}
-	x\left(t\right) =x_L\left(t\right) +x_F\left(t\right)
+	x\left(t\right) =x_L\left(t\right) +x_F\left(t\right)=\phi (t) x(0) +\psi (t) \left(u_{[ 0,t)}\right)
 \end{equation*}
 \textit{La stabilità riguarda solo il movimento libero.}
 \begin{enumerate}
-	\item $\Sigma $ è \textbf{asintoticamente stabile} se $\lim\limits _{t\to \infty } x_L\left(t\right) = 0\ \forall x\left(0\right)$, ovvero se $\phi \left(t\right) x\left(0\right)\to 0$. Tutte le funzioni dentro $\phi \left(t\right)$ devono tendere a $0$, quindi $x\left(t\right)\to x_F\left(t\right)$, si perde la memoria iniziale del sistema.
-	\item $\Sigma $ è \textbf{semplicemente stabile} se $x_L\left(t\right) =\phi \left(t\right) x\left(0\right)$ è limitato $\forall x\left(0\right)$ ma esiste almeno un $x\left(0\right)$ per cui $\phi \left(t\right) x\left(0\right) \nrightarrow 0$ (il limite o non esiste o non è zero).
+	\item $\Sigma $ è \textbf{asintoticamente stabile} se $\lim\limits _{t\to \infty } x_L\left(t\right) = \underline{0}\ \forall x\left(0\right)$, ovvero se $\phi \left(t\right) x\left(0\right)\to \underline{0}$. Tutte le funzioni dentro $\phi \left(t\right)$ devono tendere a $0$, quindi $x\left(t\right)\to x_F\left(t\right)$, si perde la memoria iniziale del sistema.
+	\item $\Sigma $ è \textbf{semplicemente stabile} se $x_L\left(t\right) =\phi \left(t\right) x\left(0\right)$ è limitato $\forall x\left(0\right)$ ma esiste almeno un $x\left(0\right)$ per cui $\phi \left(t\right) x\left(0\right) \nrightarrow \underline{0}$ (il limite o non esiste o non è zero).
 	\item $\Sigma $ è \textbf{instabile} se esiste un $x\left(0\right)$ per cui $x_L\left(t\right) =\phi \left(t\right) x\left(0\right)$ è illimitato (diverge).
 \end{enumerate}
 

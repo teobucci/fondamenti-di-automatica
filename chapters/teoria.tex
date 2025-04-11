@@ -1218,16 +1218,18 @@ Consideriamo due tipi di matrici, rispettivamente per i sistemi a tempo continuo
 	\item t. discreto: \textbf{matrici non negative}, sono tali che $a_{ij} \geq 0$
 \end{itemize}
 
-Se sussistono queste cose, vale la seguente proprietà: \textit{se tutte le componenti del vettore di stato }$x_i(t)$\textit{ sono non negative allo stato iniziale, allora si mantengono tali} (\textbf{sistemi positivi}); questa proprietà è molto comune, ad esempio nei sistemi compartimentali. Vediamo un'altra interessante proprietà di questi sistemi, parte del lavoro sviluppato da Frobenius e Perron. Ricordiamo che
+Se sussistono queste cose, vale la seguente proprietà: \textit{se tutte le componenti del vettore di stato }$x_i(t)$\textit{ sono non negative allo stato iniziale, allora si mantengono tali} (\textbf{sistemi positivi}); questa proprietà è molto comune, ad esempio nei sistemi compartimentali. Vediamo un'altra interessante proprietà di questi sistemi, parte del lavoro sviluppato da Frobenius e Perron.
+
+Ricordiamo che per una generica matrice vale:
 \begin{itemize}
 	\item t. continuo: un sistema è asint. stabile se e solo se $\Re(\lambda _D) < 0$
 	\item t. discreto: un sistema è asint. stabile se e solo se $| \lambda _D| < 1$
 \end{itemize}
 
-L'autovalore dominante è un po' particolare nel caso di queste matrici:
+Nel caso di queste matrici, l'autovalore dominante soddisfa le proprietà:
 \begin{itemize}
-	\item t. continuo: $\lambda _D$ \textbf{è reale.}
-	\item t. discreto: $\exists \lambda _D$ \textbf{reale non negativo.}
+	\item t. continuo: $\lambda _D$ è \textbf{reale.}
+	\item t. discreto: $\exists \lambda _D$ è \textbf{reale non negativo.}
 \end{itemize}
 
 Rimanendo nel caso di queste matrici, enunciamo il \textbf{criterio righe/colonne}. La seguente cosa vale per tutte le matrici, sia derivanti da sistemi continui che discreti, poi starà a noi discutere $\lambda _D$ in base al tipo di sistema. Scriviamo la matrice $A$, le somme di riga e le somme di colonna:
@@ -1339,7 +1341,7 @@ Osserviamo che $\tilde{A}$ è triangolare a blocchi
 \begin{equation*}
 	\boxed{\sigma \left(\tilde{A}\right) =\sigma \left(A_1\right) \cup \sigma \left(A_2\right)}
 \end{equation*}
-\textbf{Quindi }$\tilde{A}$\textbf{ è asint. stabile se e solo se }$A_1 ,A_2$\textbf{ sono asint. stabili, mentre }$\tilde{A}$\textbf{ è instabile se e solo se almeno uno tra }$A_1 ,A_2$\textbf{ è instabile.}
+\textbf{Quindi }$\tilde{A}$\textbf{ è asint. stabile se e solo se }$A_1 ,A_2$\textbf{ sono asint. stabili, mentre }$\tilde{A}$\textbf{ è fortemente instabile se e solo se almeno uno tra }$A_1 ,A_2$\textbf{ è fortemente instabile.}
 
 Per quanto riguarda le funzioni di trasferimento vale
 \begin{equation*}
@@ -1458,7 +1460,7 @@ Possiamo raccogliere la $y$
 \begin{equation*}
 	y\left(1\mp G_1 G_2\right) =G_1 u\implies y=\frac{G_1}{1\mp G_1 G_2} u\implies \boxed{G\left(s\right) =\frac{G_1\left(s\right)}{1\mp G_1\left(s\right) G_2\left(s\right)}}
 \end{equation*}
-Si dice \textbf{funzione di trasferimento d'anello}.
+$G_1(s)G_2(s)=:L(s)$ è detta \textbf{funzione di trasferimento d'anello}, in quanto attraverso questa stiamo facendo un giro completo dell'anello che parte e si conclude nel nodo sommatore.
 
 \chapter{Studio delle traiettorie}
 
@@ -1860,7 +1862,7 @@ Gli equilibri, analogamente ai sistemi lineari, li troviamo imponendo
 
 \section{Stabilità dell'equilibrio}
 
-La trattazione di equilibrio è dovuta a Lyapunov. Un equilibrio è
+La trattazione di equilibrio è dovuta a Lyapunov. Un equilibrio $\overline x$ è
 \begin{itemize}
 	\item \textbf{stabile} se $\forall \varepsilon  >0\ \exists \delta _{\varepsilon }  >0$ tale che\begin{equation*}
 	      \Vert x(0) -\overline{x}\Vert < \delta _{\varepsilon } \implies \Vert x(t) -\overline{x}\Vert < \varepsilon \ \ \forall x(0) :\Vert x(0) -\overline{x}\Vert < \delta _{\varepsilon } ,\forall t\geq 0
@@ -1873,7 +1875,7 @@ La trattazione di equilibrio è dovuta a Lyapunov. Un equilibrio è
 	      	\item $\lim\limits _{t\to \infty } x(t) =\overline{x} \ \forall x(0) :\Vert x(0) -\overline{x}\Vert < \delta _{\varepsilon }$
 	      \end{itemize}
 	      
-	      sono un sottoinsieme di quelli stabili. Col passare del tempo non solo non mi devo allontanare, ma mi devo riavvicinare all'equilibrio.
+	      Sono un sottoinsieme di quelli stabili. Col passare del tempo non solo non mi devo allontanare, ma mi devo riavvicinare all'equilibrio.
 	\item \textbf{instabile} se non è stabile
 \end{itemize}
 

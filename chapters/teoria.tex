@@ -1844,13 +1844,14 @@ In dimensione $3$ si può ragionare analogamente.
 Ricordiamo che in generale i sistemi si scrivono come
 \begin{gather*}
 	\dot{x}(t) =f(x(t) ,u(t))\\
-	x(t+1) =f(x(t) ,u(t))
+	x(t+1) =f(x(t) ,u(t))\\
+    y = g(x(t),u(t))
 \end{gather*}
-Rinnoviamo l'ipotesi di ingresso costante $u(t) =\overline{u} \ \forall t\geq 0$. Dato che lo possiamo considerare come un parametro, studieremo
-\begin{gather*}
-	\dot{x}(t) =f(x(t))\\
-	x(t+1) =f(x(t))
-\end{gather*}
+%Rinnoviamo l'ipotesi di ingresso costante $u(t) =\overline{u} \ \forall t\geq 0$. Dato che lo possiamo considerare come un parametro, studieremo
+%\begin{gather*}
+%	\dot{x}(t) =f(x(t))\\
+%	x(t+1) =f(x(t))
+%\end{gather*}
 
 \section{Equilibrio: esistenza e unicità}
 
@@ -1953,26 +1954,31 @@ Nello specifico, se studiamo il caso $k=0$, stiamo sostanzialmente cercando i pu
 
 \section{Metodo di linearizzazione}
 
-Vediamo il caso a tempo continuo. Sia $\dot{x}(t) =f(x(t)) ,\dot{x} \in \mathbb{R}^n$ e sia $\overline{x} :f(\overline{x}) =0$ uno stato di equilibrio. Consideriamo $z(t) =x(t) -\overline{x}$. Si ha
+Vediamo il caso a tempo continuo. Sia $\dot{x}(t) =f(x(t),u(t)) ,\dot{x} \in \mathbb{R}^n$ e sia $\overline{x} :f(\overline{x},\overline{u}) =0$ uno stato di equilibrio. Consideriamo $z(t) =x(t) -\overline{x}$ e $v(t)=u(t)-\overline{u}$. Si ha
 \begin{equation*}
-	\dot{z} =\dot{x} =f(x) =f(\overline{x} +z)
+	\dot{z} =\dot{x} =f(x,\overline{u})=f(z+\overline{x},v+\overline{u})
 \end{equation*}
-Facciamo lo sviluppo di Taylor nell'intorno di $\overline{x}$
+Facciamo lo sviluppo di Taylor nell'intorno di $(\overline{x},\overline{u})$
 \begin{equation*}
-	\dot{z} =\underbrace{f(\overline{x})}_{=0} +\left. \frac{\partial f}{\partial x}\right| _{z=0,x=\overline{x}} z+\cdots =A(\overline{x}) z+\cdots 
+	\dot{z} =\underbrace{f(\overline{x},\overline{u})}_{=0} +\left. \frac{\partial f}{\partial x}\right| _{x=\overline{x},u=\overline{u}} z+\left. \frac{\partial f}{\partial u}\right| _{x=\overline{x},u=\overline{u}} v+\cdots =:A(\overline{x},\overline{u}) z+b(\overline{x},\overline{u})v+\cdots 
 \end{equation*}
 dove
 \begin{equation*}
-	\frac{\partial f}{\partial x} =A=\begin{bmatrix}
-	\frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \cdots  & \frac{\partial t_1}{\partial x_n}\\
+	\frac{\partial f}{\partial x} =A(\overline{x},\overline{u})=\left.\begin{bmatrix}
+	\frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \cdots  & \frac{\partial f_1}{\partial x_n}\\
 	\frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \dotsc  & \frac{\partial f_2}{\partial x_n}\\
 	\vdots  & \vdots  & \ddots  & \vdots \\
 	\frac{\partial f_n}{\partial x_1} & \frac{\partial f_n}{\partial x_2} & \cdots  & \frac{\partial f_n}{\partial x_n}
-	\end{bmatrix} \in \mathbb{R}^{n\times n}
+	\end{bmatrix}\right |_{\overline{x},\overline{u}} \in \mathbb{R}^{n\times n},\quad \frac{\partial f}{\partial u}=b(\overline{x},\overline{u})=\left.\begin{bmatrix}
+	    \partial f_1\over \partial u\\
+        \partial f_2\over \partial u\\
+        \vdots\\
+        \partial f_n \over \partial u
+	\end{bmatrix}\right|_{\overline{x},\overline{u}}
 \end{equation*}
-è la \textbf{matrice jacobiana}. Butto via i termini superiori al primo, e definisco il \textbf{sistema linearizzato nell'intorno di }$\overline{x}$
+$A$ è la \textbf{matrice jacobiana} privata dell'ultima colonna, mentre $b$ è l'ultima colonna della matrice jacobiana. Butto via i termini superiori al primo, e definisco il \textbf{sistema linearizzato nell'intorno di }$(\overline{x},\overline{u})$
 \begin{equation*}
-	\boxed{\dot{z} =A(\overline{x}) z}
+	\boxed{\dot{z} =A(\overline{x},\overline{u}) z(t)+b(\overline x,\overline u)v(t)}
 \end{equation*}
 Consideriamo ora $\dot{x} =f(x)$ con $\overline{x}$ equilibrio e il suo sistema linearizzato $\dot{z} =A(\overline{x}) z$. Dobbiamo introdurre il concetto di varietà, ne esistono tre tipi
 \begin{itemize}
@@ -2008,11 +2014,15 @@ ovviamente $n^{-} +n^{+} +n^0 =n$. Si possono dimostrare i seguenti risultati
 	\item Su $W^0$ la dinamica è governata dai termini di ordine superiore dello sviluppo di Taylor
 \end{enumerate}
 
-Valgono inoltre i seguenti importanti risultati (non sono coimplicazioni)
-\begin{itemize}
-	\item $A(\overline{x})$ asint. stabile $\implies $ $\overline{x}$ asint. stabile
-	\item $A(\overline{x})$ fortemente instabile $\implies $ $\overline{x}$ instabile
-\end{itemize}
+Vale inoltre il seguente importante risultato (non sono coimplicazioni).
+
+\begin{thm}
+	\textbf{Teorema di linearizzazione}
+    \begin{itemize}
+    	\item $A(\overline{x},\overline{u})$ asint. stabile $\implies $ $\overline{x}$ asint. stabile
+    	\item $A(\overline{x},\overline{u})$ fortemente instabile $\implies $ $\overline{x}$ instabile
+    \end{itemize}
+\end{thm}
 
 Se ci sono autovalori nulli e nessuno strettamente positivo in $A(\overline{x})$ non possiamo dire nulla su $\overline{x}$ proprio per il problema che la dinamica sulle varietà centro è governata da termini di ordine superiore al primo.
 

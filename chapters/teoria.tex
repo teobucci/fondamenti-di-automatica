@@ -825,11 +825,11 @@ Se invece $A$ non è diagonalizzabile, studiamo $\dot{x} =Ax$ e ricordiamo alcun
 	\Delta _A\left(A\right) =A^n +\alpha _1 A^{n-1} +\cdots +\alpha _n I=0
 	\end{equation*}
 \end{rem}
-Ci chiediamo allora: esistono polinomi di grado $< n$ che comunque annullano la matrice? In generale no, ma molte matrici lo hanno e si dice \textbf{polinomio minimo} di $A$: $\psi _A\left(\lambda \right)$ tale che $\psi _A\left(A\right) =0$. Ha la seguente struttura, molto simile al polinomio caratteristico, cambia l'esponente
+Ci chiediamo allora: esistono polinomi di grado $< n$ che comunque sono annullati dalla matrice? Non sempre, ma molte matrici lo hanno e si dice \textbf{polinomio minimo} di $A$: $\psi _A\left(\lambda \right)$ è il polinomio di grado minimo tale che $\psi _A\left(A\right) =0$. Ha la seguente struttura, molto simile al polinomio caratteristico, cambia l'esponente
 \begin{equation}
 	\psi _A\left(\lambda \right) =\prod ^k_{i=1}\left(\lambda -\lambda _i\right)^{b_i} ,\ 1\leq b_i \leq a
 \end{equation}
-$b_i$ è l'indice dell'autovalore $\lambda _i$. Ha le stesse radici di $\Delta _A\left(\lambda \right)$, ma in generale la molteplicità può essere più bassa. Andiamo ora a definire la \textbf{forma canonica di Jordan}. Nuovamente facciamo un cambio di coordinate $z=Tx$ che ci porta in $\dot{z} =\tilde{A} z$, ma stiamo considerando $A$ non diagonalizzabile, quindi non troviamo una $\tilde{A}$ diagonale, tuttavia la cosa più vicina ad essa è la forma di Jordan, che ci permette di capire quando il sistema è stabile o instabile. È una matrice diagonale a blocchi: ci sono $k$ blocchi distinti, ciascuno di dimensione $a_1 ,a_2 ,\dotsc ,a_k$ relativa all'autovalore
+$b_i$ è detto indice dell'autovalore $\lambda _i$. Ha le stesse radici di $\Delta _A\left(\lambda \right)$, ma in generale la molteplicità può essere più bassa. Andiamo ora a definire la \textbf{forma canonica di Jordan}. Nuovamente facciamo un cambio di coordinate $z=Tx$ che ci porta in $\dot{z} =\tilde{A} z$, ma stiamo considerando $A$ non diagonalizzabile, quindi non troviamo una $\tilde{A}$ diagonale, tuttavia la cosa più vicina ad essa è la forma di Jordan, che ci permette di capire quando il sistema è stabile o instabile. È una matrice diagonale a blocchi: ci sono $k$ blocchi distinti, ciascuno di dimensione $a_1 ,a_2 ,\dotsc ,a_k$ relativa all'autovalore
 \begin{equation*}
 	\tilde{A} =\begin{bmatrix}
 	\begin{array}{|c|}
@@ -942,6 +942,32 @@ La morale è che in caso di autovalori con parte reale nulla dobbiamo distinguer
 
 Se lo equipaggiamo con $y=x$, quindi $\dot{y} =u\implies sy=u\implies \boxed{G\left(s\right) =\frac{1}{s}}$.
 
+\begin{figure}[htpb]
+    \centering
+   
+
+    \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+    
+        \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+        %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+        
+        %Shape: Rectangle [id:dp22292731136066102] 
+        \draw   (302,120) -- (342,120) -- (342,150) -- (302,150) -- cycle ;
+        %Straight Lines [id:da4024552193434977] 
+        \draw    (263.5,137) -- (299,137) ;
+        \draw [shift={(302,137)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (10.72,-5.15) -- (0,0) -- (10.72,5.15) -- (7.12,0) -- cycle    ;
+        %Straight Lines [id:da46675906183124516] 
+        \draw    (342.5,137) -- (377.5,137) ;
+        \draw [shift={(380.5,137)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (10.72,-5.15) -- (0,0) -- (10.72,5.15) -- (7.12,0) -- cycle    ;
+        
+        \draw (273,115.4) node [anchor=north west][inner sep=0.75pt]    {$u$};
+        \draw (348,115.4) node [anchor=north west][inner sep=0.75pt]    {$y=x$};
+        \draw (315,121.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\int $};
+
+    \end{tikzpicture}
+
+\end{figure}\FloatBarrier
+
 Costruiamo due configurazioni con degli integratori, una in cascata e una in parallelo
 
 \begin{figure}[htpb]\centering
@@ -981,7 +1007,12 @@ Costruiamo due configurazioni con degli integratori, una in cascata e una in par
 		\draw (301,35.4) node [anchor=north west][inner sep=0.75pt]    {$u$};
 		\draw (376,31.4) node [anchor=north west][inner sep=0.75pt]    {$x_2$};
 		\draw (458,32.4) node [anchor=north west][inner sep=0.75pt]    {$x_1$};
-		
+
+        \draw (132,21) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\int $};
+        \draw (133,61.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\int $};
+        \draw (343,41.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\int $};
+        \draw (424,41.4) node [anchor=north west][inner sep=0.75pt]  [font=\Large]  {$\int $};
+        		
 	\end{tikzpicture}
 \end{figure}\FloatBarrier
 

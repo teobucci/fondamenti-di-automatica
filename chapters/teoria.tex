@@ -2838,7 +2838,7 @@ Studiamo il movimento forzato, ovvero la risposta del sistema a specifici ingres
 	\end{tikzpicture}
 \end{figure}\FloatBarrier
 
-Si ha $\int ^{+\infty }_0 u_{\delta }(t) dt=1$. Facciamo tendere $\delta \implies 0$ e troviamo l'impulso. Ha queste proprietà:
+Si ha $\int ^{+\infty }_0 u_{\delta }(t) dt=1$. Facciamo tendere $\delta \to 0$ e troviamo l'impulso. Ha queste proprietà:
 \begin{itemize}
 	\item $\imp(t) =0\ \forall t\neq 0$
 	\item $\int ^{0^{+}}_{0^{-}}\imp(t) dt=1$
@@ -3356,7 +3356,7 @@ Studiare il regime sinusoidale significa studiare tutti i regimi periodici che p
 \begin{equation*}
 	u(t) =U_0 +\sum\limits ^{\infty }_{k=1} U_k\sin\left(k\frac{2\pi }{T} t+\varphi _k\right) ,\ \ k\in \mathbb{N}
 \end{equation*}
-Affinché ci sia convergenza della serie è necessario, ma non sufficiente, che $U_k\xrightarrow{k\implies \infty } 0$.
+Affinché ci sia convergenza della serie è necessario, ma non sufficiente, che $U_k\xrightarrow{k\to \infty } 0$.
 \begin{thm}
 	Sia $G(s) =\frac{N(s)}{\Delta (s)}$, immaginiamo che sia compl. oss. e compl. ragg., quindi il modello esterno descrive completamente il sistema, altrimenti potremmo fare poco. Supponiamo che risponda all'ingresso $u_T(t) =U\sin(\omega t) ,\omega =2\pi /T$. Allora $\exists !$ uscita sinusoidale
 	\begin{equation*}
@@ -3379,7 +3379,7 @@ e ognuna di queste equazioni differenziali, per ogni set di condizioni iniziali 
 	\Delta (s) y_T =N(s) u_T\\
 	\Delta (s) y=N(s) u_T
 \end{gather*}
-Sottraiamo
+Sottraiamo membro a membro
 \begin{equation*}
 	\begin{aligned}
 		\Delta (s)(y-y_T) & =0 \\
@@ -3388,7 +3388,7 @@ Sottraiamo
 \end{equation*}
 Ma se il sistema è asint. stabile
 \begin{equation*}
-	e(t)\implies 0\ \forall e(0) \ \ \iff \ \ y(t)\implies y_T(t)
+	e(t)\to 0\ \forall e(0) \ \ \iff \ \ y(t)\to y_T(t)
 \end{equation*}
 Quindi per ogni condizione iniziale tendiamo alla sinusoide.
 

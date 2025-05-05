@@ -3426,38 +3426,43 @@ Quindi per ogni condizione iniziale tendiamo alla sinusoide.
 
 Studiamo per ora
 \begin{equation*}
-	G(s) =\frac{\mu }{1+s} ,\ \mu  >0
+	G(s) =\frac{\mu }{1+sT} ,\quad\mu,T  >0
 \end{equation*}
 Allora
 \begin{equation*}
-	G(i\omega) =\frac{\mu }{1+i\omega } \ \ \implies \ \ \frac{Y}{U} =| G(i\omega)| =\frac{\mu }{\sqrt{1+\omega ^2}} ,\ \ \varphi =\arg G(i\omega) =-\arctan \omega 
+	G(i\omega) =\frac{\mu }{1+i\omega T } \ \ \implies \ \ \frac{Y}{U} =| G(i\omega)| =\frac{\mu }{\sqrt{1+\omega ^2T^2}} ,\ \ \varphi =\arg G(i\omega) =-\arctan (\omega T) 
 \end{equation*}
 
-\begin{figure}[htpb]\centering
-	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
-	
-	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-		%uncomment if require: \path (0,177); %set diagram left start at 0, and has height of 177
-		
-		%Shape: Axis 2D [id:dp3576631776994963] 
-		\draw  (100,141.16) -- (390,141.16)(121.5,28) -- (121.5,151) (383,136.16) -- (390,141.16) -- (383,146.16) (116.5,35) -- (121.5,28) -- (126.5,35)  ;
-		%Curve Lines [id:da033465745327512675] 
-		\draw    (121.5,60.77) .. controls (183.5,62.77) and (211.5,139.77) .. (310,140) ;
-		\draw  [dash pattern={on 0.84pt off 2.51pt}]  (170,79) -- (170,140) ;
-		
-		\draw (107,49.4) node [anchor=north west][inner sep=0.75pt]    {$\mu $};
-		\draw (54,12.4) node [anchor=north west][inner sep=0.75pt]    {$| G(i\omega)| $};
-		\draw (101,152.4) node [anchor=north west][inner sep=0.75pt]    {$0$};
-		\draw (179,42.4) node [anchor=north west][inner sep=0.75pt]    {$\frac{G_{\text{max}}}{\sqrt{2}}$};
-		\draw (401,132.4) node [anchor=north west][inner sep=0.75pt]    {$\omega $};
-		
-		
+\begin{figure}[htpb]\centering    
+% esempio: mu = 3, T = 1
+\begin{minipage}{0.48\textwidth}
+    \centering
+	\begin{tikzpicture}[domain=0:7]
+    \draw[->] (-0.5,0) -- (7.2,0) node[below right] {$\omega$};
+    \draw[->] (0,-0.2) -- (0,4) node[left] {$|G(i\omega)|$};
+    \node[below left] at (0,0) {$0$};
+    \draw[smooth] plot (\x,{3/sqrt(1+\x^2)});
+    \node[left] at (0,{3/sqrt(1)}) {$\mu = G_\text{max}$};
+    \draw[dashed] (0,{3/(sqrt(1)*sqrt(2))}) node[left] {$\frac{G_\text{max}}{\sqrt{2}}$} -- (1,{3/(sqrt(1)*sqrt(2))});
+    \draw[dashed] (1,0) node[below] {$\bar \omega$} -- (1,{3/(sqrt(1)*sqrt(2))});
 	\end{tikzpicture}
+\end{minipage}
+\hspace{0.025\textwidth}
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[domain=0:4.5]
+        \draw[->] (-0.5,0) -- (4.7,0) node[above right] {$\omega$};
+        \draw[->] (0,-2) -- (0,1) node[left] {$\varphi$};
+        \node[below left] at (0,0) {$0$};
+        \draw[smooth] plot (\x,{-atan(\x)*pi/180});
+        \draw[dashed] (0,{-pi/2}) node[left] {$\pi/2$} -- (4.5,{-pi/2});
+    \end{tikzpicture}
+\end{minipage}
 \end{figure}\FloatBarrier
 
-Si dice \textbf{filtro passa basso}.
+Il sistema si dice \textbf{filtro passa basso}, mentre chiamamo $\bar \omega $ \textbf{frequenza di taglio}. Definiamo inoltre
 \begin{equation*}
-	\text{Banda passante} \ =\left\{\omega :\ \frac{G_{\text{max}}}{\sqrt{2}} \leq | G(i\omega)| \leq G_{\text{max}}\right\}
+	BP\ =\ \text{Banda passante} \ :=\left\{\omega :\ \frac{G_{\text{max}}}{\sqrt{2}} \leq | G(i\omega)| \leq G_{\text{max}}\right\}
 \end{equation*}
 
 Se studiamo

@@ -3455,12 +3455,12 @@ Allora
         \draw[->] (0,-2) -- (0,1) node[left] {$\varphi$};
         \node[below left] at (0,0) {$0$};
         \draw[smooth] plot (\x,{-atan(\x)*pi/180});
-        \draw[dashed] (0,{-pi/2}) node[left] {$\pi/2$} -- (4.5,{-pi/2});
+        \draw[dashed] (0,{-pi/2}) node[left] {$-\pi/2$} -- (4.5,{-pi/2});
     \end{tikzpicture}
 \end{minipage}
 \end{figure}\FloatBarrier
 
-Il sistema si dice \textbf{filtro passa basso}, mentre chiamamo $\bar \omega $ \textbf{frequenza di taglio}. Definiamo inoltre
+Il sistema si dice \textbf{filtro passa basso}, $\bar \omega $ è la \textbf{frequenza di taglio}. Definiamo inoltre
 \begin{equation*}
 	BP\ =\ \text{Banda passante} \ :=\left\{\omega :\ \frac{G_{\text{max}}}{\sqrt{2}} \leq | G(i\omega)| \leq G_{\text{max}}\right\}
 \end{equation*}

@@ -3442,9 +3442,9 @@ Allora
     \draw[->] (0,-0.2) -- (0,4) node[left] {$|G(i\omega)|$};
     \node[below left] at (0,0) {$0$};
     \draw[smooth] plot (\x,{3/sqrt(1+\x^2)});
-    \node[left] at (0,{3/sqrt(1)}) {$\mu = G_\text{max}$};
-    \draw[dashed] (0,{3/(sqrt(1)*sqrt(2))}) node[left] {$\frac{G_\text{max}}{\sqrt{2}}$} -- (1,{3/(sqrt(1)*sqrt(2))});
-    \draw[dashed] (1,0) node[below] {$\bar \omega$} -- (1,{3/(sqrt(1)*sqrt(2))});
+    \node[left] at (0,3) {$\mu = G_\text{max}$};
+    \draw[dashed] (0,{3/sqrt(2)}) node[left] {$\frac{G_\text{max}}{\sqrt{2}}$} -- (1,{3/sqrt(2)});
+    \draw[dashed] (1,0) node[below] {$\bar \omega$} -- (1,{3/sqrt(2)});
 	\end{tikzpicture}
 \end{minipage}
 \hspace{0.025\textwidth}
@@ -3473,6 +3473,35 @@ Allora
 \begin{equation*}
 	G(i\omega) =\frac{\mu i\omega }{1+i\omega } \ \ \implies \ \ | G(i\omega)| =\frac{\mu \omega }{\sqrt{1+\omega ^2}} ,\ \ \arg G(i\omega) =\frac{\pi }{2} -\arctan \omega 
 \end{equation*}
+
+\begin{figure}[htpb]\centering    
+% esempio: mu = 3
+\begin{minipage}{0.48\textwidth}
+    \centering
+	\begin{tikzpicture}[domain=0:7]
+    \draw[->] (-0.5,0) -- (7.2,0) node[below right] {$\omega$};
+    \draw[->] (0,-0.2) -- (0,4) node[left] {$|G(i\omega)|$};
+    \node[below left] at (0,0) {$0$};
+    \draw[smooth] plot (\x,{3*\x /sqrt(1+\x^2)});
+    \draw[dashed] (0,3) node[left] {$\mu = G_\text{max}$} -- (7,3);
+    \draw[dashed] (0,{3/sqrt(2)}) node[left] {$\frac{G_\text{max}}{\sqrt{2}}$} -- (1,{3/sqrt(2)});
+    \draw[dashed] (1,0) node[below] {$\bar \omega$} -- (1,{3/sqrt(2)});
+    
+	\end{tikzpicture}
+\end{minipage}
+\hspace{0.025\textwidth}
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[domain=0:4.5]
+        \draw[->] (-0.5,0) -- (4.7,0) node[above right] {$\omega$};
+        \draw[->] (0,-0.2) -- (0,2.5) node[left] {$\varphi$};
+        \node[below left] at (0,0) {$0$};
+        \draw[smooth] plot (\x,{pi/2-atan(\x)*pi/180});
+        \node[left] at (0,{pi/2}) {$\pi/2$};
+    \end{tikzpicture}
+\end{minipage}
+\end{figure}\FloatBarrier
+
 È un \textbf{filtro passa alto}.
 
 Se studiamo
@@ -3485,6 +3514,39 @@ Allora
 	\Downarrow \\
 	| G(i\omega)| =\frac{\mu \omega }{\sqrt{1+\omega ^2}\sqrt{1+0.01\omega ^2}} ,\ \ \arg G(i\omega) =\frac{\pi }{2} -\arctan \omega -\arctan(0.1\omega)
 \end{gather*}
+
+\begin{figure}[htpb]\centering    
+% esempio: mu = 3, in scala per rappresentare anche l'andamento a omega alti
+\begin{minipage}{0.48\textwidth}
+    \centering
+	\begin{tikzpicture}[domain=0:25, xscale=0.25]
+    \draw[->] (-1,0) -- (26,0) node[below right] {$\omega$};
+    \draw[->] (0,-0.2) -- (0,4) node[left] {$|G(i\omega)|$};
+    \node[below left] at (0,0) {$0$};
+    \draw[smooth] plot (\x,{3*\x /sqrt((1+\x^2)*(1+0.01*\x^2))});
+    \draw[dashed] (0,3) node[left] {$\mu = G_\text{max}$} -- (25,3);
+    \draw[dashed] (0,{3/sqrt(2)}) node[left] {$\frac{G_\text{max}}{\sqrt{2}}$} -- (10,{3/sqrt(2)});
+    \draw[dashed] (1,0) node[below] {$\bar \omega$} -- (1,{3/sqrt(2)});
+    \draw[dashed] (10,0) node[below] {$\bar {\bar \omega}$} -- (10,{3/sqrt(2)});
+    \draw[<->, >=stealth] (1,{3/(2*sqrt(2))}) -- (10,{3/(2*sqrt(2))}) node[midway, above] {$BP$};
+    
+	\end{tikzpicture}
+\end{minipage}
+\hspace{0.025\textwidth}
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \begin{tikzpicture}[domain=0:20,xscale=0.25]
+        \draw[->] (-1,0) -- (20,0) node[above right] {$\omega$};
+        \draw[->] (0,-2) -- (0,2.2) node[left] {$\varphi$};
+        \node[below left] at (0,0) {$0$};
+        \draw[smooth] plot (\x,{pi/2-atan(\x)*pi/180-atan(0.1*\x)*pi/180});
+        \node[left] at (0,{pi/2}) {$\pi/2$};
+        \draw[dashed] (0,{-pi/2}) node[left] {$-\pi/2$} -- (20,{-pi/2});
+    \end{tikzpicture}
+\end{minipage}
+\caption{Modulo e fase di $G(i\omega)$ in funzione di $\omega$. L'asse delle ascisse è in scala 1:4.}
+\end{figure}\FloatBarrier
+
 È un \textbf{filtro passa banda}.
 
 \section{Diagrammi di Bode}
